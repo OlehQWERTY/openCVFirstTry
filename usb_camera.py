@@ -1,4 +1,6 @@
 # you need to install imgproc from https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/image_processing/
+# sudo apt-get purge wiringpi
+# gpiozero python install
 
 from imgproc import * # img processing
 
