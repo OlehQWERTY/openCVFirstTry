@@ -1,17 +1,17 @@
 # you need to install imgproc from https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/image_processing/
+# sudo apt-get purge wiringpi
+# gpiozero python install
 
 from imgproc import * # img processing
 
 from gpiozero import LED # RPI output
-from time import sleep
+from time import sleep 
+
 import time
 
-def timer():
+def millis():
     return time.time() #* 1000
 
-
-prevTimer = 0.0 # timer previous value
-flagSole = True  
 out = LED(17) # pinout
 
 width = 320
@@ -76,27 +76,11 @@ while True: # endless loop
                     #print average
                     if (abs(average - genR) < sensetivity and abs(average - genG) < sensetivity and abs(average - genB) < sensetivity):
                         print "White color"
-                        #print flagSole
-                        out.off()
-                        flagSole = False
-                        
-                        prevTimer = timer()
-                        
+                        out.on() # signal to robot OFF
+                        sleep(1)
                     else: 
                         print "r:" + str(genR) + " g:" + str(genG) + " b:" + str(genB)
-                        
-                        if(timer() - prevTimer > 1.0 and not flagSole):
-                            flagSole = True
-                            prevTimer = timer()
-                            out.on() # signal to robot ON
-                            #print "OFF"
-                        elif(timer() - prevTimer > 2.0 and flagSole):
-                            out.off()
-                        else:
-                            #out.on() # signal to robot OFF
-                            #print "ON"
-                            pass
-                        #sleep(1)
+                        out.off() # signal to robot OFF
                         
                 
                 
