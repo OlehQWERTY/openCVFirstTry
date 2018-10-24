@@ -1,6 +1,4 @@
 # you need to install imgproc from https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/image_processing/
-# sudo apt-get purge wiringpi
-# gpiozero python install
 
 from imgproc import * # img processing
 
@@ -8,8 +6,42 @@ from gpiozero import LED # RPI output
 from time import sleep
 import time
 
+
+#
+import math
+#
+
+ref_red = 45
+ref_green = 45
+ref_blue = 45
+threshold = 60 #96
+
 def timer():
     return time.time() #* 1000
+
+
+def colorDetection(r, g, b):
+    # subtract the pixel colour from the reference
+    d_red = ref_red - red
+    d_green = ref_green - green
+    d_blue = ref_blue - blue
+
+    #print "r:" + str(r) + " g:" + str(g) + " b:" + str(b)
+
+    # length of the difference vector
+    length = math.sqrt( (d_red * d_red) + (d_green * d_green) + (d_blue * d_blue) )
+
+    print length
+
+    if length > threshold:
+        return 0
+    #         img_2[x, y] = 0, 0, 0
+    else:
+        return 1
+    #         img_2[x, y] = 255, 255, 255
+
+
+
 
 
 prevTimer = 0.0 # timer previous value
@@ -76,7 +108,7 @@ while True: # endless loop
                     # white color detector
                     average = (genR + genG + genB)/3 
                     #print average
-                    if (abs(average - genR) < sensetivity and abs(average - genG) < sensetivity and abs(average - genB) < sensetivity):
+                    if (colorDetection(genR, genG, genB)): #abs(average - genR) < sensetivity and abs(average - genG) < sensetivity and abs(average - genB) < sensetivity):
                         print "White color"
                         #print flagSole
                         out.off()
