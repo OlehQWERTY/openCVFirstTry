@@ -1,3 +1,5 @@
+#sudo apt-get install zbar-tools
+
 import sys
 import os
 
