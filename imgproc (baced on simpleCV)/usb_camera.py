@@ -1,4 +1,7 @@
 # you need to install imgproc from https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/image_processing/
+# програма по квадратику в центрі зображення з камери усереднює значення кольору і коли маємо заданий колір то 
+# вмикаємо реле
+
 
 from imgproc import * # img processing
 

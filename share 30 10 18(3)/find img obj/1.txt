@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "mod_find_obj.py", line 195, in <module>
+    match_and_draw('find_obj')
+  File "mod_find_obj.py", line 187, in match_and_draw
+    print('%d / %d  inliers/matched' % (np.sum(status), len(status)))
+TypeError: object of type 'NoneType' has no len()
