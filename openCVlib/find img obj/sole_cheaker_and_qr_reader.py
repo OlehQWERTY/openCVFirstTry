@@ -106,7 +106,7 @@ while True:
 
 		out2 = os.popen('date | tr " " _ | tr -dc "\'0-9\'_:" | cut -c 2-18').read()
 
-		out1 = os.popen('zbarimg ' + img_name1 + ' | grep "QR-Code:" | tr -dc \'0-9\'').read() # 2> /dev/null
+		out1 = os.popen('zbarimg ' + img_name1 + ' | grep "QR-Code:" | tr -dc \'0-9\' 2> /dev/null').read() # 2> /dev/null
 			
 		if out.find('inliers/matched') != -1:
 			out2 = os.popen('cp autoImg.png ./test_images/' + out2[:-1] + '_pos_' + out1 + '_sole_' + 'On' + '.png').read() # [:-1] because \n # change it to normal view
@@ -114,17 +114,12 @@ while True:
 			out2 = os.popen('cp autoImg.png ./test_images/' + out2[:-1] + '_pos_' + out1 + '_sole_' + 'OFF' + '.png').read() # [:-1] because \n
 
 
-		out3 = os.popen('ps ax | grep "sole_che*"').read()
+		# out3 = os.popen('ps ax | grep "sole_che*"').read()
 
-		print(out3)
+		# print(out3)
 
-		words = out3.split(' ')
-		print(words[1]) #pid number
-
-		# for ko in range(2):
-		# 	# print(ko)
-			# print(words[1])
-
+		# words = out3.split(' ')
+		# print(words[1]) #pid number
 
 cam.release()
 
