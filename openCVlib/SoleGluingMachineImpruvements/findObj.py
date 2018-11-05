@@ -111,16 +111,20 @@ def explore_match(img1, img2, kp_pairs, status = None, H = None):
         if inlier:
             cv.line(vis, (x1, y1), (x2, y2), green)
 
-    # cv.imshow(win, vis)
 
-
-def main():
+def find(camImg = None):
 
     feature_name = 'brisk-flann'
+
     fn1 = './1.png'
     fn2 = './2.png'
 
-    img1 = cv.imread(fn1, 0)
+    if camImg is None:
+        img1 = cv.imread(fn1, 0)
+    else:
+        img1 = camImg.copy()
+
+    # img1 = cv.imread(fn1, 0)
     img2 = cv.imread(fn2, 0)
     detector, matcher = init_feature(feature_name)
 
@@ -149,15 +153,13 @@ def main():
         p1, p2, kp_pairs = filter_matches(kp1, kp2, raw_matches)
 
         # print(type(p1))
-
         if len(p1) >= 4:
             H, status = cv.findHomography(p1, p2, cv.RANSAC, 5.0)
-            print('%d / %d  inliers/matched' % (np.sum(status), len(status)))
+            # print('%d / %d  inliers/matched' % (np.sum(status), len(status)))
+            return [np.sum(status), len(status)]
         else:
             H, status = None, None
-            print('%d matches found, not enough for homography estimation' % len(p1))
+            # print('%d matches found, not enough for homography estimation' % len(p1))
+            return []
 
-
-    match_and_draw()
-    #cv.waitKey()
-    # cv.destroyAllWindows()
+    return match_and_draw()
