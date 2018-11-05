@@ -39,10 +39,10 @@ while True:
 	y1_2 = 170
 # sole
 	x2_1 = 60
-	y2_1 = 220
+	y2_1 = 110 # 220
 
 	x2_2 = 640
-	y2_2 = 430
+	y2_2 = 320 # 430
 	# cv2.putText(frameToShow, "OpenCV + Jurassic Park!!!", (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 	# frameToShow = cv2.resize(frame,(640,480)) # resize to lower resolution
 	cv2.rectangle(frameToShow, (x1_1, y1_1), (x1_2, y1_2), (0, 0, 255), 2)
@@ -91,7 +91,8 @@ while True:
 
 		# out1 = os.popen('convert ' + img_name + ' -crop 128x128+210+80 ' + img_name1).read()
 
-		out1 = os.popen('zbarimg ' + img_name1 + ' | grep "QR-Code:" | tr -dc \'0-9\'').read() # 2> /dev/null 
+		# out1 = os.popen('zbarimg ' + img_name1 + ' | grep "QR-Code:" | tr -dc \'0-9\'').read() # 2> /dev/null 
+		out1 = os.popen('zbarimg ' + img_name1 + ' | grep "QR-Code:" | tr -dc \'0-9\' 2> /dev/null').read() # 2> /dev/null
 		print(len(out1))
 		if len(out1):
 			print("Pos: ", out1)
@@ -104,14 +105,14 @@ while True:
 		print("Time is: %f" % elapsed_time)
 
 
-		out2 = os.popen('date | tr " " _ | tr -dc "\'0-9\'_:" | cut -c 2-18').read()
-
-		out1 = os.popen('zbarimg ' + img_name1 + ' | grep "QR-Code:" | tr -dc \'0-9\' 2> /dev/null').read() # 2> /dev/null
+		# out2 = os.popen('date | tr " " _ | tr : ^ | tr -dc "\'0-9\'_^" | cut -c 2-18').read()
+		out2 = os.popen('date +"%m-%d-%Y-%T" | tr : -').read()
+		
 			
 		if out.find('inliers/matched') != -1:
-			out2 = os.popen('cp autoImg.png ./test_images/' + out2[:-1] + '_pos_' + out1 + '_sole_' + 'On' + '.png').read() # [:-1] because \n # change it to normal view
+			out3 = os.popen('cp autoImg.png ./test_images/' + out2[:-1] + '_pos_' + out1 + '_sole_' + 'On' + '.png').read() # [:-1] because \n # change it to normal view
 		else:
-			out2 = os.popen('cp autoImg.png ./test_images/' + out2[:-1] + '_pos_' + out1 + '_sole_' + 'OFF' + '.png').read() # [:-1] because \n
+			out3 = os.popen('cp autoImg.png ./test_images/' + out2[:-1] + '_pos_' + out1 + '_sole_' + 'OFF' + '.png').read() # [:-1] because \n
 
 
 		# out3 = os.popen('ps ax | grep "sole_che*"').read()

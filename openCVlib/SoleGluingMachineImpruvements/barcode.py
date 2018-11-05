@@ -1,5 +1,7 @@
 # sudo apt-get install libzbar0
 
+# windows: pip install pyzbar
+
 import cv2
 # import time
 
