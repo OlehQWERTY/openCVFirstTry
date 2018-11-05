@@ -32,7 +32,7 @@ def colorDetection(r, g, b):
     #print "r:" + str(r) + " g:" + str(g) + " b:" + str(b)
 
     # length of the difference vector
-    length = math.sqrt( (d_red * d_red) + (d_green * d_green) + (d_blue * d_blue) )
+    length = math.sqrt( (d_red * d_red) + (d_green * d_green) + (d_blue * d_blue) ) # distance between two dots into 3D space
 
     print length
 
