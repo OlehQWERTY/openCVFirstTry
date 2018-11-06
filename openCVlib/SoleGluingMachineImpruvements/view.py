@@ -9,12 +9,14 @@ class View:
         else:
             self.name = name
             cv2.namedWindow(self.name)
-            self.createTrackbar('resMode', int(math.sqrt(w/80))) # 640 * 480 shows 2 against 3
+            if w == 640:
+                # in case of vga resolution return 2 val (the same as 320*240)
+                self.createTrackbar('resMode', int(math.sqrt(w/80))+1) # 640 * 480 shows 2 against 3
+            else:
+                self.createTrackbar('resMode', int(math.sqrt(w / 80)))  # 640 * 480 shows 2 against 3
+
             self.setCamW = w # change
             self.setCamH = h
-            # self.ResModeVal = 3 # 640 * 480
-            # self.ResMode()
-        # self.max = max
 
     def nothing(self, val):
         print("nothing")
@@ -28,7 +30,6 @@ class View:
             self.setCamH = 720
         else:
             self.setCamH = int(self.setCamW * 3 / 4) # screen ratio (4*3)
-        # pass
 
     def createTrackbar(self, name = 'resMode', val=0, maxVal = 4):
         # if name is 'camResolution':
@@ -77,8 +78,12 @@ class View:
         self.k = cv2.waitKey(1)  # 50 # don't work without this
         return self.key()
 
-    # def resize(self, img):
-    #     imgToShow = cv2.resize(img, (self.setCamW, self.setCamH))
+    def resize(self, img, w = 0, h = 0):
+        if w!=0 and h!=0 and w > 0 and h > 0:
+            imgToShow = cv2.resize(img, (w, h))
+        else:
+            imgToShow = cv2.resize(img, (self.setCamW, self.setCamH))
+        return imgToShow.copy()
 
     def key(self): # pressed key proc
         # print(self.k)

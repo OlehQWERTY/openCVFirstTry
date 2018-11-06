@@ -23,34 +23,36 @@
         <counts>
           <entry key="PNG" value="1" />
           <entry key="png" value="2" />
-          <entry key="py" value="26" />
+          <entry key="py" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="Python" value="26" />
+          <entry key="Python" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4157" />
+          <entry key="dummy" value="2" />
+          <entry key="py" value="5500" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4157" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="5500" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="-321">
+              <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
               <folding>
                 <element signature="e#25#55#0" expanded="true" />
               </folding>
@@ -58,25 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imgRW.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="94" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#291#295#0" />
-                <element signature="e#514#543#0" />
-                <element signature="e#1249#1297#0" />
-                <element signature="e#1324#1331#0" />
-                <element signature="e#440#600#0" />
-                <element signature="e#642#673#0" />
-                <element signature="e#716#906#0" />
-                <element signature="e#939#1032#0" />
-                <marker date="1541496790795" expanded="true" signature="957:977" ph="..." />
-                <marker date="1541496790795" expanded="true" signature="2007:2527" ph="..." />
-                <marker date="1541496790795" expanded="true" signature="3578:3652" ph="..." />
-              </folding>
+            <state relative-caret-position="352">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -108,6 +96,7 @@
       <find>setCamW</find>
       <find>resizewindow</find>
       <find>show</find>
+      <find>frame</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,12 +108,14 @@
         <option value="$PROJECT_DIR$/findObj.py" />
         <option value="$PROJECT_DIR$/barcode.py" />
         <option value="$PROJECT_DIR$/webcam.py" />
-        <option value="$PROJECT_DIR$/controller.py" />
         <option value="$PROJECT_DIR$/view.py" />
+        <option value="$PROJECT_DIR$/imgSave.py" />
+        <option value="$PROJECT_DIR$/imgRW.py" />
+        <option value="$PROJECT_DIR$/controller.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1050" />
@@ -280,16 +271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#25#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webcam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -301,23 +282,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imgRW.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="94" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
+        <state relative-caret-position="44">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#291#295#0" />
-            <element signature="e#514#543#0" />
-            <element signature="e#1249#1297#0" />
-            <element signature="e#1324#1331#0" />
-            <element signature="e#440#600#0" />
-            <element signature="e#642#673#0" />
-            <element signature="e#716#906#0" />
-            <element signature="e#939#1032#0" />
-            <marker date="1541496790795" expanded="true" signature="957:977" ph="..." />
-            <marker date="1541496790795" expanded="true" signature="2007:2527" ph="..." />
-            <marker date="1541496790795" expanded="true" signature="3578:3652" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imgRW.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-321">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding>
+            <element signature="e#25#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
