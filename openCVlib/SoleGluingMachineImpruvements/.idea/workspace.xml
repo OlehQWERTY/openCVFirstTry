@@ -12,7 +12,7 @@
     <session id="741793282">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.5" value="1" />
@@ -23,36 +23,36 @@
         <counts>
           <entry key="PNG" value="1" />
           <entry key="png" value="2" />
-          <entry key="py" value="33" />
+          <entry key="py" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="Python" value="33" />
+          <entry key="Python" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="2" />
-          <entry key="py" value="5500" />
+          <entry key="py" value="7099" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="5500" />
+          <entry key="Python" value="7099" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-321">
-              <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+            <state relative-caret-position="259">
+              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
               <folding>
                 <element signature="e#25#55#0" expanded="true" />
               </folding>
@@ -60,11 +60,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imgRW.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="298">
+              <caret line="143" column="115" selection-start-line="143" selection-start-column="115" selection-end-line="143" selection-end-column="115" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1541513304610" expanded="true" signature="2136:2164" ph="..." />
+                <marker date="1541513304610" expanded="true" signature="2183:2192" ph="..." />
+                <marker date="1541513304610" expanded="true" signature="2218:2295" ph="..." />
+                <marker date="1541513304610" expanded="true" signature="2318:2327" ph="..." />
+                <marker date="1541513304610" expanded="true" signature="7320:7512" ph="..." />
+                <marker date="1541513304610" expanded="true" signature="8111:8117" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,6 +106,12 @@
       <find>resizewindow</find>
       <find>show</find>
       <find>frame</find>
+      <find>flags</find>
+      <find>avai</find>
+      <find>mainWindow</find>
+      <find>getWindowProperty</find>
+      <find>flag</find>
+      <find>kokok</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,14 +123,14 @@
         <option value="$PROJECT_DIR$/findObj.py" />
         <option value="$PROJECT_DIR$/barcode.py" />
         <option value="$PROJECT_DIR$/webcam.py" />
-        <option value="$PROJECT_DIR$/view.py" />
         <option value="$PROJECT_DIR$/imgSave.py" />
         <option value="$PROJECT_DIR$/imgRW.py" />
         <option value="$PROJECT_DIR$/controller.py" />
+        <option value="$PROJECT_DIR$/view.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1050" />
@@ -199,14 +214,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.11037674" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3160839" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34965035" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -285,16 +299,6 @@
     <entry file="file://$PROJECT_DIR$/imgRW.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imgRW.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -304,10 +308,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-321">
-          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        <state relative-caret-position="259">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding>
             <element signature="e#25#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="143" column="115" selection-start-line="143" selection-start-column="115" selection-end-line="143" selection-end-column="115" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1541513304610" expanded="true" signature="2136:2164" ph="..." />
+            <marker date="1541513304610" expanded="true" signature="2183:2192" ph="..." />
+            <marker date="1541513304610" expanded="true" signature="2218:2295" ph="..." />
+            <marker date="1541513304610" expanded="true" signature="2318:2327" ph="..." />
+            <marker date="1541513304610" expanded="true" signature="7320:7512" ph="..." />
+            <marker date="1541513304610" expanded="true" signature="8111:8117" ph="..." />
           </folding>
         </state>
       </provider>

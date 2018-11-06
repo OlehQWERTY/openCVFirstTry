@@ -7,13 +7,22 @@ from webcam import WebCam
 import imgRW
 import time
 
+
 WebCamParam = [640, 480, 15] # 160*120 - min HD - max
 Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
 mainWindow = View("MachineImprovements", WebCamParam[0], WebCamParam[1])
 ReadOrSaveImg = imgRW.ImgRW()
 flag = True
+
+
 while mainWindow.getWindowProperty() and flag: # while True:
 # frame = cv2.imread("_2__2018_09:23:47_pos_no_sole_OFF.PNG", 0)
+
+	# hide square sole pos
+	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
+		mainWindow.kokokToZero()
+		print("\'S\'")
+	#
 
 	start_time = time.time()
 
@@ -58,5 +67,9 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 		print("Iteration score: %f" % elapsed_time)
 
+		# if len(mainWindow.refPt) == 2:
+		# 	print(mainWindow.refPt)
+
+		print(mainWindow.returnRefPt())
 
 
