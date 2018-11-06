@@ -6,8 +6,9 @@ from view import View
 from webcam import WebCam
 import time
 
-Camera = WebCam()
-mainWindow = View("MachineImprovements")
+WebCamParam = [640, 480, 15] # 160*120 - min HD - max
+Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
+mainWindow = View("MachineImprovements", WebCamParam[0], WebCamParam[1])
 flag = True
 while mainWindow.getWindowProperty() and flag: # while True:
 # frame = cv2.imread("_2__2018_09:23:47_pos_no_sole_OFF.PNG", 0)
