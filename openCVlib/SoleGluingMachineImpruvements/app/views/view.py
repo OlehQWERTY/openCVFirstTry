@@ -27,6 +27,8 @@ class View:
 
             self.kok = None
 
+            self.flg1 = True # crutch
+
 
     def click_and_crop(self, event = None, x = None, y = None, flags = None, param = None): # def click_and_crop(event, x, y, flags, param):
         # grab references to the global variables
@@ -121,7 +123,8 @@ class View:
 
     def show2(self, img): # addition window with squared part of main window
         # square according to mouse
-        self.kokok = self.returnRefPt()
+        if self.flg1: # crutch
+            self.kokok = self.returnRefPt()
         if self.kokok != 0:
             if (self.kokok[0][0] < self.kokok[1][0]) and (self.kokok[0][1] < self.kokok[1][1]):
                 self.soleImg = img[self.kokok[0][1]:self.kokok[1][1] + 1,
@@ -145,12 +148,26 @@ class View:
                 cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
                               (0, 0, 255), 2)
                 # return self.soleImg
+
+    def loadDefaultSquare(self, img, x1 = 0, y1 = 0, x2 = 1, y2 = 1): # crutch
+        self.kokok = [(x1, y1), (x2, y2)]
+
+        self.soleImg = img[self.kokok[0][1]:self.kokok[1][1] + 1,
+                       self.kokok[0][0]:self.kokok[1][0] + 1]  # +1 аби не вилітало при 0 розмірі
+        cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
+                         self.soleImg.shape[0])  # resize window according to web camera frame resolution
+        cv2.namedWindow('SoleImg',
+                        cv2.WINDOW_GUI_NORMAL)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS
+        cv2.imshow("SoleImg", self.soleImg)
+        cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
+                      (0, 0, 255), 2)
+
     def returnSoleImg(self): # crutch
         return self.soleImg
 
     def kokokToZero(self): # this func is responsible for hiding square (mouse pressed and unpressed pos)
         self.kok = None
-        cv2.destroyWindow("ROI") # move it somewhere else
+        cv2.destroyWindow("SoleImg") # move it somewhere else
 
     def resizeImg(self, img, w = 0, h = 0):
         if w!=0 and h!=0 and w > 0 and h > 0:
@@ -165,9 +182,15 @@ class View:
             return 0
         elif self.k == 32: # Space
             return 1
-        # if the 's' key is pressed, break from the loop
-        elif self.k == ord("s"): # del sole position on the screen
+        # if the 'r' key is pressed, break from the loop
+        elif self.k == ord("r"): # del sole position on the screen
             return 2
+        elif self.k == ord("d"): # default square (from settings)
+            self.flg1 = not self.flg1 # crutch
+            return 3
+        elif self.k == ord("s"): # save square pos (to settings)
+            self.flg1 = not self.flg1 # crutch
+            return 4
         else:
             return 100
 

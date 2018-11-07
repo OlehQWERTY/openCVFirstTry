@@ -14,7 +14,20 @@ import findObj #findObject
 from view import View
 from webcam import WebCam
 import imgRW
+from settings import Settings
 import time
+
+Set = Settings('1.set')
+setStr = Set.load()
+# print("w: %s" % setStr[0][0])
+# print("h: %s" % setStr[0][1])
+#
+# print("x1: %s" % setStr[1][0])
+# print("y1: %s" % setStr[1][1])
+# print("x2: %s" % setStr[1][2])
+# print("y2: %s" % setStr[1][3])
+
+# Set.save("12, 45|36,36,56,87")
 
 
 WebCamParam = [640, 480, 15] # 160*120 - min HD - max
@@ -26,16 +39,31 @@ flag = True
 
 while mainWindow.getWindowProperty() and flag: # while True:
 
-	# hide square sole pos
-	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
-		mainWindow.kokokToZero()
-		print("\'S\'")
-	#
-
 	start_time = time.time()
 
 	frame = Camera.takeFrame().copy()
 	flag = mainWindow.draw(frame)
+
+	# hide square sole pos
+	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
+		mainWindow.kokokToZero()
+		print("\'R\'")
+	#
+
+	# hide square sole pos
+	if flag == 3:  # ord("d") default square (from settings file)
+		mainWindow.loadDefaultSquare(frame, int(setStr[1][0]), int(setStr[1][1]), int(setStr[1][2]), int(setStr[1][3]))
+		print("\'D\'")
+	#
+
+	if flag == 4: # save square pos (to settings)
+		kok = mainWindow.returnRefPt()
+		# print('12,45|'  + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1]))
+		Set.save('12,45|'  + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1])) # [(x1, y1), (x2, y2)])
+		print("\'S\'")
+	#
+
+
 
 	if(flag == 1): # proc only in case Space is pressed
 		# resizedImg = mainWindow.resizeImg(frame)
@@ -51,7 +79,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			pass
 		else:
 			# print(cor[0], cor[1])
-			if cor[1] > 10: #and cor[0]/float(cor[1]) > 0.2: # cheak
+			if cor[1] > 10: #and cor[0]/float(cor[1]) > 0.2: # check
 				# print("Yes") # first (img - './1.png' or our image findObj.find(frame) ), second - './2.png'
 				isSoleStr = 'NoSole' + '-' + str(cor[0]) + '/' + str(cor[1])
 			else:
