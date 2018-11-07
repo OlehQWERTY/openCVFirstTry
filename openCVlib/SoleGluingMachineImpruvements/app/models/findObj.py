@@ -117,7 +117,7 @@ def find(camImg = None):
     feature_name = 'brisk-flann'
 
     fn1 = './1.png'
-    fn2 = './2.png'
+    fn2 = './sample.png'
 
     if camImg is None:
         img1 = cv.imread(fn1, 0)

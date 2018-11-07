@@ -1,5 +1,14 @@
 #controller
 # import cv2
+
+import sys
+# sys.path.insert(0, '/app/models')
+sys.path.append('models')
+sys.path.append('./views')
+# sys.path.append('../')
+
+
+
 import barcode #barcode scaner
 import findObj #findObject
 from view import View
@@ -61,7 +70,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 					  + str(localTime[0]) + '-' + str(localTime[3]) + '-' + str(localTime[4]) + '-' \
 					  + str(localTime[5]) + '-' + isSoleStr + '-' + 'QR' + '-' + str(barCodeData[1])  # 'IMGs/' +
 
-		ReadOrSaveImg.rw('W', 'IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
+		ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
 
 		print('%s is saved' % saveImgName)
 
