@@ -125,7 +125,8 @@ class View:
         self.kokok = self.returnRefPt()
         if self.kokok != 0:
             if (self.kokok[0][0] < self.kokok[1][0]) and (self.kokok[0][1] < self.kokok[1][1]):
-                roi = img[self.kokok[0][1]:self.kokok[1][1], self.kokok[0][0]:self.kokok[1][0]]
+                # print(type(self.kokok))
+                roi = img[self.kokok[0][1]:self.kokok[1][1]+1, self.kokok[0][0]:self.kokok[1][0]+1] # +1 аби не вилітало при 0 розмірі 
                 cv2.resizeWindow("ROI", roi.shape[1],
                                  roi.shape[0])  # resize window according to web camera frame resolution
                 print(roi.shape)
@@ -133,11 +134,11 @@ class View:
                 cv2.imshow("ROI", roi)
                 # print("kokok 0 0 %s" % self.kokok[0][0])
                 # print("kokok 0 1 %s" % self.kokok[0][1])
-                cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0], self.kokok[1][1]), (0, 0, 255), 2)
+                cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0]+1, self.kokok[1][1]+1), (0, 0, 255), 2)
             else: # _______________close roi window !!!!! exchange top left and bottom right points among each other
                 # cv2.destroyWindow("ROI")  # move it somewhere else
 
-                roi = img[self.kokok[1][1]:self.kokok[0][1], self.kokok[1][0]:self.kokok[0][0]]
+                roi = img[self.kokok[1][1]:self.kokok[0][1]+1, self.kokok[1][0]:self.kokok[0][0]+1]
                 cv2.resizeWindow("ROI", roi.shape[1],
                                  roi.shape[0])  # resize window according to web camera frame resolution
                 cv2.namedWindow('ROI',
@@ -145,7 +146,7 @@ class View:
                 cv2.imshow("ROI", roi)
                 # print("kokok 0 0 %s" % self.kokok[0][0])
                 # print("kokok 0 1 %s" % self.kokok[0][1])
-                cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0], self.kokok[1][1]),
+                cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0]+1, self.kokok[1][1]+1),
                               (0, 0, 255), 2)
         ###_____________________________________________________________________________###
 
