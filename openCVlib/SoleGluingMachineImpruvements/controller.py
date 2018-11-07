@@ -16,7 +16,6 @@ flag = True
 
 
 while mainWindow.getWindowProperty() and flag: # while True:
-# frame = cv2.imread("_2__2018_09:23:47_pos_no_sole_OFF.PNG", 0)
 
 	# hide square sole pos
 	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
@@ -27,12 +26,15 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	start_time = time.time()
 
 	frame = Camera.takeFrame().copy()
-	flag = mainWindow.show(frame)
+	flag = mainWindow.draw(frame)
 
 	if(flag == 1): # proc only in case Space is pressed
-		resizedImg = mainWindow.resize(frame)
-		print('Processed img res: %s %s' % (resizedImg.shape[1], resizedImg.shape[0]))
-		cor = findObj.find(resizedImg) # resized image
+		# resizedImg = mainWindow.resizeImg(frame)
+		# print('Processed img res: %s %s' % (resizedImg.shape[1], resizedImg.shape[0]))
+		# cor = findObj.find(resizedImg) # resized image
+		soleImg = mainWindow.returnSoleImg()
+		cor = findObj.find(soleImg)  # sole image
+		print('Processed sole res: %s %s' % (soleImg.shape[1], soleImg.shape[0]))
 		isSoleStr = 'Sole'
 		if not cor:
 			# print("Empty!")

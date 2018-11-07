@@ -8,12 +8,12 @@ class ImgRW:
     def rw(self, key = 'R', path = None, img = None): # w h are neaded for texting resolution
         if '.png' in path or '.jpg' in path:
             if key is 'R':
-                print("Read")
+                # print("Read")
                 imgR = cv2.imread(path, 0)
                 return imgR.copy()
 
             elif key is 'W':
-                print("Write")
+                # print("Write")
                 cv2.imwrite(path, img)
                 return 1
             else:
