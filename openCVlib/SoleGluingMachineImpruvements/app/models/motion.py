@@ -33,7 +33,8 @@ class MotionDetect:
         rgb = cv2.cvtColor(self.hsv, cv2.COLOR_HSV2BGR)
 
         # rgb = rgb[80:400, 20:620]  # [80:400, 20:620]
-        print(np.average(rgb))
+        # print(np.average(rgb))
+        return np.average(rgb)
         # color mask
         # lower = [5, 1, 2]
         # lower = np.array(lower, dtype="uint8")
@@ -43,18 +44,18 @@ class MotionDetect:
         # mask = cv2.inRange(rgb, lower, upper)
         # output = cv2.bitwise_and(rgb, rgb, mask=mask)
 
-        # self.infinity(rgb, frame2) # output
+        self.infinity(rgb, frame2) # output
 
 
-    # def infinity(self, output, frame2):
-    #     while (1):
-    #         cv2.imshow('frame0', self.frame1)
-    #         cv2.imshow('frame1', output)
-    #         cv2.imshow('frame2', frame2)  # cv2.imshow('frame2',rgb)
-    #         k = cv2.waitKey(30) & 0xff
-    #         if k == 27:
-    #             break
-    #         elif k == ord('s'):
-    #             cv2.imwrite('opticalfb.png', frame2)
-    #             cv2.imwrite('opticalhsv.png', output)
-    #         prvs = next
+    def infinity(self, output, frame2):
+        while (1):
+            cv2.imshow('frame0', self.frame1)
+            cv2.imshow('frame1', output)
+            cv2.imshow('frame2', frame2)  # cv2.imshow('frame2',rgb)
+            k = cv2.waitKey(30) & 0xff
+            if k == 27:
+                break
+            elif k == ord('s'):
+                cv2.imwrite('opticalfb.png', frame2)
+                cv2.imwrite('opticalhsv.png', output)
+            prvs = next

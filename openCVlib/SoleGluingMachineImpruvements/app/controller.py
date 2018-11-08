@@ -45,15 +45,6 @@ import time
 
 Set = Settings('1.set')
 setStr = Set.load()
-# print("w: %s" % setStr[0][0])
-# print("h: %s" % setStr[0][1])
-#
-# print("x1: %s" % setStr[1][0])
-# print("y1: %s" % setStr[1][1])
-# print("x2: %s" % setStr[1][2])
-# print("y2: %s" % setStr[1][3])
-
-# Set.save("12, 45|36,36,56,87")
 
 
 WebCamParam = [640, 480, 15] # 160*120 - min HD - max
@@ -63,12 +54,29 @@ ReadOrSaveImg = imgRW.ImgRW()
 flag = True
 
 
+#
+# movement detection init with the equal data
+frame = Camera.takeFrame().copy()
+MD = motion.MotionDetect(frame, frame)
+
 while mainWindow.getWindowProperty() and flag: # while True:
 
 	start_time = time.time()
 
 	frame = Camera.takeFrame().copy()
 	flag = mainWindow.draw(frame)
+
+	# 11111111111111
+	# MD.loadF1(img)
+	#
+	# img2 = cv2.imread('3.png', 1)
+	# img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
+
+	# print("F2: %f" % MD.loadF2(frame))
+
+	if(MD.loadF2(frame) > 7): # wtf&
+		print("movement %s" % str(time.time()))
+
 
 	# hide square sole pos
 	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
@@ -136,5 +144,9 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		# 	print(mainWindow.refPt)
 
 		print(mainWindow.returnRefPt())
+
+
+# 		11111111111111
+	MD.loadF1(frame) # change first frame for movementDetection
 
 

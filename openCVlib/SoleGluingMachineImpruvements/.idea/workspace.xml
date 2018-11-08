@@ -12,7 +12,7 @@
     <session id="741793282">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="5" />
@@ -25,25 +25,25 @@
         <counts>
           <entry key="PNG" value="1" />
           <entry key="png" value="2" />
-          <entry key="py" value="69" />
+          <entry key="py" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="Python" value="69" />
+          <entry key="Python" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="2" />
-          <entry key="py" value="10169" />
+          <entry key="py" value="10530" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="10169" />
+          <entry key="Python" value="10530" />
         </counts>
       </usages-collector>
     </session>
@@ -53,8 +53,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="286">
+              <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/motion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="60" column="23" selection-start-line="49" selection-start-column="4" selection-end-line="60" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1541686270091" expanded="true" signature="546:587" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -62,29 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/findObj.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#644#681#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+            <state relative-caret-position="2508">
+              <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -100,10 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resizeImg</find>
-      <find>show</find>
-      <find>resize</find>
-      <find>setCamH</find>
       <find>pri</find>
       <find>roi</find>
       <find>rw</find>
@@ -128,8 +125,12 @@
       <find>self.frame2</find>
       <find>img1</find>
       <find>NORMAL</find>
-      <find>Set.save</find>
       <find>UTF</find>
+      <find>Set.save</find>
+      <find>soleImg</find>
+      <find>find</find>
+      <find>Camera</find>
+      <find>time</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,17 +148,17 @@
         <option value="$PROJECT_DIR$/../MotionDetection/MotionDetection.py" />
         <option value="$PROJECT_DIR$/controller.py" />
         <option value="$PROJECT_DIR$/../MotionDetection/MotionDetection_2.py" />
-        <option value="$PROJECT_DIR$/app/models/motion.py" />
         <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/views/view.py" />
         <option value="$PROJECT_DIR$/app/models/findObj.py" />
+        <option value="$PROJECT_DIR$/app/models/motion.py" />
         <option value="$PROJECT_DIR$/app/controller.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -351,14 +352,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.11037674" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34405595" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34265736" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -401,13 +401,6 @@
     <entry file="file://$PROJECT_DIR$/view.py" />
     <entry file="file://$PROJECT_DIR$/../MotionDetection/MotionDetection.py" />
     <entry file="file://$PROJECT_DIR$/controller.py" />
-    <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="30" lean-forward="true" selection-start-line="2" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/common.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -431,28 +424,10 @@
         <state relative-caret-position="-41" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/motion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1541676948251" expanded="true" signature="546:587" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/imgRW.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="11" column="42" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -463,20 +438,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/findObj.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="2508">
+          <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/motion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="60" column="23" selection-start-line="49" selection-start-column="4" selection-end-line="60" selection-end-column="23" />
           <folding>
-            <element signature="e#644#681#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1541686270091" expanded="true" signature="546:587" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="286">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
         </state>
       </provider>
     </entry>
