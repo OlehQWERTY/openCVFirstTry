@@ -1,5 +1,4 @@
 #controller
-# import cv2
 
 import sys
 # sys.path.insert(0, '/app/models')
@@ -15,7 +14,34 @@ from view import View
 from webcam import WebCam
 import imgRW
 from settings import Settings
+import motion
 import time
+
+# from gpiozero import LED
+# from time import sleep
+#
+# out = LED(17)
+
+# while True:
+#     out.on()
+#     sleep(1)
+#     out.off()
+#     sleep(1)
+
+
+# img = cv2.imread('2.png', 1)
+# img1 = cv2.imread('1.png', 1) #1
+#
+# img = cv2.resize(img, (img1.shape[1], img1.shape[0]))
+# MD = motion.MotionDetect(img1, img)
+# MD.loadF1(img)
+#
+# img2 = cv2.imread('3.png', 1)
+# img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
+# MD.loadF2(img2)
+
+
+
 
 Set = Settings('1.set')
 setStr = Set.load()
@@ -59,7 +85,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	if flag == 4: # save square pos (to settings)
 		kok = mainWindow.returnRefPt()
 		# print('12,45|'  + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1]))
-		Set.save('12,45|'  + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1])) # [(x1, y1), (x2, y2)])
+		Set.save('12,45|' + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1])) # [(x1, y1), (x2, y2)])
 		print("\'S\'")
 	#
 

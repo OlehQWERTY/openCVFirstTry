@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #usage
 # python3 find_obj.py cropped.jpg flipped.jpg
-# find obj лише без виводу і демонстрації екрану
+# find obj without display funcs
 
 '''
 Feature-based image matching sample.
@@ -13,6 +13,7 @@ USAGE
   Press left mouse button on a feature point to see its matching point.
 '''
 
+
 # Python 2/3 compatibility
 from __future__ import print_function
 
@@ -20,6 +21,8 @@ import numpy as np
 import cv2 as cv
 import sys
 from common import anorm, getsize
+
+# cv.ocl.setUseOpenCL(False) # RPI fix
 
 FLANN_INDEX_KDTREE = 1  # bug: flann enums are missing
 FLANN_INDEX_LSH    = 6
@@ -149,7 +152,7 @@ def find(camImg = None):
     def match_and_draw():
         # print('matching...')
         # print(len(status))
-        raw_matches = matcher.knnMatch(desc1, trainDescriptors = desc2, k = 2) #2
+        raw_matches = matcher.knnMatch(desc1, trainDescriptors = desc2, k = 2) # 2
         p1, p2, kp_pairs = filter_matches(kp1, kp2, raw_matches)
 
         # print(type(p1))

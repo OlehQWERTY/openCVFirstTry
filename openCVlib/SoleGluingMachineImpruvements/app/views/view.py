@@ -128,11 +128,10 @@ class View:
         if self.kokok != 0:
             if (self.kokok[0][0] < self.kokok[1][0]) and (self.kokok[0][1] < self.kokok[1][1]):
                 self.soleImg = img[self.kokok[0][1]:self.kokok[1][1] + 1,
-                      self.kokok[0][0]:self.kokok[1][0] + 1]  # +1 аби не вилітало при 0 розмірі
+                      self.kokok[0][0]:self.kokok[1][0] + 1]  # +1 because program crashes in case of 0 size
                 cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
                                  self.soleImg.shape[0])  # resize window according to web camera frame resolution
-                cv2.namedWindow('SoleImg',
-                                cv2.WINDOW_GUI_NORMAL)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS
+                cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
                 cv2.imshow("SoleImg", self.soleImg)
                 cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
                               (0, 0, 255), 2)
@@ -142,8 +141,7 @@ class View:
                 self.soleImg = img[self.kokok[1][1]:self.kokok[0][1] + 1, self.kokok[1][0]:self.kokok[0][0] + 1]
                 cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
                                  self.soleImg.shape[0])  # resize window according to web camera frame resolution
-                cv2.namedWindow('SoleImg',
-                                cv2.WINDOW_GUI_NORMAL)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS
+                cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS
                 cv2.imshow("SoleImg", self.soleImg)
                 cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
                               (0, 0, 255), 2)
@@ -153,11 +151,10 @@ class View:
         self.kokok = [(x1, y1), (x2, y2)]
 
         self.soleImg = img[self.kokok[0][1]:self.kokok[1][1] + 1,
-                       self.kokok[0][0]:self.kokok[1][0] + 1]  # +1 аби не вилітало при 0 розмірі
+                       self.kokok[0][0]:self.kokok[1][0] + 1]  # +1 because program crashes in case of 0 size
         cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
                          self.soleImg.shape[0])  # resize window according to web camera frame resolution
-        cv2.namedWindow('SoleImg',
-                        cv2.WINDOW_GUI_NORMAL)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS
+        cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
         cv2.imshow("SoleImg", self.soleImg)
         cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
                       (0, 0, 255), 2)
