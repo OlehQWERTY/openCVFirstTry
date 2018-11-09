@@ -1,6 +1,7 @@
 #controller
 
 import sys
+import os # clear term func
 # sys.path.insert(0, '/app/models')
 sys.path.append('models')
 sys.path.append('./views')
@@ -58,44 +59,58 @@ flag = True
 # movement detection init with the equal data
 frame = Camera.takeFrame().copy()
 MD = motion.MotionDetect(frame, frame)
+flagMovement = True
+moveTime = 0
 
 while mainWindow.getWindowProperty() and flag: # while True:
 
 	start_time = time.time()
 
 	frame = Camera.takeFrame().copy()
-	flag = mainWindow.draw(frame)
-
-	# 11111111111111
-	# MD.loadF1(img)
-	#
-	# img2 = cv2.imread('3.png', 1)
-	# img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
-
-	# print("F2: %f" % MD.loadF2(frame))
-
-	if(MD.loadF2(frame) > 7): # wtf&
-		print("movement %s" % str(time.time()))
+	flag = mainWindow.draw(frame) # number of pressed key
 
 
 	# hide square sole pos
 	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
 		mainWindow.kokokToZero()
-		print("\'R\'")
+		print("\'R\'" + ' ' + "Reset current square")
 	#
 
 	# hide square sole pos
 	if flag == 3:  # ord("d") default square (from settings file)
 		mainWindow.loadDefaultSquare(frame, int(setStr[1][0]), int(setStr[1][1]), int(setStr[1][2]), int(setStr[1][3]))
-		print("\'D\'")
+		print("\'D\'" + ' ' + "Download square pos from set file")
 	#
 
 	if flag == 4: # save square pos (to settings)
 		kok = mainWindow.returnRefPt()
 		# print('12,45|'  + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1]))
-		Set.save('12,45|' + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1])) # [(x1, y1), (x2, y2)])
-		print("\'S\'")
+		if kok != 0:
+			Set.save('12,45|' + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1])) # [(x1, y1), (x2, y2)])
+			print("\'S\'" + ' ' + "Save square")
+		else:
+			print("Nothing to save!")
 	#
+
+	if flag == 5: # turn on/off movement detection
+		flagMovement = not flagMovement
+		print("\'M\'" + " " + str(flagMovement))
+		# print(chr(27) + "[2J") # clear terminal maybe in linux
+		# os.system('cls' if os.name == 'nt' else 'clear') # clear terminal
+
+
+
+
+	if flagMovement:
+		movementStr = MD.loadF2(frame)
+		if movementStr == 1 or movementStr == -1:
+			moveTime = time.time()
+			print("Don't move!")
+			continue
+		elif movementStr == 0:
+			if time.time() - moveTime:
+		# print(int(movementStr))
+				print("Ready!")
 
 
 
@@ -147,6 +162,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 
 # 		11111111111111
-	MD.loadF1(frame) # change first frame for movementDetection
+# 	MD.loadF1(frame) # change first frame for movementDetection
 
 
