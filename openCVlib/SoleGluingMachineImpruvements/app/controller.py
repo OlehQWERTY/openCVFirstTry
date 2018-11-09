@@ -48,7 +48,7 @@ Set = Settings('1.set')
 setStr = Set.load()
 
 
-WebCamParam = [640, 480, 15] # 160*120 - min HD - max
+WebCamParam = [320, 240, 15] # 160*120 - min HD - max
 Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
 mainWindow = View("MachineImprovements", WebCamParam[0], WebCamParam[1])
 ReadOrSaveImg = imgRW.ImgRW()
@@ -96,17 +96,36 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		flagMovement = not flagMovement
 		print("\'M\'" + " " + str(flagMovement))
 		# print(chr(27) + "[2J") # clear terminal maybe in linux
-		# os.system('cls' if os.name == 'nt' else 'clear') # clear terminal
+		os.system('cls' if os.name == 'nt' else 'clear') # clear terminal
+
+		if 'soleImg' in locals():
+			MD.loadF1(soleImg)  # load zone
+			MD.loadF2(soleImg)  # load zone
+		else:
+			MD.loadF1(frame)  # load zone
+			MD.loadF2(frame)  # load zone
+
+
 
 
 
 
 	if flagMovement:
-		movementStr = MD.loadF2(frame)
-		if movementStr == 1 or movementStr == -1:
+		if 'soleImg' in locals():
+			movementStr = MD.loadF2(soleImg)  # frame
+		else:
+			movementStr = MD.loadF2(frame)  # frame
+
+		if movementStr == -1:
+			moveTime = time.time()
+			# print("Don't move!")
+			continue
+		elif movementStr == 1: # 111111111111111111111
 			moveTime = time.time()
 			print("Don't move!")
 			continue
+
+
 		elif movementStr == 0:
 			if time.time() - moveTime:
 		# print(int(movementStr))
