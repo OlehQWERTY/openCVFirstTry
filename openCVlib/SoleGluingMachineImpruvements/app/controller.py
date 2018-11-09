@@ -59,7 +59,7 @@ flag = True
 # movement detection init with the equal data
 frame = Camera.takeFrame().copy()
 MD = motion.MotionDetect(frame, frame)
-flagMovement = True
+flagMovement = False
 moveTime = 0
 
 while mainWindow.getWindowProperty() and flag: # while True:
