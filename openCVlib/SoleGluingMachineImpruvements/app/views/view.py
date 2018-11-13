@@ -16,62 +16,50 @@ class View:
             cv2.namedWindow(self.name)
             if w == 640:
                 # in case of vga resolution return 2 val (the same as 320*240)
-                self.createTrackbar('resMode', int(math.sqrt(w/80))+1) # 640 * 480 shows 2 against 3
+                self.createTrackbar('resMode', int(math.sqrt(w/80))+1) # 640 * 480 shows 2 instead of 3
             else:
-                self.createTrackbar('resMode', int(math.sqrt(w / 80)))  # 640 * 480 shows 2 against 3
+                self.createTrackbar('resMode', int(math.sqrt(w / 80)))  # 640 * 480 shows 2 instead of 3
 
             self.setCamW = w # change
             self.setCamH = h
 
             cv2.setMouseCallback(self.name, self.click_and_crop) # mouse callback
 
-            self.kok = None
+            self.mousePos = None
 
             self.flg1 = True # crutch
 
+            self.flg2 = False # close sole window
+
 
     def click_and_crop(self, event = None, x = None, y = None, flags = None, param = None): # def click_and_crop(event, x, y, flags, param):
-        # grab references to the global variables
-        # global refPt, cropping
-        # self.refPt, self.cropping
-
-        # if the left mouse button was clicked, record the starting
-        # (x, y) coordinates and indicate that cropping is being
-        # performed
         if event == cv2.EVENT_LBUTTONDOWN:
             self.refPt = [(x, y)]
             self.cropping = True
-
-            # self.kokCrop = self.cropping  # crutch
-
         # check to see if the left mouse button was released
         elif event == cv2.EVENT_LBUTTONUP:
             # record the ending (x, y) coordinates and indicate that
             # the cropping operation is finished
             self.refPt.append((x, y))
             self.cropping = False
-            # print(self.refPt)
-            self.kok = self.refPt  # crutch
-            # self.kokCrop = self.cropping # crutch
+            self.mousePos = self.refPt  # crutch
 
-        # elif event == cv2.EVENT_MOUSEMOVE: # movement pos
-        #     self.mouseMovementPos = (x, y)
+        elif event == cv2.EVENT_MOUSEMOVE: # movement pos
+            self.mouseMovementPos = (x, y)
         #     pass
 
-            # print(x, y)
+            print(x, y)
 
             # draw a rectangle around the region of interest
             # cv2.rectangle(image, refPt[0], refPt[1], (0, 255, 0), 2)
             # cv2.imshow("image", image)
 
     def returnRefPt(self): # crutch for refPt available from outside
-        # if self.kokCrop == False: # mouse is pressed right now
-        #     return self.kok
-        if self.kok is None:
+        if self.mousePos is None:
             return 0
         else:
-            if len(self.kok) == 2:
-                return self.kok
+            if len(self.mousePos) == 2:
+                return self.mousePos
             else:
                 return 0
 
@@ -90,21 +78,13 @@ class View:
         if name is 'resMode':
             self.trackbarName = name # temp crutch
             self.trackbarVal = val
-            # if 'self.trackbarName' in globals(): #locals()
             self.trackbarMaxVal = maxVal
             cv2.createTrackbar(self.trackbarName, self.name, self.trackbarVal, self.trackbarMaxVal, self.resMode) # trackbar
 
-    # def draw(self, callback): # get draw from outside ?
-    #     # drawText
-    #     # drawSquare
-    #     pass
-
     def draw(self, img):
-
         self.show2(img)
 
         self.show1(img) # temp order
-
         self.k = cv2.waitKey(1)  # 50 # don't work without this
         return self.key() # return pressed key (ESC - exit)
 
@@ -122,49 +102,44 @@ class View:
         cv2.imshow(self.name, img)
 
     def show2(self, img): # addition window with squared part of main window
+        # cv2.destroyWindow("SoleImg")
         # square according to mouse
         if self.flg1: # crutch
-            self.kokok = self.returnRefPt()
-        if self.kokok != 0:
-            if (self.kokok[0][0] < self.kokok[1][0]) and (self.kokok[0][1] < self.kokok[1][1]):
-                self.soleImg = img[self.kokok[0][1]:self.kokok[1][1] + 1,
-                      self.kokok[0][0]:self.kokok[1][0] + 1]  # +1 because program crashes in case of 0 size
-                cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
-                                 self.soleImg.shape[0])  # resize window according to web camera frame resolution
-                cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
-                cv2.imshow("SoleImg", self.soleImg)
-                cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
-                              (0, 0, 255), 2)
+            self.mousePos1 = self.returnRefPt()
+        if self.mousePos1 != 0:
+            if (self.mousePos1[0][0] < self.mousePos1[1][0]) and (self.mousePos1[0][1] < self.mousePos1[1][1]):
+                self.soleImg = img[self.mousePos1[0][1]:self.mousePos1[1][1] + 1,
+                               self.mousePos1[0][0]:self.mousePos1[1][0] + 1]  # +1 because program crashes in case of 0 size
             else:  # _______________close soleImg window !!!!! exchange top left and bottom right points among each other
                 # cv2.destroyWindow("SoleImg")  # move it somewhere else
+                self.soleImg = img[self.mousePos1[1][1]:self.mousePos1[0][1] + 1, self.mousePos1[1][0]:self.mousePos1[0][0] + 1]
 
-                self.soleImg = img[self.kokok[1][1]:self.kokok[0][1] + 1, self.kokok[1][0]:self.kokok[0][0] + 1]
-                cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
-                                 self.soleImg.shape[0])  # resize window according to web camera frame resolution
-                cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS
-                cv2.imshow("SoleImg", self.soleImg)
-                cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
-                              (0, 0, 255), 2)
-                # return self.soleImg
+
+            cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
+                             self.soleImg.shape[0])  # resize window according to web camera frame resolution
+            cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
+
+            cv2.imshow("SoleImg", self.soleImg)
+            cv2.rectangle(img, (self.mousePos1[0][0], self.mousePos1[0][1]),
+                      (self.mousePos1[1][0] + 1, self.mousePos1[1][1] + 1),
+                      (0, 0, 255), 2)
+
+
 
     def loadDefaultSquare(self, img, x1 = 0, y1 = 0, x2 = 1, y2 = 1): # crutch
-        self.kokok = [(x1, y1), (x2, y2)]
+        self.mousePos1 = [(x1, y1), (x2, y2)]
 
-        self.soleImg = img[self.kokok[0][1]:self.kokok[1][1] + 1,
-                       self.kokok[0][0]:self.kokok[1][0] + 1]  # +1 because program crashes in case of 0 size
+        self.soleImg = img[self.mousePos1[0][1]:self.mousePos1[1][1] + 1,
+                       self.mousePos1[0][0]:self.mousePos1[1][0] + 1]  # +1 because program crashes in case of 0 size
         cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
                          self.soleImg.shape[0])  # resize window according to web camera frame resolution
         cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
         cv2.imshow("SoleImg", self.soleImg)
-        cv2.rectangle(img, (self.kokok[0][0], self.kokok[0][1]), (self.kokok[1][0] + 1, self.kokok[1][1] + 1),
+        cv2.rectangle(img, (self.mousePos1[0][0], self.mousePos1[0][1]), (self.mousePos1[1][0] + 1, self.mousePos1[1][1] + 1),
                       (0, 0, 255), 2)
 
     def returnSoleImg(self): # crutch
         return self.soleImg
-
-    def kokokToZero(self): # this func is responsible for hiding square (mouse pressed and unpressed pos)
-        self.kok = None
-        cv2.destroyWindow("SoleImg") # move it somewhere else
 
     def resizeImg(self, img, w = 0, h = 0):
         if w!=0 and h!=0 and w > 0 and h > 0:
@@ -197,7 +172,7 @@ class View:
         cv2.moveWindow(self.name, x, y)
 
     def getWindowProperty(self): # used for closing program by pressing exit (X) window key
-        if cv2.getWindowProperty(self.name, 0) >= 0: # this will send True if !(X window button) when the current window will be closed
+        if cv2.getWindowProperty(self.name, 1) >= 0: # this will send True if !(X window button) when the current window will be closed
             return True
         else:
             return False

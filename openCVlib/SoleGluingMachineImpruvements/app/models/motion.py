@@ -18,6 +18,7 @@ class MotionDetect:
 
             self.movementArr = [0, 0, 0, 0, 0]
             self.iterator = 0
+            self.currentColorVal = 0 # current color val
 
             self.loadF2(self.frame2)
 # if you need manualy compare 2 imgages so firstly
@@ -39,7 +40,6 @@ class MotionDetect:
 
         rgb = rgb[80:400, 20:620]  # [80:400, 20:620] on the corners of img from web cam something random appears
         # print(np.average(rgb))
-
 
         # color mask
         # lower = [5, 1, 2]
@@ -66,9 +66,8 @@ class MotionDetect:
             extremeMov = max(self.movementArr) - sum(self.movementArr)/5
             # print(max(self.movementArr))
             # self.movementArr = np.linspace(self.movementArr)
-            if extremeMov > 1: # max - average                       # sensetivity !!!!!!!!!!!!!!!!!!!
+            if extremeMov > 3: # max - average                       # sensetivity !!!!!!!!!!!!!!!!!!!
                 return 1 #"Movement detected!"
             else:
                 return 0 #"No movement"
         return -1 # not fiveth call
-

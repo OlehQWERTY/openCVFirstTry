@@ -2,12 +2,10 @@
 
 import sys
 import os # clear term func
-# sys.path.insert(0, '/app/models')
+import time
+
 sys.path.append('models')
 sys.path.append('./views')
-# sys.path.append('../')
-
-
 
 import barcode #barcode scaner
 import findObj #findObject
@@ -16,7 +14,8 @@ from webcam import WebCam
 import imgRW
 from settings import Settings
 import motion
-import time
+
+
 
 # from gpiozero import LED
 # from time import sleep
@@ -29,7 +28,6 @@ import time
 #     out.off()
 #     sleep(1)
 
-
 # img = cv2.imread('2.png', 1)
 # img1 = cv2.imread('1.png', 1) #1
 #
@@ -41,19 +39,14 @@ import time
 # img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
 # MD.loadF2(img2)
 
-
-
-
 Set = Settings('1.set')
 setStr = Set.load()
 
-
-WebCamParam = [320, 240, 15] # 160*120 - min HD - max
+WebCamParam = [640, 360, 15] # 160*120 - min HD - max
 Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
 mainWindow = View("MachineImprovements", WebCamParam[0], WebCamParam[1])
 ReadOrSaveImg = imgRW.ImgRW()
 flag = True
-
 
 #
 # movement detection init with the equal data
@@ -105,31 +98,25 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			MD.loadF1(frame)  # load zone
 			MD.loadF2(frame)  # load zone
 
-
-
-
-
-
 	if flagMovement:
 		if 'soleImg' in locals():
 			movementStr = MD.loadF2(soleImg)  # frame
 		else:
 			movementStr = MD.loadF2(frame)  # frame
 
-		if movementStr == -1:
-			moveTime = time.time()
+		if movementStr == -1: # not 5 iteration passed
+			# moveTime = time.time()
 			# print("Don't move!")
 			continue
-		elif movementStr == 1: # 111111111111111111111
+		elif movementStr == 1: # movement detected
 			moveTime = time.time()
-			print("Don't move!")
+			print("Movement! %s" % moveTime)
 			continue
-
-
-		elif movementStr == 0:
-			if time.time() - moveTime:
+		elif movementStr == 0: # movement not detected
+			if (time.time() - moveTime) > 0.5:
 		# print(int(movementStr))
-				print("Ready!")
+		# 		print("Ready!")
+				pass
 
 
 
@@ -178,6 +165,8 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		# 	print(mainWindow.refPt)
 
 		print(mainWindow.returnRefPt())
+
+		# mainWindow.getAdditionWindowProperty("SoleImg") # clouse sole window
 
 
 # 		11111111111111
