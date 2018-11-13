@@ -65,7 +65,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 	# hide square sole pos
 	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
-		mainWindow.kokokToZero()
+		mainWindow.mousePosToZero()
 		print("\'R\'" + ' ' + "Reset current square")
 	#
 
@@ -77,7 +77,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 	if flag == 4: # save square pos (to settings)
 		kok = mainWindow.returnRefPt()
-		# print('12,45|'  + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1]))
 		if kok != 0:
 			Set.save('12,45|' + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' + str(kok[1][0]) + ',' + str(kok[1][1])) # [(x1, y1), (x2, y2)])
 			print("\'S\'" + ' ' + "Save square")
@@ -105,8 +104,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			movementStr = MD.loadF2(frame)  # frame
 
 		if movementStr == -1: # not 5 iteration passed
-			# moveTime = time.time()
-			# print("Don't move!")
 			continue
 		elif movementStr == 1: # movement detected
 			moveTime = time.time()
@@ -114,39 +111,28 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			continue
 		elif movementStr == 0: # movement not detected
 			if (time.time() - moveTime) > 0.5:
-		# print(int(movementStr))
 		# 		print("Ready!")
 				pass
 
 
 
 	if(flag == 1): # proc only in case Space is pressed
-		# resizedImg = mainWindow.resizeImg(frame)
-		# print('Processed img res: %s %s' % (resizedImg.shape[1], resizedImg.shape[0]))
-		# cor = findObj.find(resizedImg) # resized image
 		soleImg = mainWindow.returnSoleImg()
 		cor = findObj.find(soleImg)  # sole image
 		print('Processed sole res: %s %s' % (soleImg.shape[1], soleImg.shape[0]))
 		isSoleStr = 'Sole'
 		if not cor:
-			# print("Empty!")
-			# print(findObj.find(frame))
 			pass
 		else:
-			# print(cor[0], cor[1])
-			if cor[1] > 10: #and cor[0]/float(cor[1]) > 0.2: # check
-				# print("Yes") # first (img - './1.png' or our image findObj.find(frame) ), second - './2.png'
+			if cor[1] > 10: # and cor[0]/float(cor[1]) > 0.2: # check
 				isSoleStr = 'NoSole' + '-' + str(cor[0]) + '/' + str(cor[1])
 			else:
-				# print("No")
 				isSoleStr = 'Sole'
 
-		# print(barcode.zbar(frame))
 		barCodeData = barcode.zbar(frame)
 
 		if barCodeData is None:
 			barCodeData = ['No', 'No']
-
 
 		localTime = time.localtime(time.time())
 		saveImgName = str(localTime[2]) + '-' + str(localTime[1]) + '-' \
@@ -165,11 +151,3 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		# 	print(mainWindow.refPt)
 
 		print(mainWindow.returnRefPt())
-
-		# mainWindow.getAdditionWindowProperty("SoleImg") # clouse sole window
-
-
-# 		11111111111111
-# 	MD.loadF1(frame) # change first frame for movementDetection
-
-
