@@ -5,6 +5,7 @@
 
 import cv2
 import math # sqrt()
+import os # auto change os type TEST
 
 class View:
 
@@ -113,31 +114,33 @@ class View:
             y1 = self.mousePos1[0][1]  # (x y)
             y2 = self.mousePos1[1][1]
             # imCrop = im[int(r[1]):int(r[1] + r[3]), int(r[0]):int(r[0] + r[2])]
-            if (self.mousePos1[0][0] < self.mousePos1[1][0]) and (self.mousePos1[0][1] < self.mousePos1[1][1]):
-                # if x2 - x1 < 50: # min size
-                #     x2 = (int(x1/50) + 1) * 50
-                #     print(x2)
-                # if y2 - y1 < 50:
-                #     y2 = (int(y1/50) + 1) * 50
-                #     print(y2)
+            if (x1 < x2) and (y1 < y2): # 5 options x1 < x2 and y1 > y2 .... are neaded
+                if x2 - x1 < 50: # min size
+                    x2 = (int(x1/50) + 1) * 50
+                    print(x2)
+                if y2 - y1 < 50:
+                    y2 = (int(y1/50) + 1) * 50
+                    print(y2)
+                self.soleImg = img[y1:y2, x1:x2]  # +1 because program crashes in case of 0 size
+            elif x1 == x2 and y1 == y2:
+                x2 = x1 + 50
+                y2 = y1 + 50
                 self.soleImg = img[y1:y2, x1:x2]  # +1 because program crashes in case of 0 size
             else:
-                # if x1 - x2 < 50: # min size
-                #     x1 = (int(x2/50) + 1) * 50
-                #     print(x1)
-                # if y1 - y2 < 50:
-                #     y1 = (int(y2/50) + 1) * 50
-                #     print(y1)
-
+                if x1 - x2 < 50: # min size
+                    x1 = (int(x2/50) + 1) * 50
+                    print(x1)
+                if y1 - y2 < 50:
+                    y1 = (int(y2/50) + 1) * 50
+                    print(y1)
                 self.soleImg = img[y2:y1, x2:x1]
-
-            cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
+            # test auto change os V (line below doesn't work in RPI) ***** TEST
+            cv2.namedWindow('SoleImg', 0 if os.name == 'nt' else 1)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
             cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
                              self.soleImg.shape[0])  # resize window according to web camera frame resolution
 
-
             cv2.imshow("SoleImg", self.soleImg)
-            cv2.rectangle(img, (x1, y1), (x2-x1, y2-y2), (0, 0, 255), 2) # ????
+            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 2) # ????
 
 
 
