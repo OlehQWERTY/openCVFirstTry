@@ -2,10 +2,10 @@
 # create #1 view - main window #2 view - first additional window ...
 # add callback for spec view func (additional windows needs to drow something spec so just make draw(callback) in basic obj)
 
-
 import cv2
 import math # sqrt()
-import os # auto change os type TEST
+import os # auto change os type
+
 
 class View:
 
@@ -151,7 +151,7 @@ class View:
                        self.mousePos1[0][0]:self.mousePos1[1][0] + 1]  # +1 because program crashes in case of 0 size
         cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
                          self.soleImg.shape[0])  # resize window according to web camera frame resolution
-        cv2.namedWindow('SoleImg')  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
+        cv2.namedWindow('SoleImg', 0 if os.name == 'nt' else 1)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
         cv2.imshow("SoleImg", self.soleImg)
         cv2.rectangle(img, (self.mousePos1[0][0], self.mousePos1[0][1]), (self.mousePos1[1][0] + 1, self.mousePos1[1][1] + 1),
                       (0, 0, 255), 2)

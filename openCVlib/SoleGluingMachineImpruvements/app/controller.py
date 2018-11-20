@@ -15,7 +15,15 @@ import imgRW
 from settings import Settings
 import motion
 
-
+import os
+# chose an implementation, depending on os
+if os.name == 'nt':  # sys.platform == 'win32':
+	print("No gpio avaliable under windows!")
+elif os.name == 'posix':
+	print("RPI gpio init is done!")
+	import gpio
+else:
+	raise Exception("Sorry: no implementation for your platform ('%s') available" % os.name)
 
 # from gpiozero import LED
 # from time import sleep
