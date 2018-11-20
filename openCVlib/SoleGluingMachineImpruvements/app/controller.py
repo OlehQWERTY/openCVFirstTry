@@ -18,40 +18,22 @@ import motion
 import os
 # chose an implementation, depending on os
 if os.name == 'nt':  # sys.platform == 'win32':
-	print("No gpio avaliable under windows!")
+	print("GPIO is not avaliable under windows!")
 elif os.name == 'posix':
 	print("RPI gpio init is done!")
 	import gpio
 else:
 	raise Exception("Sorry: no implementation for your platform ('%s') available" % os.name)
 
-# from gpiozero import LED
-# from time import sleep
-#
-# out = LED(17)
-
-# while True:
-#     out.on()
-#     sleep(1)
-#     out.off()
-#     sleep(1)
-
-# img = cv2.imread('2.png', 1)
-# img1 = cv2.imread('1.png', 1) #1
-#
-# img = cv2.resize(img, (img1.shape[1], img1.shape[0]))
-# MD = motion.MotionDetect(img1, img)
-# MD.loadF1(img)
-#
-# img2 = cv2.imread('3.png', 1)
-# img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
-# MD.loadF2(img2)
-
 Set = Settings('1.set')
 setStr = Set.load()
 
-WebCamParam = [640, 360, 15] # 160*120 - min HD - max
-Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
+# WebCamParam = [640, 360, 15] # 160*120 - min HD - max
+# Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
+
+WebCamParam = [320, 240]
+Camera = WebCam(0, WebCamParam[0], WebCamParam[1])
+
 mainWindow = View("MachineImprovements", WebCamParam[0], WebCamParam[1])
 ReadOrSaveImg = imgRW.ImgRW()
 flag = True
@@ -63,7 +45,22 @@ MD = motion.MotionDetect(frame, frame)
 flagMovement = False
 moveTime = 0
 
+# gpio
+if os.name == 'posix':
+	IO = gpio.RPI_GPIO()
+# gpio
+
 while mainWindow.getWindowProperty() and flag: # while True:
+
+# gpio
+	if os.name == 'posix':
+		if IO.read() == 0:
+			print("robot + table")
+		if IO.read() == 1:
+			print("table")
+		if IO.read() == 2:
+			print("robot")
+# gpio
 
 	start_time = time.time()
 
