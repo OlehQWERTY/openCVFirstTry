@@ -117,7 +117,7 @@ def explore_match(img1, img2, kp_pairs, status = None, H = None):
 
 def find(camImg = None):
 
-    feature_name = 'brisk-flann'
+    feature_name = 'orb-flann' # 640*480 'orb' - 0.62 s, 'akaze' - 1.5 s, 'brisk' - 4.8 s
 
     fn1 = './1.png'
     fn2 = './sample.png'

@@ -1,6 +1,8 @@
 #controller
 
-# launch only with # python3 controller.py
+# launch only with python3
+#
+#  python3 controller.py
 
 import sys
 import os # clear term func
@@ -30,11 +32,11 @@ else:
 Set = Settings('1.set')
 setStr = Set.load()
 
-# WebCamParam = [640, 360, 15] # 160*120 - min HD - max
-# Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
+WebCamParam = [640, 360, 15] # 160*120 - min HD - max
+Camera = WebCam(0, WebCamParam[0], WebCamParam[1], WebCamParam[2])
 
-WebCamParam = [320, 240]
-Camera = WebCam(0, WebCamParam[0], WebCamParam[1])
+# WebCamParam = [640, 480]
+# Camera = WebCam(0, WebCamParam[0], WebCamParam[1])
 
 mainWindow = View("MachineImprovements", WebCamParam[0], WebCamParam[1])
 ReadOrSaveImg = imgRW.ImgRW()
@@ -50,6 +52,9 @@ flag = True
 # gpio
 if os.name == 'posix':
 	IO = gpio.RPI_GPIO()
+
+flagRobot = False
+flagTable = False
 # gpio
 
 while mainWindow.getWindowProperty() and flag: # while True:
@@ -57,11 +62,20 @@ while mainWindow.getWindowProperty() and flag: # while True:
 # gpio
 	if os.name == 'posix':
 		if IO.read() == 0:
+			flagRobot = True
+			flagTable = True
 			print("robot + table")
-		if IO.read() == 1:
+		elif IO.read() == 1:
+			flagRobot = False
+			flagTable = True
 			print("table")
-		if IO.read() == 2:
+		elif IO.read() == 2:
+			flagRobot = True
+			flagTable = False
 			print("robot")
+		else:
+			flagRobot = False
+			flagTable = False
 # gpio
 
 	start_time = time.time()
