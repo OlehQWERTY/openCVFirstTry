@@ -13,7 +13,7 @@ from view import View
 from webcam import WebCam
 import imgRW
 from settings import Settings
-import motion
+#import motion # #movement 21_11_18
 
 import os
 # chose an implementation, depending on os
@@ -40,10 +40,10 @@ flag = True
 
 #
 # movement detection init with the equal data
-frame = Camera.takeFrame().copy()
-MD = motion.MotionDetect(frame, frame)
-flagMovement = False
-moveTime = 0
+# frame = Camera.takeFrame().copy() # movement 21_11_18
+# MD = motion.MotionDetect(frame, frame)
+# flagMovement = False
+# moveTime = 0
 
 # gpio
 if os.name == 'posix':
@@ -89,11 +89,11 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			print("Nothing to save!")
 	#
 
-	if flag == 5: # turn on/off movement detection
-		flagMovement = not flagMovement
-		print("\'M\'" + " " + str(flagMovement))
-		# print(chr(27) + "[2J") # clear terminal maybe in linux
-		os.system('cls' if os.name == 'nt' else 'clear') # clear terminal
+	# if flag == 5: # turn on/off movement detection
+	# 	flagMovement = not flagMovement
+	# 	print("\'M\'" + " " + str(flagMovement))
+	# 	# print(chr(27) + "[2J") # clear terminal maybe in linux
+	# 	os.system('cls' if os.name == 'nt' else 'clear') # clear terminal
 
 		if 'soleImg' in locals():
 			MD.loadF1(soleImg)  # load zone
@@ -102,22 +102,22 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			MD.loadF1(frame)  # load zone
 			MD.loadF2(frame)  # load zone
 
-	if flagMovement:
-		if 'soleImg' in locals():
-			movementStr = MD.loadF2(soleImg)  # frame
-		else:
-			movementStr = MD.loadF2(frame)  # frame
-
-		if movementStr == -1: # not 5 iteration passed
-			continue
-		elif movementStr == 1: # movement detected
-			moveTime = time.time()
-			print("Movement! %s" % moveTime)
-			continue
-		elif movementStr == 0: # movement not detected
-			if (time.time() - moveTime) > 0.5:
-		# 		print("Ready!")
-				pass
+	# if flagMovement: #movement 21_11_18
+	# 	if 'soleImg' in locals():
+	# 		movementStr = MD.loadF2(soleImg)  # frame
+	# 	else:
+	# 		movementStr = MD.loadF2(frame)  # frame
+	#
+	# 	if movementStr == -1: # not 5 iteration passed
+	# 		continue
+	# 	elif movementStr == 1: # movement detected
+	# 		moveTime = time.time()
+	# 		print("Movement! %s" % moveTime)
+	# 		continue
+	# 	elif movementStr == 0: # movement not detected
+	# 		if (time.time() - moveTime) > 0.5:
+	# 	# 		print("Ready!")
+	# 			pass
 
 
 
