@@ -1,5 +1,7 @@
 #controller
 
+# launch only with # python3 controller.py
+
 import sys
 import os # clear term func
 import time
