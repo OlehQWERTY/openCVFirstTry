@@ -12,45 +12,82 @@
     <session id="741793282">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="26" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.3" value="8" />
+          <entry key="project.open.time.3" value="9" />
           <entry key="project.open.time.4" value="12" />
-          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="PNG" value="1" />
           <entry key="png" value="2" />
-          <entry key="py" value="94" />
+          <entry key="py" value="103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="Python" value="94" />
+          <entry key="Python" value="103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="2" />
-          <entry key="py" value="15514" />
+          <entry key="py" value="16786" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="15514" />
+          <entry key="Python" value="16786" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="109" column="38" lean-forward="true" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
+              <folding>
+                <element signature="e#68#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-975">
+              <caret line="59" column="19" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="19" />
+              <folding>
+                <marker date="1543231647522" expanded="true" signature="3304:3409" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="792">
+              <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,22 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SoleImg</find>
-      <find>mousePosToZero</find>
-      <find>flg1</find>
-      <find>soleImg</find>
-      <find>getAdditionWindowProperty</find>
-      <find>ToZero</find>
-      <find>[0]</find>
-      <find>print</find>
-      <find>kok</find>
-      <find>nd</find>
-      <find>namedWindow</find>
-      <find>init</find>
-      <find>ove</find>
-      <find>motion</find>
-      <find>flagMovement</find>
-      <find>Set</find>
       <find>loadDefaultSquare</find>
       <find>setStr</find>
       <find>pos</find>
@@ -86,15 +107,36 @@
       <find>save</find>
       <find>D</find>
       <find>&quot;D</find>
-      <find>auto</find>
-      <find>flag</find>
       <find>draw</find>
       <find>ReadOrSaveImg</find>
       <find>autoImgSave</find>
+      <find>gpio</find>
+      <find>flagRobot</find>
+      <find>auto</find>
+      <find>View</find>
+      <find>simulateKey</find>
+      <find>ViewmainWindow</find>
+      <find>flag</find>
+      <find>mainWindow.simulateKeyPress(1)</find>
+      <find>sole</find>
+      <find>key</find>
+      <find>flagTable</find>
+      <find>is save</find>
+      <find>flagImgProcessed</find>
+      <find>table</find>
+      <find>IO</find>
+      <find>returnRefPt</find>
+      <find>read</find>
+      <find>#</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="WARN_ABOUT_CRLF" value="false" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
+    <option name="ADD_SUFFIX_TO_CHERRY_PICKS_OF_PUBLISHED_COMMITS" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -110,9 +152,10 @@
         <option value="$PROJECT_DIR$/../MotionDetection/MotionDetection_2.py" />
         <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/models/motion.py" />
-        <option value="$PROJECT_DIR$/app/models/gpio.py" />
         <option value="$PROJECT_DIR$/app/models/findObj.py" />
+        <option value="$PROJECT_DIR$/app/gpioController.py" />
         <option value="$PROJECT_DIR$/app/views/view.py" />
+        <option value="$PROJECT_DIR$/app/models/gpio.py" />
         <option value="$PROJECT_DIR$/app/controller.py" />
       </list>
     </option>
@@ -166,7 +209,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MotionDetection/MotionDetection_2.py" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -181,27 +224,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.controller (1)">
-    <configuration name="MotionDetection_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SoleGluingMachineImpruvements" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../MotionDetection" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../MotionDetection/MotionDetection_1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="MotionDetection_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SoleGluingMachineImpruvements" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -265,6 +287,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="gpioController" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SoleGluingMachineImpruvements" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/gpioController.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="view" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SoleGluingMachineImpruvements" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -290,16 +333,16 @@
       <item itemvalue="Python.controller" />
       <item itemvalue="Python.controller (1)" />
       <item itemvalue="Python.view" />
-      <item itemvalue="Python.MotionDetection_1" />
       <item itemvalue="Python.MotionDetection_2" />
+      <item itemvalue="Python.gpioController" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.controller (1)" />
         <item itemvalue="Python.view" />
+        <item itemvalue="Python.gpioController" />
         <item itemvalue="Python.MotionDetection_2" />
         <item itemvalue="Python.controller" />
-        <item itemvalue="Python.MotionDetection_1" />
       </list>
     </recent_temporary>
   </component>
@@ -318,13 +361,33 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.11037674" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966952" weight="0.4181818" />
+      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.49966952" weight="0.26993006" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49966952" weight="0.32867134" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50033045" side_tool="true" weight="0.4181818" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.11037674" />
+      <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
+      <window_info active="true" anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.17062937" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -336,29 +399,20 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.11037674" />
-      <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.379021" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32867134" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32996207" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/models/gpio.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
@@ -386,17 +440,9 @@
     <entry file="file://$PROJECT_DIR$/view.py" />
     <entry file="file://$PROJECT_DIR$/../MotionDetection/MotionDetection.py" />
     <entry file="file://$PROJECT_DIR$/controller.py" />
-    <entry file="file://$PROJECT_DIR$/app/models/common.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MotionDetection/MotionDetection_1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-330" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/barcode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../MotionDetection/MotionDetection_2.py">
@@ -420,30 +466,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/findObj.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mod_find_obj.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="84" column="12" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mod_find_obj.py" />
     <entry file="file://$PROJECT_DIR$/app/models/motion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -458,10 +481,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/barcode.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/findObj.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="124" column="22" lean-forward="true" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gpioController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="59" column="19" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="19" />
+          <folding>
+            <marker date="1543231647522" expanded="true" signature="3304:3409" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="128" column="67" selection-start-line="128" selection-start-column="67" selection-end-line="128" selection-end-column="67" />
+        <state relative-caret-position="265">
+          <caret line="109" column="38" lean-forward="true" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
+          <folding>
+            <element signature="e#68#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

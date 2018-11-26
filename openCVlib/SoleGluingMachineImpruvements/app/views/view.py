@@ -32,6 +32,8 @@ class View:
 
             self.flg2 = False # close sole window
 
+            self.simulatedKey = -1 # simulate Key var
+
 
     def click_and_crop(self, event = None, x = None, y = None, flags = None, param = None): # def click_and_crop(event, x, y, flags, param):
         if event == cv2.EVENT_LBUTTONDOWN:
@@ -82,12 +84,26 @@ class View:
             self.trackbarMaxVal = maxVal
             cv2.createTrackbar(self.trackbarName, self.name, self.trackbarVal, self.trackbarMaxVal, self.resMode) # trackbar
 
+    def simulateKeyPress(self, key=-1):
+        if key != -1:
+            self.simulatedKey = key
+            return key
+        return -1
+
     def draw(self, img):
         self.show2(img)
 
         self.show1(img) # temp order
         self.k = cv2.waitKey(1)  # 50 # don't work without this
-        return self.key() # return pressed key (ESC - exit)
+
+        # print(self.simulatedKey)
+
+        if self.simulatedKey != -1:  # simulate key pres from program
+            tmpKey = self.simulatedKey
+            self.simulatedKey = -1
+            return tmpKey
+
+        return self.key()  # return pressed key (ESC - exit)
 
 
     def show1(self, img): # mainWindow

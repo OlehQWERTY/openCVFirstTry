@@ -73,6 +73,9 @@ flagRobot = False
 flagTable = False
 # gpio
 
+counter = 0
+saveImgName = "NoSole" # init
+
 while mainWindow.getWindowProperty() and flag: # while True:
 
 # gpio
@@ -80,15 +83,15 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		if IO.read() == 0:
 			flagRobot = True
 			flagTable = True
-			print("robot + table")
+			# print("robot + table")
 		elif IO.read() == 1:
 			flagRobot = False
 			flagTable = True
-			print("table")
+			# print("table")
 		elif IO.read() == 2:
 			flagRobot = True
 			flagTable = False
-			print("robot")
+			# print("robot")
 		else:
 			flagRobot = False
 			flagTable = False
@@ -96,9 +99,35 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 	start_time = time.time()
 
+	counter = counter + 1
+	# print(counter)
+	# if counter % 10 == 0:
+	# 	print(counter)
+	# 	mainWindow.simulateKeyPress(1) # test
+
+	# if counter % 10 != 0:
+	# 	flagTable = False
+	# 	# print("kokokokokokokokokok")
+	# else:
+	# 	flagTable = True # because of windows test
+
+	# print("Table %s" %flagTable)
+	if flagTable:
+		mainWindow.simulateKeyPress(1)
+		# check !!!!!!!!!!!!
+		print(saveImgName.find("NoSole"))
+		if saveImgName.find("NoSole") != -1:
+			print("noSole")
+			IO.noSole()
+		elif saveImgName.find("Sole"):
+			print("Sole")
+			IO.sole()
+		else:
+			print("Don't know!")
+
+
 	frame = Camera.takeFrame().copy()
 	flag = mainWindow.draw(frame) # number of pressed key
-
 
 	# hide square sole pos
 	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
@@ -166,9 +195,9 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		# 		print("Ready!")
 				pass
 
-
-
+	# flag = 1
 	if(flag == 1): # proc only in case Space is pressed
+
 		soleImg = mainWindow.returnSoleImg()
 		cor = findObj.find(soleImg)  # sole image
 		print('Processed sole res: %s %s' % (soleImg.shape[1], soleImg.shape[0]))
@@ -196,9 +225,12 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			print('%s is saved' % saveImgName)
 		else:
 			print('%s' % saveImgName)
+			pass
 
 		elapsed_time = time.time() - start_time
 
-		print("Iteration score: %f" % elapsed_time)
+		# print("Iteration score: %f" % elapsed_time)
 
-		print(mainWindow.returnRefPt())
+		# print(mainWindow.returnRefPt())
+
+
