@@ -15,14 +15,12 @@ USAGE
 
 
 # Python 2/3 compatibility
-from __future__ import print_function
+# from __future__ import print_function
 
 import numpy as np
 import cv2 as cv
 import sys
 from common import anorm, getsize
-
-# cv.ocl.setUseOpenCL(False) # RPI fix (don't working)
 
 FLANN_INDEX_KDTREE = 1  # bug: flann enums are missing
 FLANN_INDEX_LSH    = 6
