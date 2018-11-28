@@ -71,7 +71,7 @@ flagTable = False
 # gpio
 
 # counter = 0
-saveImgName = "NoSole" # init
+saveImgName = "Sole" # init
 machinePosArr = [0, 1] # [0] - camera pos (robot pos - 1); [1] - robot position
 
 soleAmmount = 0
@@ -99,33 +99,34 @@ while mainWindow.getWindowProperty() and flag: # while True:
 # gpio
 
 	start_time = time.time()
-
+	# print('machinePosArr')
+	# print(machinePosArr)
 	if flagTable:
 		mainWindow.simulateKeyPress(1)
 		# check in the end of this file by findObj
-		print(saveImgName.find("NoSole"))
+		# print(saveImgName.find("NoSole"))
 		if saveImgName.find("NoSole") != -1:
-			print("Cam: noSole")
+			# print("Cam: NoSole") # print("Cam: noSole")
 			machinePosArr[0] = 0
-			# IO.noSole()
-		elif saveImgName.find("Sole"):
-			print("Cam: Sole")
-			machinePosArr[0] = 1
-			# IO.sole()
-		else:
-			print("Don't know!")
-
-		# position delay
-		if machinePosArr[1] == 1:
-			IO.sole()
-			soleAmmount = soleAmmount + 1
-			print("Robot: Sole [%d]" % soleAmmount)
-		else:
 			IO.noSole()
-			noSoleAmmount = noSoleAmmount + 1
-			print("Robot: noSole [%d]" % noSoleAmmount)
+		elif saveImgName.find("Sole") != -1:
+			# print("Cam: Sole") # print("Cam: Sole")
+			machinePosArr[0] = 1
+			IO.sole()
+		else:
+			print("Cam: Don't know!")
 
-		machinePosArr[1] = machinePosArr[0]
+		# # position delay
+		# if machinePosArr[1] == 1:
+		# 	IO.sole()
+		# 	soleAmmount = soleAmmount + 1
+		# 	print("Robot: Sole [%d]" % soleAmmount)
+		# else:
+		# 	IO.noSole()
+		# 	noSoleAmmount = noSoleAmmount + 1
+		# 	print("Robot: noSole [%d]" % noSoleAmmount)
+		#
+		# machinePosArr[1] = machinePosArr[0]
 
 	frame = Camera.takeFrame().copy()
 	flag = mainWindow.draw(frame) # number of pressed key
@@ -200,8 +201,8 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			pass
 		else:
 			if cor[0]/cor[1] > 0.2 and cor[1] > 8:  # and cor[0]/float(cor[1]) > 0.2: # check
-				isSoleStr = 'NoSole'
-				print(str(cor[0]) + '/' + str(cor[1]))
+				isSoleStr = 'NoSole' + '-' + str(cor[0]) + '-' + str(cor[1])
+				# print(str(cor[0]) + '/' + str(cor[1]))
 			else:
 				isSoleStr = 'Sole'
 
@@ -225,4 +226,4 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 		elapsed_time = time.time() - start_time
 
-		# print("Iteration score: %f" % elapsed_time)
+		print("Iteration score: %f" % elapsed_time)
