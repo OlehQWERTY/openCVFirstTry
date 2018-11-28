@@ -31,7 +31,6 @@ else:
 
 Set = Settings('conf.set')
 setStr = Set.load()
-# print("setStr len = %s" %len(setStr[0]))
 tmpLen = len(setStr[0]) # first setStr param is web cam res (640,480) or (640,480,15). 15 - fps. Check if camera supports it?
 if tmpLen == 2:
 	WebCamParam = [int(setStr[0][0]), int(setStr[0][1])] # [640, 480]
@@ -73,8 +72,12 @@ flagRobot = False
 flagTable = False
 # gpio
 
-counter = 0
+# counter = 0
 saveImgName = "NoSole" # init
+machinePosArr = [0, 1] # [0] - camera pos (robot pos - 1); [1] - robot position
+
+soleAmmount = 0
+noSoleAmmount = 0
 
 while mainWindow.getWindowProperty() and flag: # while True:
 
@@ -99,7 +102,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 	start_time = time.time()
 
-	counter = counter + 1
+	# counter = counter + 1
 	# print(counter)
 	# if counter % 10 == 0:
 	# 	print(counter)
@@ -114,17 +117,30 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	# print("Table %s" %flagTable)
 	if flagTable:
 		mainWindow.simulateKeyPress(1)
-		# check !!!!!!!!!!!!
+		# check in the end of this file by findObj
 		print(saveImgName.find("NoSole"))
 		if saveImgName.find("NoSole") != -1:
-			print("noSole")
-			IO.noSole()
+			print("Cam: noSole")
+			machinePosArr[0] = 0
+			# IO.noSole()
 		elif saveImgName.find("Sole"):
-			print("Sole")
-			IO.sole()
+			print("Cam: Sole")
+			machinePosArr[0] = 1
+			# IO.sole()
 		else:
 			print("Don't know!")
 
+		# position delay
+		if machinePosArr[1] == 1:
+			IO.sole()
+			soleAmmount = soleAmmount + 1
+			print("Robot: Sole [%d]" % soleAmmount)
+		else:
+			IO.noSole()
+			noSoleAmmount = noSoleAmmount + 1
+			print("Robot: noSole [%d]" % noSoleAmmount)
+
+		machinePosArr[1] = machinePosArr[0]
 
 	frame = Camera.takeFrame().copy()
 	flag = mainWindow.draw(frame) # number of pressed key
@@ -133,7 +149,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
 		mainWindow.mousePosToZero()
 		print("\'R\'" + ' ' + "Reset current square")
-	#
 
 	# hide square sole pos
 	if flag == 3 or autoMode:  # ord("d") default square (from settings file) # autoMode (auto_on) from conf.set
@@ -142,8 +157,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		# better to make something with View draw() func
 		if not autoMode: # if auto we don't need to print "Download squar..." every time
 			print("\'D\'" + ' ' + "Download square pos from set file")
-		# autoMode = False
-	#
 
 	if flag == 4: # save square pos (to settings)
 		kok = mainWindow.returnRefPt()
@@ -154,16 +167,13 @@ while mainWindow.getWindowProperty() and flag: # while True:
 				tmpStr = "|auto_on|img_save_off"
 			else:
 				tmpStr = "|auto_off|img_save_on"
+
 			Set.save(str(frame.shape[1]) + ',' + str(frame.shape[0]) + '|' + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' +
 					 str(kok[1][0]) + ',' + str(kok[1][1]) + tmpStr) # [(x1, y1), (x2, y2)])
-
-			# Set.save(str(frame.shape[1]) + ',' + str(frame.shape[0]) + '|' + str(kok[0][0]) + ',' + str(kok[0][1]) + ',' +
-			# 	str(kok[1][0]) + ',' + str(kok[1][1]) + "|auto_off|img_save_on")  # [(x1, y1), (x2, y2)])
 
 			print("\'S\'" + ' ' + "Save square")
 		else:
 			print("Nothing to save!")
-
 
 	if flag == 5: # turn on/off movement detection
 		flagMovement = not flagMovement
@@ -195,20 +205,19 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		# 		print("Ready!")
 				pass
 
-	# flag = 1
-	if(flag == 1): # proc only in case Space is pressed
+	if flag == 1:  # proc only in case Space is pressed
 
 		soleImg = mainWindow.returnSoleImg()
 		cor = findObj.find(soleImg)  # sole image
 		print('Processed sole res: %s %s' % (soleImg.shape[1], soleImg.shape[0]))
-		isSoleStr = 'Sole'
+		isSoleStr = 'Sole(no points)'
 		if not cor:
 			pass
 		else:
-			if cor[1] > 10: # and cor[0]/float(cor[1]) > 0.2: # check
+			if cor[0]/cor[1] > 0.3: # and cor[0]/float(cor[1]) > 0.2: # check
 				isSoleStr = 'NoSole' + '-' + str(cor[0]) + '/' + str(cor[1])
 			else:
-				isSoleStr = 'Sole'
+				isSoleStr = 'Sole' + str(cor[0]) + '/' + str(cor[1])
 
 		barCodeData = barcode.zbar(frame)
 
@@ -216,6 +225,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			barCodeData = ['No', 'No']
 
 		localTime = time.localtime(time.time())
+
 		saveImgName = str(localTime[2]) + '-' + str(localTime[1]) + '-' \
 					  + str(localTime[0]) + '-' + str(localTime[3]) + '-' + str(localTime[4]) + '-' \
 					  + str(localTime[5]) + '-' + isSoleStr + '-' + 'QR' + '-' + str(barCodeData[1])  # 'IMGs/' +
@@ -230,7 +240,3 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		elapsed_time = time.time() - start_time
 
 		# print("Iteration score: %f" % elapsed_time)
-
-		# print(mainWindow.returnRefPt())
-
-
