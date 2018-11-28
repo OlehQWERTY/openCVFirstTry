@@ -231,8 +231,8 @@ while mainWindow.getWindowProperty() and flag: # while True:
 					  + str(localTime[5]) + '-' + isSoleStr + '-' + 'QR' + '-' + str(barCodeData[1])  # 'IMGs/' +
 
 		if autoImgSave: # auto save img according to conf
-			ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
-			print('%s is saved' % saveImgName)
+			# ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
+			print(str(ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)) + '%s is saved' % saveImgName)
 		else:
 			print('%s' % saveImgName)
 			pass
