@@ -43,10 +43,8 @@ print(str(setStr[2]))
 # not normal solution
 if 'auto_on' in str(setStr[2]):
 	autoMode = True
-	# print("True")
 else:
 	autoMode = False
-	# print("False")
 
 if 'img_save_on' in str(setStr[3]):
 	autoImgSave = True
@@ -102,19 +100,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 	start_time = time.time()
 
-	# counter = counter + 1
-	# print(counter)
-	# if counter % 10 == 0:
-	# 	print(counter)
-	# 	mainWindow.simulateKeyPress(1) # test
-
-	# if counter % 10 != 0:
-	# 	flagTable = False
-	# 	# print("kokokokokokokokokok")
-	# else:
-	# 	flagTable = True # because of windows test
-
-	# print("Table %s" %flagTable)
 	if flagTable:
 		mainWindow.simulateKeyPress(1)
 		# check in the end of this file by findObj
@@ -214,10 +199,11 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		if not cor:
 			pass
 		else:
-			if cor[0]/cor[1] > 0.3: # and cor[0]/float(cor[1]) > 0.2: # check
-				isSoleStr = 'NoSole' + '-' + str(cor[0]) + '/' + str(cor[1])
+			if cor[0]/cor[1] > 0.2 and cor[1] > 8:  # and cor[0]/float(cor[1]) > 0.2: # check
+				isSoleStr = 'NoSole'
+				print(str(cor[0]) + '/' + str(cor[1]))
 			else:
-				isSoleStr = 'Sole' + str(cor[0]) + '/' + str(cor[1])
+				isSoleStr = 'Sole'
 
 		barCodeData = barcode.zbar(frame)
 
@@ -231,8 +217,8 @@ while mainWindow.getWindowProperty() and flag: # while True:
 					  + str(localTime[5]) + '-' + isSoleStr + '-' + 'QR' + '-' + str(barCodeData[1])  # 'IMGs/' +
 
 		if autoImgSave: # auto save img according to conf
-			# ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
-			print(str(ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)) + '%s is saved' % saveImgName)
+			ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
+			print('%s is saved' % saveImgName)
 		else:
 			print('%s' % saveImgName)
 			pass
