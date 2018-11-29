@@ -14,35 +14,39 @@ class RPI_GPIO:
         GPIO.cleanup()  # clean up after yourself
 
     def read(self):
-        if not GPIO.input(20) and GPIO.input(21):
+        if GPIO.input(20) and GPIO.input(21):
             # print("table + robot")
             return 0
-        if not GPIO.input(20):
+        if GPIO.input(20):
             # print("table")
             return 1
-        if not GPIO.input(21):
+        if GPIO.input(21):
             # print("robot")
             return 2
         return -1
 
     def sole(self):
-        GPIO.output(18, 1)  # robot start
-        print("Wait signal finished from robot!")
-        while(self.read() != 2):
-            pass
-        sleep(0.5)
-        GPIO.output(18, 0)  # robot stop
-
+        # GPIO.output(18, 1)  # robot start
+        # print("Wait signal finished from robot!")
+        # while(self.read() != 2):
+        #     pass
+        # sleep(0.5)
+        GPIO.output(18, 0)  # robot on
         GPIO.output(17, 1)  # turn table on
+        sleep(1)
+
         print("Turn table sole")
-        sleep(0.5)
+        # sleep(0.5)
         GPIO.output(17, 0)  # turn table off
 
+        GPIO.output(18, 1)  # table off
+
     def noSole(self):
+        GPIO.output(18, 1)  # turn table off
         GPIO.output(17, 1)  # turn table
-        print("Wait signal finished from table!")
-        while(self.read() != 1):
-            pass
-        sleep(0.5)
+        # print("Wait signal finished from table!")
+        # while(self.read() != 1):
+        #     pass
+        sleep(1)
         print("Turn table NoSole")
-        GPIO.output(17, 0)  # turn table
+        GPIO.output(17, 0)  # turn table off

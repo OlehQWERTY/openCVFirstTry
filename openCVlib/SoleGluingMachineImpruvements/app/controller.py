@@ -107,11 +107,11 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		# print(saveImgName.find("NoSole"))
 		if saveImgName.find("NoSole") != -1:
 			# print("Cam: NoSole") # print("Cam: noSole")
-			machinePosArr[0] = 0
+			# machinePosArr[0] = 0
 			IO.noSole()
 		elif saveImgName.find("Sole") != -1:
 			# print("Cam: Sole") # print("Cam: Sole")
-			machinePosArr[0] = 1
+			# machinePosArr[0] = 1
 			IO.sole()
 		else:
 			print("Cam: Don't know!")
