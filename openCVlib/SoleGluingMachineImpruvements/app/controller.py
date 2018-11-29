@@ -71,7 +71,7 @@ flagTable = False
 # gpio
 
 # counter = 0
-saveImgName = "Sole" # init
+saveImgName = "Sole"  # init
 machinePosArr = [0, 1] # [0] - camera pos (robot pos - 1); [1] - robot position
 
 soleAmmount = 0
@@ -101,20 +101,28 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	start_time = time.time()
 	# print('machinePosArr')
 	# print(machinePosArr)
-	if flagTable:
-		mainWindow.simulateKeyPress(1)
-		# check in the end of this file by findObj
-		# print(saveImgName.find("NoSole"))
-		if saveImgName.find("NoSole") != -1:
-			# print("Cam: NoSole") # print("Cam: noSole")
-			# machinePosArr[0] = 0
-			IO.noSole()
-		elif saveImgName.find("Sole") != -1:
-			# print("Cam: Sole") # print("Cam: Sole")
-			# machinePosArr[0] = 1
-			IO.sole()
-		else:
-			print("Cam: Don't know!")
+
+	if noSoleAmmount == 0 and soleAmmount == 0:
+		flagRobot = True
+
+	if flagRobot:
+
+		if flagTable:
+			mainWindow.simulateKeyPress(1)
+			# check in the end of this file by findObj
+
+			if SaveImgName.find("NoSole") != -1:
+				IO.noSole()
+				flagRobot = False
+				noSoleAmmount += 1
+			elif SaveImgName.find("Sole") != -1:
+				IO.sole()
+				flagRobot = False
+				soleAmmount += 1
+			else:
+				print("Cam: Don't know!")
+
+	saveImgName = prevSaveImgName # test
 
 		# # position delay
 		# if machinePosArr[1] == 1:
@@ -213,17 +221,19 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 		localTime = time.localtime(time.time())
 
-		saveImgName = str(localTime[2]) + '-' + str(localTime[1]) + '-' \
+		prevSaveImgName = str(localTime[2]) + '-' + str(localTime[1]) + '-' \
 					  + str(localTime[0]) + '-' + str(localTime[3]) + '-' + str(localTime[4]) + '-' \
 					  + str(localTime[5]) + '-' + isSoleStr + '-' + 'QR' + '-' + str(barCodeData[1])  # 'IMGs/' +
 
 		if autoImgSave: # auto save img according to conf
-			ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
-			print('%s is saved' % saveImgName)
+			ReadOrSaveImg.rw('W', '../IMGs/' + prevSaveImgName + '.png', frame)  # save to img with imgName date + .png
+			print('%s is saved' % prevSaveImgName)
 		else:
-			print('%s' % saveImgName)
+			print('%s' % prevSaveImgName)
 			pass
 
 		elapsed_time = time.time() - start_time
 
 		print("Iteration score: %f" % elapsed_time)
+
+		# saveImgName = prevSaveImgName # test
