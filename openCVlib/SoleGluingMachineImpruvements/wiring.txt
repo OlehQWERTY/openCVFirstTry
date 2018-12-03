@@ -1,0 +1,20 @@
+machine 6
+
+RPI IN
+
+table in(in robot connected to 1001)
+
+auto (5 out from robot)
+
+RPI OUT
+
+table out (1001)
+
+i_rasp out (1008)
+
+
+
+
+# how to switch to manual mode
+
+2 wire to A1 of table input relay raspberry

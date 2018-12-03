@@ -122,7 +122,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 			else:
 				print("Cam: Don't know!")
 
-	saveImgName = prevSaveImgName # test
+	saveImgName = prevSaveImgName  # test
 
 		# # position delay
 		# if machinePosArr[1] == 1:

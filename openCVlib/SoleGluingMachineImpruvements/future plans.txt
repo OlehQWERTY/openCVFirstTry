@@ -1,3 +1,9 @@
-add save and read l/r modes (auto start motion detection or start in manual mode)
+add send to DB sole ammount according to QR code
 
-add send to DB sole ammount according to QR code 
+optimise loop time
+
+check evening light condition
+
+normal wiring
+
+
