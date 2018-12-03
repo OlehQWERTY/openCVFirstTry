@@ -31,22 +31,34 @@ class RPI_GPIO:
         # while(self.read() != 2):
         #     pass
         # sleep(0.5)
-        GPIO.output(18, 0)  # robot on i_rasp
+        GPIO.output(18, 0)  # robot on
         GPIO.output(17, 1)  # turn table on
-        sleep(1)
+        sleep(2)
+        
+
+    def endSole(self):
+
+        # sleep(1)
 
         print("Turn table sole")
         # sleep(0.5)
         GPIO.output(17, 0)  # turn table off
 
-        # GPIO.output(18, 1)  # table off i_rasp
+        GPIO.output(18, 1)  # table off
+        # sleep(2)
+        
 
     def noSole(self):
-        GPIO.output(18, 1)  # turn table off i_rasp
+        GPIO.output(18, 1)  # turn table off
         GPIO.output(17, 1)  # turn table
         # print("Wait signal finished from table!")
         # while(self.read() != 1):
         #     pass
+        sleep(2)
+
+
+    def endNoSole(self):
         sleep(1)
         print("Turn table NoSole")
         GPIO.output(17, 0)  # turn table off
+        # sleep(2)
