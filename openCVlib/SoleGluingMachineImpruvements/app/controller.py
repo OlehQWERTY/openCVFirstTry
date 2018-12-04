@@ -240,3 +240,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		elapsed_time = time.time() - start_time
 
 		print("Iteration score: %f" % elapsed_time)
+
+# free web camera in case of closing app
+del Camera

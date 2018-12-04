@@ -1,5 +1,6 @@
 import cv2
 from time import sleep
+import os
 
 class WebCam():
 
@@ -15,8 +16,15 @@ class WebCam():
     def takeFrame(self):
         self.ret, self.frame = self.cam.read()
         if not self.ret:
-            print("Web camera isn't connected!")
+            print("Error: Web camera isn't connected or busy!\nPlease, try to reboot RPI.")
+            print("Autoreboot RPI in 5 s...")
+            for i in range(5):
+                sleep(1)
+                print(i)
+            os.popen('reboot')  # not tested
             self.__del__()
+            exit()
+
         return self.frame
 
     def __del__(self):
