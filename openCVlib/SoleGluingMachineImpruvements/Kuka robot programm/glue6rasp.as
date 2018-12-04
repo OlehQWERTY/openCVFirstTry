@@ -50,12 +50,7 @@ SWITCH AUTOSTART2.PC   ON
 					SWAIT (-pauza)
 					start_cycle = -1
 					count_pod = count_pod + 1
-
-					IF flg_prasa THEN
-						SIGNAL prasa
-					END
-					flg_prasa = TRUE
-
+					SIGNAL prasa
 					TWAIT 0.1
 					JMOVE pos2
 					SIGNAL (zlap)
@@ -124,7 +119,10 @@ SWITCH AUTOSTART2.PC   ON
 					GOTO 1
 				ELSE
 ;pause empty table				
+					SIGNAL prasa
 					TWAIT 4
+					SIGNAL (-prasa)
+					TWAIT sklej
 					PULSE (auto),1
 					TWAIT obrot
 					GOTO 1					
@@ -137,14 +135,6 @@ SWITCH AUTOSTART2.PC   ON
 				TWAIT 2
 				JMOVE park2
 				SWAIT (praca)
-				
-				; sole_press
-				IF flg_prasa THEN
-					SIGNAL prasa
-				END
-				flg_prasa = FALSE
-				TWAIT 0.3 ; wait until sole pressed
-				SIGNAL -prasa
 			END
 		END
 .END
@@ -246,7 +236,7 @@ SWITCH AUTOSTART2.PC   ON
 				$temp = $DECODE($st_in,",",0)
 				$command = $temp			
 				$machine_name=$command
-				SEND "PUT_NAME,0", .s_err		
+				SEND "PUT_NAME,0", .s_err		ІІІІ
 			END
 			IF $command=="PUT_MACHINE_ARTICLE" THEN
 				$temp = $DECODE($st_in,",",0)
@@ -281,7 +271,7 @@ SWITCH AUTOSTART2.PC   ON
 			IF $command=="PUT_POS1" THEN					
 				FOR .i=0 TO 5
 					$temp = $DECODE($data,",",0)
-					.t_p[.i] = VAL($temp)						
+					.t_p[.i] = VAL($temp)				І		
 					$temp = $DECODE($data,",",1)	
 				END					
 				POINT pos1 = TRANS(.t_p[0],.t_p[1],.t_p[2],.t_p[3],.t_p[4],.t_p[5])				
@@ -342,5 +332,4 @@ prasa  = 1 ; it is sole_press out sig
 zlap   = 2
 pusc   = 3
 auto = 5
-flg_prasa = TRUE ; sole_press flag
 .END

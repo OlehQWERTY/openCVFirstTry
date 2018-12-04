@@ -1,25 +1,24 @@
-#controller
+# controller
 
 # launch only with python3
 #
 #  python3 controller.py
 
 import sys
-import os # clear term func
+import os
 import time
 
 sys.path.append('models')
 sys.path.append('./views')
 
-import barcode #barcode scaner
-import findObj #findObject
+import barcode  # barcode scanner
+import findObj  # findObject
 from view import View
 from webcam import WebCam
 import imgRW
 from settings import Settings
-import motion # #movement 21_11_18
+# import motion # movement 21_11_18
 
-import os
 # chose an implementation, depending on os
 if os.name == 'nt':  # sys.platform == 'win32':
 	print("GPIO is not avaliable under windows!")

@@ -1,4 +1,5 @@
 import cv2
+from time import sleep
 
 class WebCam():
 
@@ -8,6 +9,7 @@ class WebCam():
         self.cam.set(4, h)
         self.cam.set(fps, 0.1)
         for x in range(5):
+            sleep(0.1)
             self.takeFrame()
 
     def takeFrame(self):
