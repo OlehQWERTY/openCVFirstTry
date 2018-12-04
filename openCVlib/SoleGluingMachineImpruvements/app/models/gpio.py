@@ -5,10 +5,10 @@ class RPI_GPIO:
 
     def __init__(self):
         GPIO.setmode(GPIO.BCM)  # set up BCM GPIO numbering
-        GPIO.setup(20, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # without resistor  # input (table)
-        GPIO.setup(21, GPIO.IN)  # input (robot)
-        GPIO.setup(17, GPIO.OUT)  # output (table)
-        GPIO.setup(18, GPIO.OUT)  # output (robot)
+        GPIO.setup(20, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)  # without resistor  # input (table) -- #1 wire
+        GPIO.setup(21, GPIO.IN)  # input (robot)  # input (auto) -- #4 wire
+        GPIO.setup(17, GPIO.OUT)  # output (table)  # 1001 -- # 3 wire
+        GPIO.setup(18, GPIO.OUT)  # output (robot)  # i_rasp  # 1008 -- # 2 wire
 
     def __del__(self):
         GPIO.cleanup()  # clean up after yourself
