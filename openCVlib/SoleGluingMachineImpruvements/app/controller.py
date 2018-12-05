@@ -102,31 +102,31 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	start_time = time.time()
 	# print('machinePosArr')
 	# print(machinePosArr)
-	if count >= 30:
-		if flagTable:
-			mainWindow.simulateKeyPress(1)
-			# check in the end of this file by findObj
-			# print(saveImgName.find("NoSole"))
-			if saveImgName.find("NoSole") != -1:
-				# print("Cam: NoSole") # print("Cam: noSole")
-				# machinePosArr[0] = 0
-				IO.noSole()
-				print("start")
-				count=0
-				IO.endNoSole()
-				print("end")
-			elif saveImgName.find("Sole") != -1:
-				# print("Cam: Sole") # print("Cam: Sole")
-				# machinePosArr[0] = 1
-				IO.sole()
-				print("start111111111111111")
-				count=-50
-				IO.endSole()
-				print("end11111111111111111")
-			else:
-				print("Cam: Don't know!")
-
-	count+=1
+	# if count >= 30:
+	# 	if flagTable:
+	# 		mainWindow.simulateKeyPress(1)
+	# 		# check in the end of this file by findObj
+	# 		# print(saveImgName.find("NoSole"))
+	# 		if saveImgName.find("NoSole") != -1:
+	# 			# print("Cam: NoSole") # print("Cam: noSole")
+	# 			# machinePosArr[0] = 0
+	# 			IO.noSole()
+	# 			print("start")
+	# 			count=0
+	# 			IO.endNoSole()
+	# 			print("end")
+	# 		elif saveImgName.find("Sole") != -1:
+	# 			# print("Cam: Sole") # print("Cam: Sole")
+	# 			# machinePosArr[0] = 1
+	# 			IO.sole()
+	# 			print("start111111111111111")
+	# 			count=-50
+	# 			IO.endSole()
+	# 			print("end11111111111111111")
+	# 		else:
+	# 			print("Cam: Don't know!")
+	#
+	# count+=1
 
 		# # position delay
 		# if machinePosArr[1] == 1:
@@ -241,5 +241,6 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 		print("Iteration score: %f" % elapsed_time)
 
-# free web camera in case of closing app
+# free web camera and gpio in case of closing app
+del IO
 del Camera
