@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep  # this lets us have a time delay (see line 15)
 
+
 class RPI_GPIO:
 
     def __init__(self):
@@ -15,13 +16,13 @@ class RPI_GPIO:
 
     def read(self):
         if GPIO.input(20) and GPIO.input(21):
-            print("table in pos + robot turn on press 1s")
+            # print("pos1 + auto")
             return 0
         if GPIO.input(20):
-            print("table in pos")
+            # print("GPIO 20 IN (pos1)")
             return 1
         if GPIO.input(21):
-            print("robot turn on press 1s")
+            # print("GPIO 21 IN (auto)")
             return 2
         return -1
 
@@ -31,34 +32,25 @@ class RPI_GPIO:
         # while(self.read() != 2):
         #     pass
         # sleep(0.5)
+        # print("OUT")
+        # print(GPIO.input(18)) # check state OUTPUT port
         GPIO.output(18, 0)  # robot on
         GPIO.output(17, 1)  # turn table on
-        sleep(2)
-        
+        sleep(0.3)
 
     def endSole(self):
-
-        # sleep(1)
-
-        print("Turn table sole")
-        # sleep(0.5)
         GPIO.output(17, 0)  # turn table off
-
-        GPIO.output(18, 1)  # table off
+        # GPIO.output(18, 1)  # robot off
         # sleep(2)
-        
 
     def noSole(self):
-        GPIO.output(18, 1)  # turn table off
+        GPIO.output(18, 1)  # robot off
         GPIO.output(17, 1)  # turn table
         # print("Wait signal finished from table!")
         # while(self.read() != 1):
         #     pass
-        sleep(2)
-
+        sleep(0.3)
 
     def endNoSole(self):
-        sleep(1)
-        print("Turn table NoSole")
         GPIO.output(17, 0)  # turn table off
         # sleep(2)

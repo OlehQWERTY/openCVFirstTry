@@ -65,8 +65,9 @@ flag = True
 if os.name == 'posix':
 	IO = gpio.RPI_GPIO()
 
-flagRobot = False
-flagTable = False
+# flagRobot = False
+# flagTable = False
+flagGPIO = False # test now
 # gpio
 
 # counter = 0
@@ -81,22 +82,56 @@ count = 0
 while mainWindow.getWindowProperty() and flag: # while True:
 
 # gpio
+
+	count += 1
 	if os.name == 'posix':
-		if IO.read() == 0:
-			flagRobot = True
-			flagTable = True
-			# print("robot + table")
-		elif IO.read() == 1:
-			flagRobot = False
-			flagTable = True
-			# print("table")
-		elif IO.read() == 2:
-			flagRobot = True
-			flagTable = False
-			# print("robot")
-		else:
-			flagRobot = False
-			flagTable = False
+		if IO.read() == 1:  # pos1
+			if saveImgName.find("NoSole") != -1:
+				# if count > 10:
+				print("NoSole")
+				IO.noSole()
+				IO.endNoSole()
+
+					# count = 0 # less rellay work
+			elif saveImgName.find("Sole") != -1:
+				# if count > 10:
+				print("Sole")
+				IO.sole()
+				IO.endSole()
+
+					# count = 0
+			#  img proc
+
+		#  make image processing simultaniouslu with robot movement
+
+		tempIORead = IO.read()  #  for one execution IO.read for 2 cheaking
+		if tempIORead == 0:  # auto or auto and table # tempIORead == 2 or tempIORead == 0
+			mainWindow.simulateKeyPress(1)
+
+			# if not flagGPIO:
+			# 	mainWindow.simulateKeyPress(1)
+			# else:
+			# 	flagGPIO = False
+
+
+		# if IO.read() == 0:
+		# 	flagRobot = True
+		# 	flagTable = True
+		# 	# print("robot + table")
+		# elif IO.read() == 1:
+		# 	flagRobot = False
+		# 	flagTable = True
+		# 	# print("table")
+		# elif IO.read() == 2:
+		# 	flagRobot = True
+		# 	flagTable = False
+		# 	# print("robot")
+		# else:
+		# 	flagRobot = False
+		# 	flagTable = False
+
+		# pass
+
 # gpio
 
 	start_time = time.time()
