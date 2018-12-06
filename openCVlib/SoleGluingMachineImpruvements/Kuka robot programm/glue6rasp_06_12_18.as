@@ -118,11 +118,16 @@ SWITCH AUTOSTART2.PC   ON
 					TWAIT obrot
 					GOTO 1
 				ELSE
-;pause empty table				
+
+; pause empty table
+; back to pos under table
+					JMOVE pos1
 					SIGNAL prasa
-					;ty "pass"
+					ty "pass"
 					TWAIT 4
 					SIGNAL (-prasa)
+; check pauza
+					SWAIT (-pauza)
 					TWAIT sklej
 					PULSE (auto),1
 					TWAIT obrot

@@ -42,91 +42,80 @@ SWITCH AUTOSTART2.PC   ON
 1       IF SIG(praca) THEN
 			TWAIT czas2
 			IF SIG(pos1) AND SIG(praca) THEN
-				IF SIG (i_rasp) == FALSE THEN
-					ACCURACY 100 ALWAYS
-					JMOVE pos1
-					TWAIT startw
-					ACCURACY 1
+				ACCURACY 100 ALWAYS
+				JMOVE pos1
+				TWAIT startw
+				ACCURACY 1
+				SWAIT (-pauza)
+				start_cycle = -1
+				count_pod = count_pod + 1
+				SIGNAL prasa
+				TWAIT 0.1
+				JMOVE pos2
+				SIGNAL (zlap)
+				TWAIT czekaj
+				SPEED 50
+				SWAIT (-pauza)
+				ACCURACY 150 ALWAYS
+				JMOVE pos1
+				SPEED 100
+				SWAIT (-pauza)
+				ACCURACY 200
+				C1MOVE park
+				SWAIT (-pauza)
+				ACCURACY 10
+				C2MOVE pok1
+				SPEED 400 MM/S ALWAYS
+				SWAIT (-pauza)
+				SWAIT (ssil)
+				TWAIT 0.1
+				ACCURACY 10
+				LMOVE pok2
+				SWAIT (-pauza)
+				SPEED 100 ALWAYS
+				IF SIG(drugi) THEN
+					C1MOVE pok3
 					SWAIT (-pauza)
-					start_cycle = -1
-					count_pod = count_pod + 1
-					SIGNAL prasa
-					TWAIT 0.1
-					JMOVE pos2
-					SIGNAL (zlap)
-					TWAIT czekaj
-					SPEED 50
-					SWAIT (-pauza)
-					ACCURACY 150 ALWAYS
-					JMOVE pos1
-					SPEED 100
-					SWAIT (-pauza)
-					ACCURACY 200
-					C1MOVE park
+					C2MOVE pok4
+					SPEED 350 MM/S ALWAYS
 					SWAIT (-pauza)
 					ACCURACY 10
-					C2MOVE pok1
-					SPEED 400 MM/S ALWAYS
-					SWAIT (-pauza)
-					SWAIT (ssil)
-					TWAIT 0.1
-					ACCURACY 10
-					LMOVE pok2
-					SWAIT (-pauza)
-					SPEED 100 ALWAYS
-					IF SIG(drugi) THEN
-						C1MOVE pok3
-						SWAIT (-pauza)
-						C2MOVE pok4
-						SPEED 350 MM/S ALWAYS
-						SWAIT (-pauza)
-						ACCURACY 10
-						LMOVE pok5
-					ELSE
-						SWAIT (-pauza)
-					END
-					SPEED 100 ALWAYS	
-					ACCURACY 100
-					IF SIG(wybor) THEN
-						SWAIT (-pauza)
-						JMOVE kontrola
-						SWAIT (-pauza)
-						TWAIT klej
-					ELSE
-						SWAIT (-pauza)
-					END
-					ACCURACY 100 ALWAYS
-					C1MOVE pos3_1
-					C2MOVE pos3
-					SWAIT (-pauza)
-					ACCURACY 1
-					SPEED 500 MM/S ALWAYS
-					SWAIT (-pauza)
-					JMOVE pos4
-					TWAIT sklej
-					SIGNAL (-prasa)
-					SIGNAL (-zlap)				
-					SIGNAL (pusc)
-					TWAIT tzrzut
-					SIGNAL (-pusc)
-					SWAIT (-pauza)
-					ACCURACY 100 ALWAYS
-					SPEED 100 ALWAYS
-					C1MOVE pos3
-					PULSE (auto),1
-					C2MOVE pos1
-					TWAIT obrot
-					GOTO 1
+					LMOVE pok5
 				ELSE
-;pause empty table				
-					SIGNAL prasa
-					TWAIT 4
-					SIGNAL (-prasa)
-					TWAIT sklej
-					PULSE (auto),1
-					TWAIT obrot
-					GOTO 1					
+					SWAIT (-pauza)
 				END
+				SPEED 100 ALWAYS	
+				ACCURACY 100
+				IF SIG(wybor) THEN
+					SWAIT (-pauza)
+					JMOVE kontrola
+					SWAIT (-pauza)
+					TWAIT klej
+				ELSE
+					SWAIT (-pauza)
+				END
+				ACCURACY 100 ALWAYS
+				C1MOVE pos3_1
+				C2MOVE pos3
+				SWAIT (-pauza)
+				ACCURACY 1
+				SPEED 500 MM/S ALWAYS
+				SWAIT (-pauza)
+				JMOVE pos4
+				TWAIT sklej
+				SIGNAL (-prasa)
+				SIGNAL (-zlap)				
+				SIGNAL (pusc)
+				TWAIT tzrzut
+				SIGNAL (-pusc)
+				SWAIT (-pauza)
+				ACCURACY 100 ALWAYS
+				SPEED 100 ALWAYS
+				C1MOVE pos3
+				PULSE (auto),1
+				C2MOVE pos1
+				TWAIT obrot
+				GOTO 1
 			END
 		ELSE
 			IF SIG(-praca) THEN
@@ -327,7 +316,6 @@ pauza = 1003
 drugi = 1005
 wybor = 1006
 ssil  = 1007
-i_rasp = 1008
 prasa  = 1 ; it is sole_press out sig
 zlap   = 2
 pusc   = 3
