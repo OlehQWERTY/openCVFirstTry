@@ -43,6 +43,7 @@ SWITCH AUTOSTART2.PC   ON
 			TWAIT czas2
 			IF SIG(pos1) AND SIG(praca) THEN
 				IF SIG (i_rasp) == FALSE THEN
+					TIMER 1 = 0 ; timer
 					ACCURACY 100 ALWAYS
 					JMOVE pos1
 					TWAIT startw
@@ -116,14 +117,17 @@ SWITCH AUTOSTART2.PC   ON
 					PULSE (auto),1
 					C2MOVE pos1
 					TWAIT obrot
+					TY "sole time =",/F5.3, Timer(1), "seconds"
 					GOTO 1
 				ELSE
 
 ; pause empty table
+					TIMER 2 = 0 ; timer
 ; back to pos under table
+					SWAIT (-pauza)
 					JMOVE pos1
 					SIGNAL prasa
-					ty "pass"
+					;ty "pass"
 					TWAIT 4
 					SIGNAL (-prasa)
 ; check pauza
@@ -131,6 +135,7 @@ SWITCH AUTOSTART2.PC   ON
 					TWAIT sklej
 					PULSE (auto),1
 					TWAIT obrot
+					TY "no sole time =",/F5.3, Timer(2), "seconds"
 					GOTO 1					
 				END
 			END
