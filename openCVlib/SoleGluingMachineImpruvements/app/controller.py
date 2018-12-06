@@ -91,6 +91,8 @@ while mainWindow.getWindowProperty() and flag: # while True:
 				print("NoSole")
 				IO.noSole()
 				IO.endNoSole()
+				#  test
+				saveImgName = "Processed"
 
 					# count = 0 # less rellay work
 			elif saveImgName.find("Sole") != -1:
@@ -98,6 +100,11 @@ while mainWindow.getWindowProperty() and flag: # while True:
 				print("Sole")
 				IO.sole()
 				IO.endSole()
+				#  test
+				saveImgName = "Processed"
+
+			elif saveImgName.find("Processed") != -1:  # one command to relay
+				print("Processed")
 
 		#  make image processing simultaneously with robot movement
 
