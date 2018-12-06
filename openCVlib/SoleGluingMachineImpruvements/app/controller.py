@@ -67,7 +67,7 @@ if os.name == 'posix':
 
 # flagRobot = False
 # flagTable = False
-flagGPIO = False # test now
+flagGPIO = False  # test now
 # gpio
 
 # counter = 0
@@ -99,7 +99,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 				IO.sole()
 				IO.endSole()
 
-		#  make image processing simultaniouslu with robot movement
+		#  make image processing simultaneously with robot movement
 
 		tempIORead = IO.read()  #  for one execution IO.read for 2 cheaking
 		if tempIORead == 0:  # auto or auto and table # tempIORead == 2 or tempIORead == 0

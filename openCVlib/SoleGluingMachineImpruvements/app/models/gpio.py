@@ -27,13 +27,6 @@ class RPI_GPIO:
         return -1
 
     def sole(self):
-        # GPIO.output(18, 1)  # robot start
-        # print("Wait signal finished from robot!")
-        # while(self.read() != 2):
-        #     pass
-        # sleep(0.5)
-        # print("OUT")
-        # print(GPIO.input(18)) # check state OUTPUT port
         GPIO.output(18, 0)  # robot on
         GPIO.output(17, 1)  # turn table on
         sleep(0.3)
@@ -41,16 +34,11 @@ class RPI_GPIO:
     def endSole(self):
         GPIO.output(17, 0)  # turn table off
         # GPIO.output(18, 1)  # robot off
-        # sleep(2)
 
     def noSole(self):
         GPIO.output(18, 1)  # robot off
         GPIO.output(17, 1)  # turn table
-        # print("Wait signal finished from table!")
-        # while(self.read() != 1):
-        #     pass
         sleep(0.3)
 
     def endNoSole(self):
         GPIO.output(17, 0)  # turn table off
-        # sleep(2)
