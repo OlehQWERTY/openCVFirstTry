@@ -72,7 +72,7 @@ flagGPIO = False # test now
 
 # counter = 0
 saveImgName = "Sole" # init
-machinePosArr = [0, 1] # [0] - camera pos (robot pos - 1); [1] - robot position
+# machinePosArr = [0, 1]  # [0] - camera pos (robot pos - 1); [1] - robot position
 
 soleAmmount = 0
 noSoleAmmount = 0
@@ -87,7 +87,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	if os.name == 'posix':
 		if IO.read() == 1:  # pos1
 			if saveImgName.find("NoSole") != -1:
-				# if count > 10:
+				# if count > 10: # needs test
 				print("NoSole")
 				IO.noSole()
 				IO.endNoSole()
@@ -99,81 +99,15 @@ while mainWindow.getWindowProperty() and flag: # while True:
 				IO.sole()
 				IO.endSole()
 
-					# count = 0
-			#  img proc
-
 		#  make image processing simultaniouslu with robot movement
 
 		tempIORead = IO.read()  #  for one execution IO.read for 2 cheaking
 		if tempIORead == 0:  # auto or auto and table # tempIORead == 2 or tempIORead == 0
 			mainWindow.simulateKeyPress(1)
-
-			# if not flagGPIO:
-			# 	mainWindow.simulateKeyPress(1)
-			# else:
-			# 	flagGPIO = False
-
-
-		# if IO.read() == 0:
-		# 	flagRobot = True
-		# 	flagTable = True
-		# 	# print("robot + table")
-		# elif IO.read() == 1:
-		# 	flagRobot = False
-		# 	flagTable = True
-		# 	# print("table")
-		# elif IO.read() == 2:
-		# 	flagRobot = True
-		# 	flagTable = False
-		# 	# print("robot")
-		# else:
-		# 	flagRobot = False
-		# 	flagTable = False
-
-		# pass
-
 # gpio
 
 	start_time = time.time()
-	# print('machinePosArr')
-	# print(machinePosArr)
-	# if count >= 30:
-	# 	if flagTable:
-	# 		mainWindow.simulateKeyPress(1)
-	# 		# check in the end of this file by findObj
-	# 		# print(saveImgName.find("NoSole"))
-	# 		if saveImgName.find("NoSole") != -1:
-	# 			# print("Cam: NoSole") # print("Cam: noSole")
-	# 			# machinePosArr[0] = 0
-	# 			IO.noSole()
-	# 			print("start")
-	# 			count=0
-	# 			IO.endNoSole()
-	# 			print("end")
-	# 		elif saveImgName.find("Sole") != -1:
-	# 			# print("Cam: Sole") # print("Cam: Sole")
-	# 			# machinePosArr[0] = 1
-	# 			IO.sole()
-	# 			print("start111111111111111")
-	# 			count=-50
-	# 			IO.endSole()
-	# 			print("end11111111111111111")
-	# 		else:
-	# 			print("Cam: Don't know!")
-	#
-	# count+=1
 
-		# # position delay
-		# if machinePosArr[1] == 1:
-		# 	IO.sole()
-		# 	soleAmmount = soleAmmount + 1
-		# 	print("Robot: Sole [%d]" % soleAmmount)
-		# else:
-		# 	IO.noSole()
-		# 	noSoleAmmount = noSoleAmmount + 1
-		# 	print("Robot: noSole [%d]" % noSoleAmmount)
-		#
-		# machinePosArr[1] = machinePosArr[0]
 
 	frame = Camera.takeFrame().copy()
 	flag = mainWindow.draw(frame) # number of pressed key
