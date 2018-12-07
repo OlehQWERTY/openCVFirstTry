@@ -17,6 +17,11 @@ from view import View
 from webcam import WebCam
 import imgRW
 from settings import Settings
+# from debug import debug
+#
+# log = debug(True)
+# log.log("koko")
+
 # import motion # movement 21_11_18
 
 # chose an implementation, depending on os
@@ -78,6 +83,7 @@ soleAmmount = 0
 noSoleAmmount = 0
 
 count = 0
+
 
 while mainWindow.getWindowProperty() and flag: # while True:
 
