@@ -1,9 +1,13 @@
+check evening light condition
+
+full day working test
+
+test "brisk" find image algorithm (~4.8 s) if it is needed
+
 add send to DB sole ammount according to QR code
 
 optimise loop time
 
-check evening light condition
-
-normal wiring
+normal wiring instruction
 
 
