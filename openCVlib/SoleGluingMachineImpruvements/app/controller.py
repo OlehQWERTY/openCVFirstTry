@@ -87,19 +87,21 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	if os.name == 'posix':
 		if IO.read() == 1:  # pos1
 			if saveImgName.find("NoSole") != -1:
-				# if count > 10: # needs test
-				print("NoSole")
-				IO.noSole()
-				IO.endNoSole()
+				if count > 5:  # 1 needs test
+					print("NoSole")
+					IO.noSole()
+					IO.endNoSole()
+					count = 0  # 1 less rellay work
 				#  test
 				# saveImgName = "Processed"
 
 					# count = 0 # less rellay work
 			elif saveImgName.find("Sole") != -1:
-				# if count > 10:
-				print("Sole")
-				IO.sole()
-				IO.endSole()
+				if count > 5:  # 1 needs test
+					print("Sole")
+					IO.sole()
+					IO.endSole()
+					count = 0  # 1 less rellay work
 				#  test
 				# saveImgName = "Processed"
 
