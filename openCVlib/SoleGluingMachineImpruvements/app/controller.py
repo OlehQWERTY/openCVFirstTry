@@ -81,6 +81,9 @@ saveImgName = "Sole" # init
 
 soleAmmount = 0
 noSoleAmmount = 0
+lessRellayWorkNorm = 10
+lessRellayWorkExtreme = 100
+temtRellayWorkK = lessRellayWorkNorm
 
 count = 0
 
@@ -93,7 +96,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	if os.name == 'posix':
 		if IO.read() == 1:  # pos1
 			if saveImgName.find("NoSole") != -1:
-				if count > 5:  # 1 needs test
+				if count > temtRellayWorkK:  # if count > 5:
 					print("NoSole")
 					IO.noSole()
 					IO.endNoSole()
@@ -103,7 +106,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 					# count = 0 # less rellay work
 			elif saveImgName.find("Sole") != -1:
-				if count > 5:  # 1 needs test
+				if count > temtRellayWorkK:  # if count > 5:
 					print("Sole")
 					IO.sole()
 					IO.endSole()
