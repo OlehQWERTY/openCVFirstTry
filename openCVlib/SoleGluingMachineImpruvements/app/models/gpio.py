@@ -27,7 +27,7 @@ class RPI_GPIO:
         return -1
 
     def sole(self):
-        GPIO.output(18, 0)  # robot on
+        GPIO.output(18, 0)  # robot on (i_rasp)
         GPIO.output(17, 1)  # turn table on
         sleep(0.3)
 
@@ -36,7 +36,7 @@ class RPI_GPIO:
         # GPIO.output(18, 1)  # robot off
 
     def noSole(self):
-        GPIO.output(18, 1)  # robot off
+        GPIO.output(18, 1)  # robot off (i_rasp)
         GPIO.output(17, 1)  # turn table
         sleep(0.3)
 

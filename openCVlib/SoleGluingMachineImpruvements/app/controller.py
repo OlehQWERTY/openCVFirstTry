@@ -84,6 +84,7 @@ noSoleAmmount = 0
 lessRellayWorkNorm = 10
 lessRellayWorkExtreme = 100
 temtRellayWorkK = lessRellayWorkNorm
+last_img_processing_time = 0
 
 count = 0
 
@@ -94,6 +95,14 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 	count += 1
 	if os.name == 'posix':
+
+		# electromechanical relay lifetime optimisation
+		if abs(last_img_processing_time - time.time()) > 0.5*60:  # after 5 minutes
+			temtRellayWorkK = lessRellayWorkExtreme
+		else:
+			temtRellayWorkK = lessRellayWorkNorm
+
+
 		if IO.read() == 1:  # pos1
 			if saveImgName.find("NoSole") != -1:
 				if count > temtRellayWorkK:  # if count > 5:
@@ -192,6 +201,9 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 
 	if flag == 1:  # proc only in case Space is pressed
+
+		last_img_processing_time = time.time() # we needs it for relay life time extention
+		print("Last img processing: %s" % int(last_img_processing_time))
 
 		soleImg = mainWindow.returnSoleImg()
 		cor = findObj.find(soleImg)  # sole image
