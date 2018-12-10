@@ -82,9 +82,9 @@ saveImgName = "Sole" # init
 soleAmmount = 0
 noSoleAmmount = 0
 lessRellayWorkNorm = 10
-lessRellayWorkExtreme = 100
+lessRellayWorkExtreme = 50
 temtRellayWorkK = lessRellayWorkNorm
-last_img_processing_time = 0
+last_img_processing_time = time.time()
 
 count = 0
 
@@ -97,8 +97,10 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	if os.name == 'posix':
 
 		# electromechanical relay lifetime optimisation
-		if abs(last_img_processing_time - time.time()) > 0.5*60:  # after 5 minutes
+		if abs(last_img_processing_time - time.time()) > 20*60:  # after 20 minutes
 			temtRellayWorkK = lessRellayWorkExtreme
+		elif abs(last_img_processing_time - time.time()) > 5*60:  # after 5 minutes
+			temtRellayWorkK = lessRellayWorkExtreme / 2
 		else:
 			temtRellayWorkK = lessRellayWorkNorm
 
