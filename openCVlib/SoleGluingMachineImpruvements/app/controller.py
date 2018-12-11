@@ -81,7 +81,7 @@ saveImgName = "Sole" # init
 
 soleAmmount = 0
 noSoleAmmount = 0
-lessRellayWorkNorm = 10
+lessRellayWorkNorm = 5
 lessRellayWorkExtreme = 50
 temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
@@ -107,23 +107,21 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 		if IO.read() == 1:  # pos1
 			if saveImgName.find("NoSole") != -1:
-				# if count > temtRellayWorkK:  # if count > 5:
-				if (count % temtRellayWorkK) == 0 and count != 0:  # if count > 5:
+				if count > temtRellayWorkK:  # if count > 5:
 					print("NoSole")
 					IO.noSole()
 					IO.endNoSole()
-					# count = 0  # 1 less rellay work
+					count = 0  # 1 less rellay work
 				#  test
 				# saveImgName = "Processed"
 
 					# count = 0 # less rellay work
 			elif saveImgName.find("Sole") != -1:
-				# if count > temtRellayWorkK:  # if count > 5:
-				if (count % temtRellayWorkK) == 0 and count != 0:  # if count > 5:
+				if count > temtRellayWorkK:  # if count > 5:
 					print("Sole")
 					IO.sole()
 					IO.endSole()
-					# count = 0  # 1 less rellay work
+					count = 0  # 1 less rellay work
 				#  test
 				# saveImgName = "Processed"
 
@@ -133,10 +131,8 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		#  make image processing simultaneously with robot movement
 
 		tempIORead = IO.read()  #  for one execution IO.read for 2 cheaking
-		# if tempIORead == 0:  # auto or auto and table # tempIORead == 2 or tempIORead == 0
-		if IO.read() == 1 and count != 0 and (count % (temtRellayWorkK * 4)) == 0:
+		if tempIORead == 0:  # auto or auto and table # tempIORead == 2 or tempIORead == 0
 			mainWindow.simulateKeyPress(1)
-			count = 0  # test
 # gpio
 
 	start_time = time.time()
