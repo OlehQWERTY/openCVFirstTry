@@ -118,9 +118,9 @@ class View:
                     (255, 255, 0), 2)
         cv2.imshow(self.name, img)
 
-    def show2(self, img): # addition window with squared part of main window
+    def show2(self, img):  # addition window with squared part of main window
         # square according to mouse
-        if self.flg1: # crutch
+        if self.flg1:  # crutch
             self.mousePos1 = self.returnRefPt()
         if self.mousePos1 != 0:
 
@@ -172,35 +172,35 @@ class View:
         cv2.rectangle(img, (self.mousePos1[0][0], self.mousePos1[0][1]), (self.mousePos1[1][0] + 1, self.mousePos1[1][1] + 1),
                       (0, 0, 255), 2)
 
-    def returnSoleImg(self): # crutch
+    def returnSoleImg(self):  # crutch
         return self.soleImg
 
-    def resizeImg(self, img, w = 0, h = 0):
+    def resizeImg(self, img, w=0, h=0):
         if w!=0 and h!=0 and w > 0 and h > 0:
             img = cv2.resize(img, (w, h))
         else:
             img = cv2.resize(img, (self.setCamW, self.setCamH))
         return img.copy()
 
-    def key(self): # pressed key proc
+    def key(self):  # pressed key proc
         # print(self.k)
-        if self.k == 27: # ESC
+        if self.k == 27:  # ESC
             return 0
-        elif self.k == 32: # Space
+        elif self.k == 32:  # Space
             return 1
         # if the 'r' key is pressed, break from the loop
-        elif self.k == ord("r"): # del sole position on the screen
+        elif self.k == ord("r"):  # del sole position on the screen
             return 2
-        elif self.k == ord("d"): # default square (from settings)
-            self.flg1 = not self.flg1 # crutch
+        elif self.k == ord("d"):  # default square (from settings)
+            self.flg1 = not self.flg1  # crutch
             return 3
-        elif self.k == ord("s"): # save square pos (to settings)
-            self.flg1 = not self.flg1 # crutch
+        elif self.k == ord("s"):  # save square pos (to settings)
+            self.flg1 = not self.flg1  # crutch
             return 4
         else:
             return 100
 
-    def moveWindow(self, x, y): # set window pos (not used now)
+    def moveWindow(self, x, y):  # set window pos (not used now)
         cv2.moveWindow(self.name, x, y)
 
     def mousePosToZero(self):  # this func is responsible for hiding square (mouse pressed and unpressed pos)
@@ -208,12 +208,12 @@ class View:
         cv2.destroyWindow("SoleImg")  # move it somewhere else
 
     def getWindowProperty(self): # used for closing program by pressing exit (X) window key
-        if cv2.getWindowProperty(self.name, 1) >= 0: # this will send True if !(X window button) when the current window will be closed
+        if cv2.getWindowProperty(self.name, 1) >= 0:  # this will send True if !(X window button) when the current window will be closed
             return True
         else:
             return False
 
-    def __del__(self): # close all windows
+    def __del__(self):  # close all windows
         if self.name is None:
             pass
         else:

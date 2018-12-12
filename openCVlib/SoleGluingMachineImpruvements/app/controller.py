@@ -10,20 +10,21 @@ import time
 
 sys.path.append('models')
 sys.path.append('./views')
+sys.path.append('controllers')
 
-import barcode  # barcode scanner
-import findObj  # findObject
+from debug import Debug
+log = Debug(True, __name__)  # turn on/off debugging messages in this module
 from view import View
 from webcam import WebCam
-import imgRW
 from settings import Settings
+from machineCellAnalizer import MachineCellAnalizer
 
 
 # chose an implementation, depending on os
 if os.name == 'nt':  # sys.platform == 'win32':
-	print("GPIO is not avaliable under windows!")
+	log.log("GPIO is not avaliable under windows!", __name__)
 elif os.name == 'posix':
-	print("RPI gpio init is done!")
+	log.log("RPI gpio init is done!", __name__)
 	import gpio
 else:
 	raise Exception("Sorry: no implementation for your platform ('%s') available" % os.name)
@@ -32,7 +33,7 @@ Set = Settings('conf.set')
 setStr = Set.load()
 tmpLen = len(setStr[0]) # first setStr param is web cam res (640,480) or (640,480,15). 15 - fps. Check if camera supports it?
 if tmpLen == 2:
-	WebCamParam = [int(setStr[0][0]), int(setStr[0][1])] # [640, 480]
+	WebCamParam = [int(setStr[0][0]), int(setStr[0][1])]  # [640, 480]
 	Camera = WebCam(0, WebCamParam[0], WebCamParam[1])
 elif tmpLen == 3:
 	WebCamParam = [int(setStr[0][0]), int(setStr[0][1]), int(setStr[0][2])]  # 160*120 - min HD - max e.x. [640, 360, 15]
@@ -51,14 +52,12 @@ else:
 	autoImgSave = False
 
 mainWindow = View("MachineImprovements", WebCamParam[0], WebCamParam[1])
-ReadOrSaveImg = imgRW.ImgRW()
+
 flag = True
 
 # gpio
 if os.name == 'posix':
 	IO = gpio.RPI_GPIO()
-
-flagGPIO = False  # test now
 # gpio
 
 # counter = 0
@@ -73,6 +72,8 @@ temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
 
 count = 0
+
+ImgProc = MachineCellAnalizer()  # 11111111111111111111111111111111111111
 
 while mainWindow.getWindowProperty() and flag:  # while True:
 
@@ -93,14 +94,14 @@ while mainWindow.getWindowProperty() and flag:  # while True:
 		if IO.read() == 1:  # pos1
 			if saveImgName.find("NoSole") != -1:
 				if count > temtRellayWorkK:  # if count > 5:
-					print("NoSole")
+					log.log("NoSole", __name__)
 					IO.noSole()
 					IO.endNoSole()
 					count = 0  # 1 less rellay work
 
 			elif saveImgName.find("Sole") != -1:
 				if count > temtRellayWorkK:  # if count > 5:
-					print("Sole")
+					log.log("Sole", __name__)
 					IO.sole()
 					IO.endSole()
 					count = 0  # 1 less relay work
@@ -112,16 +113,13 @@ while mainWindow.getWindowProperty() and flag:  # while True:
 			mainWindow.simulateKeyPress(1)
 # gpio
 
-	start_time = time.time()
-
-
 	frame = Camera.takeFrame().copy()
 	flag = mainWindow.draw(frame)  # number of pressed key
 
-	# hide square sole pos
+	# save highlighted square as sole pos
 	if flag == 2:  # ord("s") set sole pos by mouse click - crop - and unclick
 		mainWindow.mousePosToZero()
-		print("\'R\'" + ' ' + "Reset current square")
+		log.log("\'R\'" + ' ' + "Reset current square", __name__)
 
 	# hide square sole pos
 	if flag == 3 or autoMode:  # ord("d") default square (from settings file) # autoMode (auto_on) from conf.set
@@ -129,7 +127,7 @@ while mainWindow.getWindowProperty() and flag:  # while True:
 
 		# better to make something with View draw() func
 		if not autoMode:  # if auto we don't need to print "Download squar..." every time
-			print("\'D\'" + ' ' + "Download square pos from set file")
+			log.log("\'D\'" + ' ' + "Download square pos from set file", __name__)
 
 	if flag == 4:  # save square pos (to settings)
 		kok = mainWindow.returnRefPt()
@@ -150,45 +148,13 @@ while mainWindow.getWindowProperty() and flag:  # while True:
 
 
 	if flag == 1:  # proc only in case Space is pressed or auto mode
-
-		last_img_processing_time = time.time() # we needs it for relay life time extention
-		print("Last img processing: %s" % int(last_img_processing_time))
-
+		log.log("")
+		# image processing
 		soleImg = mainWindow.returnSoleImg()
-		cor = findObj.find(soleImg)  # sole image
-		print('Processed sole res: %s %s' % (soleImg.shape[1], soleImg.shape[0]))
-		isSoleStr = 'Sole(no points)'
-		if not cor:
-			pass
-		else:
-			if cor[0]/cor[1] > 0.2 and cor[1] > 8:  # and cor[0]/float(cor[1]) > 0.2: # check
-				isSoleStr = 'NoSole' + '-' + str(cor[0]) + '-' + str(cor[1])
-				# print(str(cor[0]) + '/' + str(cor[1]))
-			else:
-				isSoleStr = 'Sole'
-
-		barCodeData = barcode.zbar(frame)
-
-		if barCodeData is None:
-			barCodeData = ['No', 'No']
-
-		localTime = time.localtime(time.time())
-
-		saveImgName = str(localTime[2]) + '-' + str(localTime[1]) + '-' \
-					  + str(localTime[0]) + '-' + str(localTime[3]) + '-' + str(localTime[4]) + '-' \
-					  + str(localTime[5]) + '-' + isSoleStr + '-' + 'QR' + '-' + str(barCodeData[1])  # 'IMGs/' +
-
-		if autoImgSave: # auto save img according to conf
-			ReadOrSaveImg.rw('W', '../IMGs/' + saveImgName + '.png', frame)  # save to img with imgName date + .png
-			print('%s is saved' % saveImgName)
-		else:
-			print('%s' % saveImgName)
-			pass
-
-		elapsed_time = time.time() - start_time
-
-		print("Iteration score: %f" % elapsed_time)
+		saveImgName, temtRellayWorkK = ImgProc.processing(soleImg, frame, autoImgSave)
 
 # free web camera and gpio in case of closing app
-del IO
+if os.name == 'posix':
+	del IO
+
 del Camera
