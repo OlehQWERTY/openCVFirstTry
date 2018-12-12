@@ -197,8 +197,6 @@ class View:
         elif self.k == ord("s"): # save square pos (to settings)
             self.flg1 = not self.flg1 # crutch
             return 4
-        elif self.k == ord('m'): # movement flag turn on/of
-            return 5
         else:
             return 100
 
