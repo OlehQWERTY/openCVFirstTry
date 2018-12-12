@@ -22,7 +22,7 @@ from settings import Settings
 # log = debug(True)
 # log.log("koko")
 
-# import motion # movement 21_11_18
+# import motion
 
 # chose an implementation, depending on os
 if os.name == 'nt':  # sys.platform == 'win32':
@@ -76,7 +76,7 @@ flagGPIO = False  # test now
 # gpio
 
 # counter = 0
-saveImgName = "Sole" # init
+saveImgName = "Sole"  # init
 # machinePosArr = [0, 1]  # [0] - camera pos (robot pos - 1); [1] - robot position
 
 soleAmmount = 0
@@ -88,8 +88,7 @@ last_img_processing_time = time.time()
 
 count = 0
 
-
-while mainWindow.getWindowProperty() and flag: # while True:
+while mainWindow.getWindowProperty() and flag:  # while True:
 
 # gpio
 
@@ -112,21 +111,13 @@ while mainWindow.getWindowProperty() and flag: # while True:
 					IO.noSole()
 					IO.endNoSole()
 					count = 0  # 1 less rellay work
-				#  test
-				# saveImgName = "Processed"
 
-					# count = 0 # less rellay work
 			elif saveImgName.find("Sole") != -1:
 				if count > temtRellayWorkK:  # if count > 5:
 					print("Sole")
 					IO.sole()
 					IO.endSole()
-					count = 0  # 1 less rellay work
-				#  test
-				# saveImgName = "Processed"
-
-			# elif saveImgName.find("Processed") != -1:  # one command to relay
-			# 	print("Processed")
+					count = 0  # 1 less relay work
 
 		#  make image processing simultaneously with robot movement
 
@@ -139,7 +130,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 
 
 	frame = Camera.takeFrame().copy()
-	flag = mainWindow.draw(frame) # number of pressed key
+	flag = mainWindow.draw(frame)  # number of pressed key
 
 	# hide square sole pos
 	if flag == 2: # ord("s") set sole pos by mouse click - crop - and unclick
@@ -151,7 +142,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 		mainWindow.loadDefaultSquare(frame, int(setStr[1][0]), int(setStr[1][1]), int(setStr[1][2]), int(setStr[1][3]))
 
 		# better to make something with View draw() func
-		if not autoMode: # if auto we don't need to print "Download squar..." every time
+		if not autoMode:  # if auto we don't need to print "Download squar..." every time
 			print("\'D\'" + ' ' + "Download square pos from set file")
 
 	if flag == 4: # save square pos (to settings)
@@ -202,7 +193,7 @@ while mainWindow.getWindowProperty() and flag: # while True:
 	# 			pass
 
 
-	if flag == 1:  # proc only in case Space is pressed
+	if flag == 1:  # proc only in case Space is pressed or auto mode
 
 		last_img_processing_time = time.time() # we needs it for relay life time extention
 		print("Last img processing: %s" % int(last_img_processing_time))

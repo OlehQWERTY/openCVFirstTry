@@ -3,11 +3,8 @@
 # windows: pip install pyzbar
 
 import cv2
-# import time
 
 from pyzbar import pyzbar
-
-# t1 = time.time()
 
 # frame = cv2.imread("_2__2018_09:23:47_pos_no_sole_OFF.PNG", 0)
 
@@ -26,5 +23,3 @@ def zbar(frame):
 		# print("[INFO] Found {} barcode: {}".format(barcodeType, barcodeData))
 		return [barcodeType, barcodeData, x, y, w, h]
 
-# t2 = time.time() - t1
-# print(t2)
