@@ -1,3 +1,4 @@
+#  use console params and save only sole img part coordinates
 class Settings():
 
     def __init__(self, path):

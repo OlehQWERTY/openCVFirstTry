@@ -9,30 +9,30 @@ import os # auto change os type
 
 class View:
 
-    def __init__(self, name, w = 640, h = 480): # w h are neaded for texting resolution
+    def __init__(self, name, WH = [640, 480]): # w = 640, h = 480; w h are neaded for texting resolution
         if name is None:
             print("Can't create window without name!")
         else:
             self.name = name
             cv2.namedWindow(self.name)
-            if w == 640:
+            if WH[0] == 640:
                 # in case of vga resolution return 2 val (the same as 320*240)
-                self.createTrackbar('resMode', int(math.sqrt(w/80))+1) # 640 * 480 shows 2 instead of 3
+                self.createTrackbar('resMode', int(math.sqrt(WH[0]/80))+1) # 640 * 480 shows 2 instead of 3
             else:
-                self.createTrackbar('resMode', int(math.sqrt(w / 80)))  # 640 * 480 shows 2 instead of 3
+                self.createTrackbar('resMode', int(math.sqrt(WH[0]/ 80)))  # 640 * 480 shows 2 instead of 3
 
-            self.setCamW = w # change
-            self.setCamH = h
+            self.setCamW = WH[0] # change
+            self.setCamH = WH[1]
 
             cv2.setMouseCallback(self.name, self.click_and_crop) # mouse callback
 
             self.mousePos = None
 
-            self.flg1 = True # crutch
+            self.flg1 = True  # crutch
 
-            self.flg2 = False # close sole window
+            self.flg2 = False  # close sole window
 
-            self.simulatedKey = -1 # simulate Key var
+            self.simulatedKey = -1  # simulate Key var
 
 
     def click_and_crop(self, event = None, x = None, y = None, flags = None, param = None): # def click_and_crop(event, x, y, flags, param):
@@ -143,7 +143,7 @@ class View:
                 y2 = y1 + 50
                 self.soleImg = img[y1:y2, x1:x2]  # +1 because program crashes in case of 0 size
             else:
-                if x1 - x2 < 50: # min size
+                if x1 - x2 < 50:  # min size
                     x1 = (int(x2/50) + 1) * 50
                     print(x1)
                 if y1 - y2 < 50:

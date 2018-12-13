@@ -3,18 +3,18 @@ from time import sleep
 import os
 
 class WebCam():
-    def __init__(self, camNumber=0, w = 640, h = 480, fps = 15):
-        self.cam = cv2.VideoCapture(camNumber)
-        self.cam.set(3, w) # w
-        self.cam.set(4, h)
-        self.cam.set(fps, 0.1)
+    def __init__(self, WebCamParam = [0, 640, 480, 15]):  # [cam_number = 0, w = 640, h = 480, fps = 15]
+        print(WebCamParam)
+        self.cam = cv2.VideoCapture(WebCamParam[0])
+        self.cam.set(3, WebCamParam[1])  # w
+        self.cam.set(4, WebCamParam[2])  # h
+        if len(WebCamParam) > 3:
+            self.cam.set(WebCamParam[3], 0.1)  # fps
         for x in range(5):
             sleep(0.1)
             self.takeFrame()
 
     def takeFrame(self):
-        # check if this is normally work
-        # for i in range(3):  # trying to escape bed image of ghost image (looks like prev image covers current)
         self.ret, self.frame = self.cam.read()
 
         if not self.ret:
@@ -22,7 +22,7 @@ class WebCam():
             # rewrite this part a little - try connect one more
 
             self.del_reboot()
-            exit()
+            exit()  # try exec(this python script)
 
         return self.frame
 
