@@ -52,19 +52,20 @@ temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
 count = 0
 
-while mainWindow.getWindowProperty() and not isClosed:  # while True:
-# gpio
+
+def IO_func():  # test me
+
+	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
 
 	count += 1
 	if os.name == 'posix':
 		# electromechanical relay lifetime optimisation
-		if abs(last_img_processing_time - time.time()) > 5*60:  # after 20 minutes
+		if abs(last_img_processing_time - time.time()) > 5 * 60:  # after 20 minutes
 			temtRellayWorkK = lessRellayWorkExtreme
-		elif abs(last_img_processing_time - time.time()) > 0.5*60:  # after 5 minutes
+		elif abs(last_img_processing_time - time.time()) > 0.5 * 60:  # after 5 minutes
 			temtRellayWorkK = lessRellayWorkExtreme / 5
 		else:
 			temtRellayWorkK = lessRellayWorkNorm
-
 
 		if IO.read() == 1:  # pos1
 			if saveImgName.find("NoSole") != -1:
@@ -83,10 +84,14 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 
 		#  make image processing simultaneously with robot movement
 
-		tempIORead = IO.read()  #  for one execution IO.read for 2 cheaking
+		tempIORead = IO.read()  # for one execution IO.read for 2 cheaking
 		if tempIORead == 0:  # auto or auto and table # tempIORead == 2 or tempIORead == 0
 			mainWindow.simulateKeyPress(1)
-# gpio
+
+
+while mainWindow.getWindowProperty() and not isClosed:  # while True:
+
+	IO_func()  # gpio
 
 	frame = Camera.takeFrame().copy()
 
