@@ -1,9 +1,6 @@
 # controller
-
 # launch only with python3
-#
 #  python3 controller.py
-
 
 import sys
 import os
@@ -47,18 +44,15 @@ ImgProc = MachineCellAnalizer()
 
 saveImgName = "Sole"  # init
 # machinePosArr = [0, 1]  # [0] - camera pos (robot pos - 1); [1] - robot position
-
 # soleAmmount = 0
 # noSoleAmmount = 0
 lessRellayWorkNorm = 5
 lessRellayWorkExtreme = 50
 temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
-
 count = 0
 
 while mainWindow.getWindowProperty() and not isClosed:  # while True:
-
 # gpio
 
 	count += 1
@@ -99,10 +93,8 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 	key = mainWindow.draw(frame)  # number of pressed key
 
 	isClosed = KeyA.keyAct(key, mainWindow, autoMode, frame, setStr, autoImgSave, Set)
-#########################################################################################################
 
-
-	if key == 1:  # proc only in case Space is pressed or auto mode
+	if key == 1:  # proc only in case Space is pressed or auto mode (in auto simulates key 'space' press)
 		log.log("")
 		# image processing
 		soleImg = mainWindow.returnSoleImg()

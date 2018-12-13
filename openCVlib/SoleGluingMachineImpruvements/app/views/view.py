@@ -24,7 +24,7 @@ class View:
             self.setCamW = WH[0] # change
             self.setCamH = WH[1]
 
-            cv2.setMouseCallback(self.name, self.click_and_crop) # mouse callback
+            cv2.setMouseCallback(self.name, self.click_and_crop)  # mouse callback
 
             self.mousePos = None
 
@@ -72,7 +72,7 @@ class View:
 
     def resMode(self, val):
         self.setCamW = pow(2, val) * 80  # ... 1 - 160*120 2 - 320*240 3 - 640*480 4 - 1280*720
-        if self.setCamW == 1280: # other screen ratio (16*9)
+        if self.setCamW == 1280:  # other screen ratio (16*9)
             self.setCamH = 720
         else:
             self.setCamH = int(self.setCamW * 3 / 4) # screen ratio (4*3)
@@ -131,7 +131,7 @@ class View:
             y2 = self.mousePos1[1][1]
             # imCrop = im[int(r[1]):int(r[1] + r[3]), int(r[0]):int(r[0] + r[2])]
             if (x1 < x2) and (y1 < y2): # 5 options x1 < x2 and y1 > y2 .... are neaded
-                if x2 - x1 < 50: # min size
+                if x2 - x1 < 50:  # min size
                     x2 = (int(x1/50) + 1) * 50
                     print(x2)
                 if y2 - y1 < 50:
@@ -150,13 +150,13 @@ class View:
                     y1 = (int(y2/50) + 1) * 50
                     print(y1)
                 self.soleImg = img[y2:y1, x2:x1]
-            # test auto change os V (line below doesn't work in RPI) ***** TEST
+            # WORK test auto change os V (line below doesn't work in RPI) ***** TEST
             cv2.namedWindow('SoleImg', 0 if os.name == 'nt' else 1)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
             cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
                              self.soleImg.shape[0])  # resize window according to web camera frame resolution
 
             cv2.imshow("SoleImg", self.soleImg)
-            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 2) # ????
+            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 2)  # ????
 
 
 
