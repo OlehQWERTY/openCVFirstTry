@@ -37,3 +37,4 @@ class WebCam():
 
         self.cam.release()
         os.popen('reboot')  # find better approach
+        # try to replase os.popen('reboot') with exec(python controller)

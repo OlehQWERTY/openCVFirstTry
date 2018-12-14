@@ -91,16 +91,12 @@ def beforeCEnd():
 	del Camera
 
 while mainWindow.getWindowProperty() and not isClosed:  # while True:
-
 	IO_func()  # gpio
-
 	frame = Camera.takeFrame().copy()
-
 	key = mainWindow.draw(frame)  # number of pressed key
-
 	isClosed = KeyA.keyAct(key, mainWindow, autoMode, frame, setStr, autoImgSave, Set)
 
-	if key == 1:  # proc only in case Space is pressed or auto mode (in auto simulates key 'space' press)
+	if key == 1:  # proc only in case of Space is pressed or auto mode (in auto simulates key 'space' press)
 		log.log("")
 		# image processing
 		soleImg = mainWindow.returnSoleImg()

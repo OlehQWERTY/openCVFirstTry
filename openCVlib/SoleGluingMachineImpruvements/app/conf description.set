@@ -1,6 +1,6 @@
-640,480|281,171,524,348|auto_on|img_save_on
+0,640,480, 15|281,171,524,348|auto_on|img_save_on
 
-res (w, h and optionaly frames ,15);
+res (cam_number, w, h and optionaly frames ,15);
 square with sole;
 auto mode on/off;
 img save on/off;

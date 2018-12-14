@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc1fe9d-3b9f-4f5d-b5c4-80c7f1e7395b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/conf description.set" beforeDir="false" afterPath="$PROJECT_DIR$/app/conf description.set" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/keys.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/keys.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/imgRW.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/imgRW.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/webcam.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/webcam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/future plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/future plans.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,14 +36,14 @@
           <entry key="PNG" value="1" />
           <entry key="png" value="14" />
           <entry key="py" value="161" />
-          <entry key="set" value="8" />
-          <entry key="txt" value="4" />
+          <entry key="set" value="9" />
+          <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="15" />
-          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="PLAIN_TEXT" value="14" />
           <entry key="Python" value="161" />
         </counts>
       </usages-collector>
@@ -53,15 +51,15 @@
         <counts>
           <entry key="Python Console" value="27" />
           <entry key="dummy" value="2" />
-          <entry key="py" value="23307" />
-          <entry key="set" value="47" />
-          <entry key="txt" value="299" />
+          <entry key="py" value="23390" />
+          <entry key="set" value="65" />
+          <entry key="txt" value="375" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="348" />
-          <entry key="Python" value="23334" />
+          <entry key="PLAIN_TEXT" value="442" />
+          <entry key="Python" value="23417" />
         </counts>
       </usages-collector>
     </session>
@@ -71,51 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="787">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <marker date="1544770769840" expanded="true" signature="267:327" ph="..." />
-                <marker date="1544770769840" expanded="true" signature="393:427" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/conf.set">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="33" selection-start-column="33" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="71" column="52" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="52" />
-              <folding>
-                <element signature="e#55#65#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="954">
+              <caret line="79" column="50" lean-forward="true" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -187,19 +142,20 @@
         <option value="$PROJECT_DIR$/app/gpioController.py" />
         <option value="$PROJECT_DIR$/wiring.txt" />
         <option value="$PROJECT_DIR$/app/models/gpio.py" />
-        <option value="$PROJECT_DIR$/future plans.txt" />
         <option value="$PROJECT_DIR$/app/models/findObj.py" />
         <option value="$PROJECT_DIR$/app/models/barcode.py" />
         <option value="$PROJECT_DIR$/app/controllers/machineSellAnslizer.py" />
         <option value="$PROJECT_DIR$/app/models/debug.py" />
-        <option value="$PROJECT_DIR$/app/models/webcam.py" />
         <option value="$PROJECT_DIR$/app/views/view.py" />
         <option value="$PROJECT_DIR$/app/conf.set" />
         <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/models/imgRW.py" />
-        <option value="$PROJECT_DIR$/app/controller.py" />
         <option value="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" />
         <option value="$PROJECT_DIR$/app/controllers/keys.py" />
+        <option value="$PROJECT_DIR$/app/models/webcam.py" />
+        <option value="$PROJECT_DIR$/app/conf description.set" />
+        <option value="$PROJECT_DIR$/future plans.txt" />
+        <option value="$PROJECT_DIR$/app/controller.py" />
       </list>
     </option>
   </component>
@@ -431,7 +387,7 @@
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.101784535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.101784535" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -532,9 +488,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/mod_find_obj.py" />
     <entry file="file://$PROJECT_DIR$/app/gpioController.py" />
-    <entry file="file://$PROJECT_DIR$/app/conf description.set">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMGs/28-11-2018-12-11-28-Sole(no points)-QR-No.png" />
     <entry file="file://$PROJECT_DIR$/IMGs/28-11-2018-12-11-26-Sole(no points)-QR-No.png" />
     <entry file="file://$PROJECT_DIR$/IMGs/28-11-2018-12-13-59-Sole(no points)-QR-No.png" />
@@ -562,13 +515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/future plans.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -629,13 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/conf.set">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" selection-start-column="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -643,9 +582,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/conf description.set">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/future plans.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/conf.set">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="1337">
           <caret line="71" column="52" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="52" />
           <folding>
             <element signature="e#55#65#0" expanded="true" />
@@ -655,7 +615,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
+        <state relative-caret-position="-5">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <marker date="1544770769840" expanded="true" signature="267:327" ph="..." />
@@ -666,15 +626,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="198">
+          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+        <state relative-caret-position="954">
+          <caret line="79" column="50" lean-forward="true" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
         </state>
       </provider>
     </entry>
