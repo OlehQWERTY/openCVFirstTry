@@ -1,0 +1,70 @@
+CREATE TABLE glueMachine (
+    RecID int auto_increment primary key,
+    UnitID varchar(255),
+    Articul varchar(255),
+    ProcessID varchar(255),
+    ProcessIDsDescription varchar(255),
+    OperatorName varchar(255),
+    OperationDate varchar(255),
+    Pull varchar(255),
+    OrderNumber varchar(255),
+    LocalNumber varchar(255),
+    PartLocalNumber varchar(255),
+    ReadyDate varchar(255),
+    CountryOrder varchar(255),
+    CityOrder varchar(255),
+    PlantOrder varchar(255),
+    DateEntered varchar(255),
+    RequiredRDate varchar(255),
+    CountryProd varchar(255),
+    CityProd varchar(255),
+    QR varchar(255),
+    Extended_1 varchar(255),
+    Extended_2 varchar(255),
+    Extended_3 varchar(255),
+    Extended_4 varchar(255),
+    Extended_5 varchar(255),
+    Extended_6 varchar(255),
+    Extended_7 varchar(255),
+    Extended_8 varchar(255),
+    Extended_9 varchar(255),
+    Extended_10 varchar(255),
+    Extended_12 varchar(255),
+    Extended_13 varchar(255),
+    Extended_14 varchar(255),
+    Extended_15 varchar(255),
+    Extended_16 varchar(255),
+    Extended_17 varchar(255),
+    Extended_18 varchar(255),
+    Extended_19 varchar(255),
+    Extended_20 int,
+    Extended_22 int,
+    Extended_23 int,
+    Extended_24 int,
+    Extended_25 int,
+    Extended_26 int,
+    Extended_27 int,
+    Extended_28 int,
+    Extended_29 int
+);
+
+
+INSERT INTO glueMachine (UnitID,Articul,ProcessID) VALUES(1,'herny',100);
+
+
+#simple table
+
+CREATE TABLE glueMachine3 (
+    RecID int auto_increment primary key,
+    UnitID varchar(255),
+    Articul varchar(255),
+    ProcessID varchar(255),
+    ProcessIDsDescription varchar(255),
+    OperatorName varchar(255),
+    OperationDate varchar(255),
+    Pull varchar(255),
+    OrderNumber varchar(255),
+    LocalNumber varchar(255));
+
+    # 
+    INSERT INTO glueMachine3 (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber) VALUES(0,'Nasty',101,'Zoya Semenovna','17/11/18 17:25:36','4925NG_Poland','2564','197');

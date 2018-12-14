@@ -2,7 +2,6 @@
 
 import MySQLdb
 
-
 db = MySQLdb.connect("localhost", "root", "password", "temps")
 curs=db.cursor()
 
