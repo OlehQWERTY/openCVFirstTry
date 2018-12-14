@@ -54,9 +54,7 @@ count = 0
 
 
 def IO_func():  # test me
-
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
-
 	count += 1
 	if os.name == 'posix':
 		# electromechanical relay lifetime optimisation
@@ -74,7 +72,6 @@ def IO_func():  # test me
 					IO.noSole()
 					IO.endNoSole()
 					count = 0  # 1 less rellay work
-
 			elif saveImgName.find("Sole") != -1:
 				if count > temtRellayWorkK:  # if count > 5:
 					log.log("Sole", __name__)
@@ -83,11 +80,15 @@ def IO_func():  # test me
 					count = 0  # 1 less relay work
 
 		#  make image processing simultaneously with robot movement
-
 		tempIORead = IO.read()  # for one execution IO.read for 2 cheaking
 		if tempIORead == 0:  # auto or auto and table # tempIORead == 2 or tempIORead == 0
 			mainWindow.simulateKeyPress(1)
 
+# free web camera and gpio in case of closing app
+def beforeCEnd():
+	if os.name == 'posix':
+		del IO
+	del Camera
 
 while mainWindow.getWindowProperty() and not isClosed:  # while True:
 
@@ -105,8 +106,4 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		soleImg = mainWindow.returnSoleImg()
 		saveImgName, temtRellayWorkK = ImgProc.processing(soleImg, frame, autoImgSave)
 
-# free web camera and gpio in case of closing app
-if os.name == 'posix':
-	del IO
-
-del Camera
+beforeCEnd()

@@ -1,6 +1,5 @@
 #  use console params and save only sole img part coordinates
 class Settings():
-
     def __init__(self, path):
         self.path = path
         self.file = open(self.path, "r") # encoding="utf8")

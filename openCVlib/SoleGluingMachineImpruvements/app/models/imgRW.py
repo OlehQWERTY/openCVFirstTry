@@ -19,6 +19,6 @@ class ImgRW:
         else:
             print("Error: Wrong path!")
             return 0
-
-    def __del__(self):
-        pass
+    #
+    # def __del__(self):
+    #     pass
