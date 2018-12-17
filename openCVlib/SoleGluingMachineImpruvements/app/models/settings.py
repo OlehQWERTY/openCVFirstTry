@@ -1,19 +1,63 @@
-#  use console params and save only sole img part coordinates
+#  rewrite use console params and save only sole img part coordinates
+
+# conf copy
+# 0,640,480|45,169,594,360|auto_on|img_save_off
+
+import os, sys
+import pickle  # serializer/deserializer
+
+sys.path.append('../models')
+from debug import Debug
+log = Debug(True, __name__)  # turn on/off debugging messages in this module
+
 class Settings():
     def __init__(self, path):
         self.path = path
-        self.file = open(self.path, "r") # encoding="utf8")
+        self.data_new = None
+        self.data = None
+
+    def setPath(self, path):
+        self.path = path
 
     def load(self):
-        self.file = open(self.path, "r") # encoding="utf8")
-        str1 = self.file.read()
-        self.file.close()
-        self.wordsObj = str1.split('|')  # split to words
-        for x in range(0, len(self.wordsObj)):
-            self.wordsObj[x] = self.wordsObj[x].split(',')
-        return self.wordsObj
+        if self.path is not None:
+            if not os.path.exists(self.path):
+                print(self.path)
+                log.log("Can't load file, because it doesn't exist!", __name__)
+        else:
+            log.log("Path is empty!", __name__)
 
-    def save(self, str):
-        self.file = open(self.path, "w")
-        self.file.write(str)
+        with open(self.path, 'rb') as f:
+            self.data_new = pickle.load(f)
+            return self.data_new
+
+        return None
+
+    def save(self, data):
+        self.data = data
+        with open(self.path, 'wb') as f:
+            pickle.dump(data, f)
+        log.log("Settings were saved successfully...", __name__)
+
+    # def parse(self):
+    #     if self.data_new is not None:
+    #         pass
+
+    def __del__(self):
+        log.log("Settings is closed!", __name__)
+
+
+if __name__ == '__main__':  # call only if this module is called independently
+    Set = Settings("test.set")
+
+    data = {
+        'cam': [0, 640, 480],
+        'soleImgPos': [45, 169, 594, 360],
+        'auto': True,
+        'imgSave': False
+    }
+
+    Set.save(data)
+    print(Set.load())
+
 

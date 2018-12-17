@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc1fe9d-3b9f-4f5d-b5c4-80c7f1e7395b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/conf.set" beforeDir="false" afterPath="$PROJECT_DIR$/app/conf.set" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/webcam.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/webcam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/keys.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/keys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/restart.sh" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,24 +38,25 @@
         <counts>
           <entry key="CREATE TABLE SQL" value="1" />
           <entry key="PNG" value="1" />
+          <entry key="pickle" value="1" />
           <entry key="png" value="14" />
-          <entry key="py" value="172" />
-          <entry key="set" value="9" />
+          <entry key="py" value="178" />
+          <entry key="set" value="10" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="15" />
-          <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="172" />
+          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="Python" value="178" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="368" />
           <entry key="dummy" value="2" />
-          <entry key="py" value="24035" />
+          <entry key="py" value="25574" />
           <entry key="set" value="65" />
           <entry key="txt" value="375" />
         </counts>
@@ -59,18 +64,18 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="442" />
-          <entry key="Python" value="24403" />
+          <entry key="Python" value="25942" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="1166">
+              <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
               <folding>
                 <element signature="e#66#76#0" expanded="true" />
               </folding>
@@ -78,13 +83,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="1342">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
+                <marker date="1545047824646" expanded="true" signature="267:327" ph="..." />
+                <marker date="1545047824646" expanded="true" signature="393:427" ph="..." />
               </folding>
             </state>
           </provider>
@@ -93,10 +99,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1144">
-              <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+            <state relative-caret-position="1210">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="e#57#71#0" expanded="true" />
+                <marker date="1545041830666" expanded="true" signature="143:183" ph="..." />
+                <marker date="1545041830666" expanded="true" signature="558:564" ph="..." />
               </folding>
             </state>
           </provider>
@@ -105,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CREATE TABLE SQL">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="58" column="10" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="10" />
+            <state relative-caret-position="456">
+              <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -122,13 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>star</find>
-      <find>start_time</find>
-      <find>clear</find>
-      <find>posi</find>
-      <find>soleImg</find>
-      <find>proc</find>
-      <find>autoMode</find>
       <find>returnRefPt</find>
       <find>key</find>
       <find>flag</find>
@@ -140,7 +141,6 @@
       <find>loadDefaultSquare</find>
       <find>autoM</find>
       <find>load</find>
-      <find>log</find>
       <find>save</find>
       <find>print</find>
       <find>img_save_off</find>
@@ -152,6 +152,14 @@
       <find>time</find>
       <find>aut</find>
       <find>y1</find>
+      <find>log</find>
+      <find>path</find>
+      <find>set</find>
+      <find>nothi</find>
+      <find>return</find>
+      <find>sett</find>
+      <find>Set</find>
+      <find>data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,19 +192,19 @@
         <option value="$PROJECT_DIR$/app/models/debug.py" />
         <option value="$PROJECT_DIR$/app/views/view.py" />
         <option value="$PROJECT_DIR$/app/conf.set" />
-        <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/models/imgRW.py" />
-        <option value="$PROJECT_DIR$/app/controllers/keys.py" />
         <option value="$PROJECT_DIR$/app/conf description.set" />
         <option value="$PROJECT_DIR$/future plans.txt" />
         <option value="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" />
-        <option value="$PROJECT_DIR$/app/models/db.py" />
         <option value="$PROJECT_DIR$/app/models/webcam.py" />
+        <option value="$PROJECT_DIR$/app/models/db.py" />
+        <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/controller.py" />
+        <option value="$PROJECT_DIR$/app/controllers/keys.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="950" />
     <option name="width" value="980" />
     <option name="height" value="1050" />
@@ -284,7 +292,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.db">
+  <component name="RunManager" selected="Python.controller (1)">
     <configuration name="controller (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SoleGluingMachineImpruvements" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -319,27 +327,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/models/db.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="debug" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SoleGluingMachineImpruvements" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/models" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/models/debug.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -390,20 +377,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SoleGluingMachineImpruvements" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/models/settings.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.controller (1)" />
-      <item itemvalue="Python.debug" />
       <item itemvalue="Python.machineCellAnalizer" />
       <item itemvalue="Python.keys" />
       <item itemvalue="Python.db" />
+      <item itemvalue="Python.settings" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.db" />
         <item itemvalue="Python.controller (1)" />
+        <item itemvalue="Python.settings" />
+        <item itemvalue="Python.db" />
         <item itemvalue="Python.keys" />
         <item itemvalue="Python.machineCellAnalizer" />
-        <item itemvalue="Python.debug" />
       </list>
     </recent_temporary>
   </component>
@@ -428,8 +436,8 @@
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32743362" />
-      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.4990086" weight="0.32743362" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.4990086" weight="0.32587412" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -578,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/conf.set">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" selection-start-column="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -599,38 +600,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/debug.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-163">
           <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CREATE TABLE SQL">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="58" column="10" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -648,42 +621,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CREATE TABLE SQL">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="147">
+          <caret line="39" column="87" lean-forward="true" selection-start-line="39" selection-start-column="87" selection-end-line="39" selection-end-column="87" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/debug.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+          <folding>
+            <marker date="1544623774560" expanded="true" signature="392:623" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/data.pickle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/conf.set">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+        <state relative-caret-position="1210">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#57#71#0" expanded="true" />
+            <marker date="1545041830666" expanded="true" signature="143:183" ph="..." />
+            <marker date="1545041830666" expanded="true" signature="558:564" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        <state relative-caret-position="-160">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+          <folding>
+            <element signature="e#132#142#0" expanded="true" />
+            <marker date="1545047298794" expanded="true" signature="476:507" ph="..." />
+            <marker date="1545047298794" expanded="true" signature="778:916" ph="..." />
+            <marker date="1545047298794" expanded="true" signature="968:1107" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="1166">
+          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
           <folding>
             <element signature="e#66#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <marker date="1545047824646" expanded="true" signature="267:327" ph="..." />
+            <marker date="1545047824646" expanded="true" signature="393:427" ph="..." />
           </folding>
         </state>
       </provider>

@@ -27,12 +27,13 @@ else:
 	log.log("GPIO is not avaliable for your OS!", __name__)
 # settings
 Set = Settings('conf.set')
-setStr = Set.load()
-# print(str(setStr[2]))
-autoMode = True if 'auto_on' in str(setStr[2]) else False
-autoImgSave = True if 'img_save_on' in str(setStr[3]) else False
+settings_dict = Set.load()
+if settings_dict is not None:
+	autoMode = settings_dict['auto']
+	autoImgSave = settings_dict['imgSave']
+
 # webCam
-WebCamParam = [int(c) for c in setStr[0]]  # [0, 640, 480] or [0, 640, 480, 15]
+WebCamParam = [int(c) for c in settings_dict['cam']]  # [0, 640, 480] or [0, 640, 480, 15]
 Camera = WebCam(WebCamParam)  # 160*120 - min; HD - max; e.x. [0, 640, 360, 15]
 # view
 mainWindow = View("MachineImprovements", WebCamParam[1:3])  # WebCamParam[1] and [2]
@@ -51,7 +52,6 @@ lessRellayWorkExtreme = 50
 temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
 count = 0
-
 
 def IO_func():  # test me
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
@@ -95,7 +95,8 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 	IO_func()  # gpio
 	frame = Camera.takeFrame().copy()
 	key = mainWindow.draw(frame)  # number of pressed key
-	isClosed = KeyA.keyAct(key, mainWindow, autoMode, frame, setStr, autoImgSave, Set)
+	# is not checked settings_dict['soleImgPos'] existing
+	isClosed = KeyA.keyAct(key, mainWindow, autoMode, frame, settings_dict['soleImgPos'], autoImgSave, Set)
 
 	if key == 1:  # proc only in case of Space is pressed or auto mode (in auto simulates key 'space' press)
 		log.log("")

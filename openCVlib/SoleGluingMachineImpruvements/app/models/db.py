@@ -5,15 +5,17 @@ import time
 
 
 class Db:
-    def __init__(self, user, passwd, host, db):
-        self.user = user
-        self.passwd = passwd
-        self.host = host
-        self.db = db
+    def __init__(self, user, passwd, host, db): # self, user, passwd, host, db
+        # self.user = user
+        # self.passwd = passwd
+        # self.host = host
+        # self.db = db
 
         # conn = cymysql.connect(user="monitor", passwd="password", host="localhost", db="sole_1")
-        self.conn = cymysql.connect(user=self.user, passwd=self.passwd, host=self.host, db=self.db)
-        self.cur = self.conn.cursor()
+        # self.conn = cymysql.connect(user=self.user, passwd=self.passwd, host=self.host, db=self.db)
+        # self.cur = self.conn.cursor()
+
+    def startConnection(self, ):
 
     def reqStandart(self):
         self.cur.execute("""INSERT INTO glueMachine3 (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber)

@@ -17,7 +17,7 @@ class Keys:
     def flMouse(self, flag):
         self.flMouse = flag
 
-    def keyAct(self, key, mainWindow, autoMode, frame, setStr, autoImgSave, Set):  #, frame, auto_mode
+    def keyAct(self, key, mainWindow, autoMode, frame, soleImgPos, autoImgSave, Set):  #, frame, auto_mode
         # print(mainWindow.moveWindow(100, 100))
 
         #  close window
@@ -36,8 +36,8 @@ class Keys:
             #!!!!!!!!!!!!!!!!Needs changes flMouse from outside according to View!!!!!!!!!!!!!!!!!!!
 
             if not self.flMouse:  # if image was cropped according to mouse in auto mode turn off this
-                mainWindow.loadDefaultSquare(frame, int(setStr[1][0]), int(setStr[1][1]), int(setStr[1][2]),
-                                         int(setStr[1][3]))
+                mainWindow.loadDefaultSquare(frame, int(soleImgPos[0]), int(soleImgPos[1]), int(soleImgPos[2]),
+                                         int(soleImgPos[3]))
             # better to make something with View draw() func
             if not autoMode:  # if auto we don't need to print "Download squar..." every time
                 log.log("\'D\'" + ' ' + "Download square pos from set file", __name__)
@@ -46,19 +46,17 @@ class Keys:
         if key == 4:
             kok = mainWindow.returnRefPt()
             if kok != 0:
-                if autoImgSave and autoMode:  # for auto mod img save according conf.set
-                    tmpStr = "|auto_on|img_save_on"
-                elif not autoImgSave and autoMode:
-                    tmpStr = "|auto_on|img_save_off"
-                elif not autoImgSave and not autoMode:
-                    tmpStr = "|auto_off|img_save_off"
-                else:
-                    tmpStr = "|auto_off|img_save_on"
+                # setting dict creation
+                data = {}
+                data['cam'] = [0, frame.shape[1], frame.shape[0]]  # 0, 640, 480
+                data['soleImgPos'] = [kok[0][0], kok[0][1], kok[1][0], kok[1][1]]  # 45, 169, 594, 360
+                data['auto'] = True if autoMode else False
+                data['imgSave'] = True if autoImgSave else False
 
-                Set.save('0,' + str(frame.shape[1]) + ',' + str(frame.shape[0]) + '|' + str(kok[0][0]) + ',' + str(
-                    kok[0][1]) + ',' +
-                         str(kok[1][0]) + ',' + str(kok[1][1]) + tmpStr)  # [(x1, y1), (x2, y2)])
-                log.log("\'S\' " + "Save square", __name__)
+                Set.save(data)  # better return it from where you call it (controller.py) and save Set.save(data) there
+                # but pressed key analysis method is here ???
+
+                log.log("\'S\' " + "conf.set is saved", __name__)
             else:
                 log.log("Nothing to save!", __name__)
 
