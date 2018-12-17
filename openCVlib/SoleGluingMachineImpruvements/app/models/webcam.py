@@ -37,10 +37,10 @@ class WebCam():
 
         self.cam.release()
         # os.execl('restart.sh', '') # don't work (I don't know how to specify path correctly)
-        os.execv(sys.executable, [sys.executable] + sys.argv)  # restart current script
+        # os.execv(sys.executable, [sys.executable] + sys.argv)  # restart current script
         # os.execv - change current proces with other, sys.executable - path to current app, in linux 1 arg is name
 
         # prev solutions:
-        # os.popen('reboot')  # find better approach
+        os.popen('reboot')  # find better approach
         # try to replase os.popen('reboot') with exec(python controller)
 

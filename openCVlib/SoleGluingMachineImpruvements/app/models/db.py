@@ -3,19 +3,21 @@
 import cymysql
 import time
 
+# sys.path.append('models')
+# from settings import Settings
+# Set = Settings('temp.SQL_DB')
+# settings_dict = Set.load()
 
 class Db:
-    def __init__(self, user, passwd, host, db): # self, user, passwd, host, db
-        # self.user = user
-        # self.passwd = passwd
-        # self.host = host
-        # self.db = db
+    def __init__(self, user, passwd, host, db):
+        self.user = user
+        self.passwd = passwd
+        self.host = host
+        self.db = db
 
         # conn = cymysql.connect(user="monitor", passwd="password", host="localhost", db="sole_1")
-        # self.conn = cymysql.connect(user=self.user, passwd=self.passwd, host=self.host, db=self.db)
-        # self.cur = self.conn.cursor()
-
-    def startConnection(self, ):
+        self.conn = cymysql.connect(user=self.user, passwd=self.passwd, host=self.host, db=self.db)
+        self.cur = self.conn.cursor()
 
     def reqStandart(self):
         self.cur.execute("""INSERT INTO glueMachine3 (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber)
@@ -24,6 +26,7 @@ class Db:
 
     def simpleReq(self, string):
         self.cur.execute(string)
+        self.conn.commit()
 
     def req(self, varUnitID, varArticul, varProcessID, varOperatorName, varPull, varOrderNumber, varLocalNumber):
         localTime = time.localtime(time.time())  # time str
@@ -42,14 +45,18 @@ class Db:
         self.cur.execute(strA)
         # """INSERT INTO glueMachine3 (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber)
         # VALUES(66,'Nasty',101,'Zoya Semenovna','17/11/18 17:25:36','4925NG_Poland','2564','197')"""
-        # self.conn.commit()
+        self.conn.commit()
 
-    def getSelectData(self):
+    def getSelectData(self, fieldNumber=-1):
         self.cur.execute("SELECT * from glueMachine3")
+
         for r in self.cur.fetchall():
-            # print(r[0], r[1])
+            # if fieldNumber != -1:
             print(r)
-        # self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
+            # else:
+                # print(r[fieldNumber])
+                # pass
+        self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
 
     def __del__(self):
         self.cur.close()

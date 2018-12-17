@@ -104,4 +104,6 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		soleImg = mainWindow.returnSoleImg()
 		saveImgName, temtRellayWorkK = ImgProc.processing(soleImg, frame, autoImgSave)
 
+		# call dbDataProc ... add
+
 beforeCEnd()  # (IO, Camera) fix for: UnboundLocalError: local variable 'IO' referenced before assignment
