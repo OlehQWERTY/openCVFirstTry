@@ -85,7 +85,8 @@ def IO_func():  # test me
 			mainWindow.simulateKeyPress(1)
 
 # free web camera and gpio in case of closing app
-def beforeCEnd():
+def beforeCEnd():  # (IO, Camera)
+	global IO, Camera  # other way to fix: UnboundLocalError: local variable 'IO'...
 	if os.name == 'posix':
 		del IO
 	del Camera
@@ -102,4 +103,4 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		soleImg = mainWindow.returnSoleImg()
 		saveImgName, temtRellayWorkK = ImgProc.processing(soleImg, frame, autoImgSave)
 
-beforeCEnd()
+beforeCEnd()  # (IO, Camera) fix for: UnboundLocalError: local variable 'IO' referenced before assignment

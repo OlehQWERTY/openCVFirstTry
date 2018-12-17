@@ -1,6 +1,6 @@
 import cv2
 from time import sleep
-import os
+import os, sys
 
 class WebCam():
     def __init__(self, WebCamParam = [0, 640, 480, 15]):  # [cam_number = 0, w = 640, h = 480, fps = 15]
@@ -30,11 +30,17 @@ class WebCam():
         self.cam.release()
 
     def del_reboot(self):
-        print("Autoreboot RPI in 5 s...")
+        print("App restart in 5 s...")
         for i in range(10):  # not tested
             sleep(0.5)
             print(i/2) if i%2 == 0 else False
 
         self.cam.release()
-        os.popen('reboot')  # find better approach
+        # os.execl('restart.sh', '') # don't work (I don't know how to specify path correctly)
+        os.execv(sys.executable, [sys.executable] + sys.argv)  # restart current script
+        # os.execv - change current proces with other, sys.executable - path to current app, in linux 1 arg is name
+
+        # prev solutions:
+        # os.popen('reboot')  # find better approach
         # try to replase os.popen('reboot') with exec(python controller)
+
