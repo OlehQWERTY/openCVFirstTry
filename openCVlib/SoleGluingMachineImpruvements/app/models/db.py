@@ -5,15 +5,15 @@
 
 import cymysql
 import time
-
-from sys import exit
+import sys
+# from sys import exit
 
 #!!!replace all print with log.log()!!!
 
-# sys.path.append('../models')
-# from debug import Debug
-# log = Debug(True, __name__)  # turn on/off debugging messages in this module
-# log.log("Please check SQL server connection", error, __name__)
+sys.path.append('../models')
+from debug import Debug
+log = Debug(True, __name__)  # turn on/off debugging messages in this module
+# log.log("Test", __name__)
 
 
 class Db:
@@ -30,12 +30,12 @@ class Db:
             self.conn = cymysql.connect(user=self.user, passwd=self.passwd, host=self.host, db=self.db)
         # read about possible exceptions: https://github.com/nakagami/CyMySQL/blob/master/cymysql/err.py
         except cymysql.err.MySQLError as error:
-            print("Please check SQL server connection", error)
-            # exit()
+            log.log("Please check SQL server connection: " + str(error), __name__)
+            # sys.exit()
         except Exception as error:  # be carefull it could grub other exception
             code, message = error.args
-            print("Other DB error", code, message)
-            # exit()
+            log.log("Other DB error: " + str(error), __name__)
+            # sys.exit()
         else:  # if no exception
             self.cur = self.conn.cursor()
             result = True
@@ -100,8 +100,6 @@ class Db:
 
 if __name__ == '__main__':
     DB = Db("monitor", "password", "localhost", "sole_1")
-    if DB.connect():
-        DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
-        # DB.req()
-        DB.getAllData()
-        DB.close()
+    # DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
+    # DB.req()
+    DB.getAllData()
