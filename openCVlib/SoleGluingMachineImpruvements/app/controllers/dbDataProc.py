@@ -24,7 +24,7 @@ class DbDataProc():
 		# self.data_new = None
 		# self.data = None
 
-		self.DB = Db("monitor1", "password", "localhost", "sole_1")
+		self.DB = Db("monitor", "password", "localhost", "sole_1")  # you should get it somewhere out
 
 	def __createBunch(self, articul):
 		self.soleArtDict[articul] = 0
@@ -45,13 +45,18 @@ class DbDataProc():
 					self.soleArtDict[element] -= 10
 					# print(self.soleArtDict)
 
+	def getQueue(self):
+		# print(self.queue)
+		return self.queue.copy()
+
 	def sendToDb(self):  # better use customReq and make other class for building request sequencies
 		# write
 		# add try & catch
 		# take request somewhere out def ... (self, strReq)
 		if self.DB.connect():
 			self.DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
-			log.log(self.DbProc.getQueue(), __name__)
+			log.log(self.DB.getAllData(), __name__)
+			# print(self.DB.getAllData())
 		else:
 			log.log("Error. Can't connect to DB.", __name__)
 		# del from queue data that is successfully saved to mySQL db
@@ -59,10 +64,6 @@ class DbDataProc():
 
 	# def setPath(self, path):
 		# self.path = path
-
-	def getQueue(self):
-		# print(self.queue)
-		return self.queue.copy()
 
 	def delFromQueue(self, number=1):  # if queue is empty???
 		for x in range(number):
@@ -81,6 +82,9 @@ if __name__ == '__main__':
 	print(DbProc.getQueue())
 	print("\n\n")
 	DbProc.delFromQueue()
+	print("\n\n")
+	print(DbProc.getQueue())
+	DbProc.sendToDb()
 	print("\n\n")
 	print(DbProc.getQueue())
 
