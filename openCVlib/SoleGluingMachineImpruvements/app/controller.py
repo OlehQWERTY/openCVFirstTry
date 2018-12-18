@@ -6,6 +6,15 @@ import sys
 import os
 import time
 
+# close app in case of using pythone 2 (I have some problems with python 2 here)
+if sys.version_info > (3, 0):
+	pass
+	# Python 3 code in this block
+else:
+	print("Please don't use python version less then: 3...")
+	sys.exit()
+	# Python 2 code in this block
+
 sys.path.append('models')
 sys.path.append('./views')
 sys.path.append('controllers')
