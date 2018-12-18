@@ -29,7 +29,11 @@ class DbDataProc():
 		self.soleArtDict[articul] = 0
 
 	def addToBunch(self, articul):
-		self.soleArtDict[articul] += 1
+		if articul in self.soleArtDict.keys():
+			self.soleArtDict[articul] += 1
+		else:
+			self.createBunch(articul)
+			log.log("Unknown article. New bunch is created: ", __name__)
 
 	def trySendToDb(self):
 		# form list for sending to db onece in 5 minutes + save to file 1 per 20 s
@@ -47,32 +51,24 @@ class DbDataProc():
 		# print(self.queue)
 		return self.queue.copy()
 
-	def delFromQueue(self):
-		# for x in range(number):
-		print(self.queue.pop())  # "Nasty"
-
-
+	def delFromQueue(self, number=1):
+		for x in range(number):
+			log.log(self.queue.pop(), __name__) # "Nasty"
 
 
 if __name__ == '__main__':
-	# print("koko")
-
 	DbProc = DbDataProc("tempSoleDb.mdb")
-
 	DbProc.createBunch("Nasty")
 
 	for x in range(105):
 		DbProc.addToBunch("Nasty")
+	for x in range(80):
+		DbProc.addToBunch("Katy")
 
 	DbProc.trySendToDb()
-
 	print(DbProc.getQueue())
-
 	print("\n\n")
-
 	DbProc.delFromQueue()
-
 	print("\n\n")
-
 	print(DbProc.getQueue())
 

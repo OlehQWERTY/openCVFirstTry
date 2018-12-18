@@ -100,6 +100,15 @@ def beforeCEnd():  # (IO, Camera)
 		del IO
 	del Camera
 
+def QR_str_parser(saveImgName):
+	if not "QR-No" in saveImgName and saveImgName.find("Sole") != -1:
+		temp_a = saveImgName.find("-QR-")
+		# log.log(temp_a, __name__)
+		QR_str = saveImgName[(temp_a + 4):]
+		# log.log(QR_str, __name__)
+		return QR_str
+	return None
+
 while mainWindow.getWindowProperty() and not isClosed:  # while True:
 	IO_func()  # gpio
 	frame = Camera.takeFrame().copy()
@@ -112,6 +121,9 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		# image processing
 		soleImg = mainWindow.returnSoleImg()
 		saveImgName, temtRellayWorkK = ImgProc.processing(soleImg, frame, autoImgSave)
+
+		QR_str = QR_str_parser(saveImgName)  # take QR name if Sole
+
 
 		# call dbDataProc ... add
 
