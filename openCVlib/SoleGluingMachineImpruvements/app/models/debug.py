@@ -32,7 +32,7 @@ class Debug:
                 print(s)
             else:
                 if name == "__main__":  # other colour for __main__
-                    print(self.OKBLUE + name, ": " + self.ORDINARY + s)
+                    print(self.OKBLUE + name, ": " + self.ORDINARY, s)
                 else:
                     print(self.WARNING + name, ": " + self.ORDINARY + s)
             return self.DEBUG
