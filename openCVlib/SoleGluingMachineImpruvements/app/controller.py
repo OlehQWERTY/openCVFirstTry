@@ -26,6 +26,7 @@ from webcam import WebCam
 from settings import Settings
 from machineCellAnalizer import MachineCellAnalizer
 from keys import Keys
+from dbDataProc import DbDataProc
 
 # GPIO usage only for appropriate OS
 if os.name == 'posix':
@@ -61,6 +62,9 @@ lessRellayWorkExtreme = 50
 temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
 count = 0
+
+# DB
+DbProc = DbDataProc("tempSoleDb.mdb")
 
 def IO_func():  # test me
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
@@ -124,7 +128,15 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 
 		QR_str = QR_str_parser(saveImgName)  # take QR name if Sole
 
+		if QR_str is not None:  # better move this check inside dbDataProc???
+			DbProc.addToBunch(QR_str)
 
-		# call dbDataProc ... add
+		DbProc.trySendToDb()  # maybe too often???
+		# save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more
+		print(DbProc.getQueue())
+
+		# make it less often
+		DbProc.sendToDb()  # not finished
+
 
 beforeCEnd()  # (IO, Camera) fix for: UnboundLocalError: local variable 'IO' referenced before assignment

@@ -89,7 +89,7 @@ class Db:
                 print(r)
             self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
 
-    def detData(self):
+    def getData(self):  # get for instance 1 row or [column_1, column_2, column_3 ...]
         if self.connect():
             pass
 
