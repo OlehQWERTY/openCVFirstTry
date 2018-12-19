@@ -47,7 +47,7 @@ class Db:
         self.cur.close()
 
     def reqStandart(self):  # only for debugging
-        self.cur.execute("""INSERT INTO glueMachine3 (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber)
+        self.cur.execute("""INSERT INTO glueMachine (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber)
             VALUES(66,'Nasty',101,'Zoya Semenovna','17/11/18 17:25:36','4925NG_Poland','2564','197')""")
         self.conn.commit()
 
@@ -63,14 +63,14 @@ class Db:
                        + str(localTime[0]) + '-' + str(localTime[3]) + '-' + str(localTime[4]) + '-' \
                        + str(localTime[5])
 
-            strA = """INSERT INTO glueMachine3 (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber) VALUES(""" \
+            strA = """INSERT INTO glueMachine (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber,ReadyDate) VALUES(""" \
                    + str(varUnitID) + ",\'" + str(varArticul) + "\',\'" + str(varProcessID) + "\',\'" + str(
                 varOperatorName) + "\',\'" \
                    + saveTime + "\',\'" + str(varPull) + "\',\'" + str(varOrderNumber) + "\',\'" + str(
-                varLocalNumber) + "\')"
+                varLocalNumber) + "\',\'" + saveTime + "\')"
 
             self.cur.execute(strA)
-            # """INSERT INTO glueMachine3 (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber)
+            # """INSERT INTO glueMachine (UnitID,Articul,ProcessID,OperatorName,OperationDate,Pull,OrderNumber,LocalNumber)
             # VALUES(66,'Nasty',101,'Zoya Semenovna','17/11/18 17:25:36','4925NG_Poland','2564','197')"""
             self.conn.commit()
 
@@ -84,7 +84,7 @@ class Db:
 
     def getAllData(self):
         if self.connect():
-            self.cur.execute("SELECT * from glueMachine3")
+            self.cur.execute("SELECT * from glueMachine")
             # for r in self.cur.fetchall():  # move to getData
             #     print(r)
             self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it

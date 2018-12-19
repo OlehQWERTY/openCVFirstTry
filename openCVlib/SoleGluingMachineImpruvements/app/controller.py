@@ -65,6 +65,7 @@ count = 0
 
 # DB
 DbProc = DbDataProc("tempSoleDb.mdb")
+DbProc.additionalData([1, 'Zoya Semenovna', '4925NG_Poland', "2564", "197"])
 
 def IO_func():  # test me
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName

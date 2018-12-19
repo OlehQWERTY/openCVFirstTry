@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc1fe9d-3b9f-4f5d-b5c4-80c7f1e7395b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dbDataProc.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dbDataProc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/db.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +17,7 @@
     <session id="741793282">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="51" />
+          <entry key="project.closed" value="52" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="2" />
@@ -30,11 +33,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="CREATE TABLE SQL" value="1" />
+          <entry key="CREATE TABLE SQL" value="3" />
           <entry key="PNG" value="1" />
           <entry key="pickle" value="1" />
           <entry key="png" value="14" />
-          <entry key="py" value="189" />
+          <entry key="py" value="191" />
           <entry key="set" value="10" />
           <entry key="txt" value="5" />
         </counts>
@@ -42,15 +45,15 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="15" />
-          <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="189" />
+          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="Python" value="191" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="582" />
           <entry key="dummy" value="2" />
-          <entry key="py" value="28030" />
+          <entry key="py" value="29163" />
           <entry key="set" value="65" />
           <entry key="txt" value="375" />
         </counts>
@@ -58,7 +61,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="442" />
-          <entry key="Python" value="28612" />
+          <entry key="Python" value="29745" />
         </counts>
       </usages-collector>
     </session>
@@ -68,11 +71,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
+            <state relative-caret-position="125">
+              <caret line="66" column="19" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="19" />
               <folding>
                 <element signature="e#66#76#0" expanded="true" />
-                <marker date="1545140991877" expanded="true" signature="3203:3435" ph="..." />
+                <marker date="1545226378782" expanded="true" signature="3280:3512" ph="..." />
               </folding>
             </state>
           </provider>
@@ -81,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1386">
-              <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+            <state relative-caret-position="134">
+              <caret line="86" column="55" lean-forward="true" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -90,12 +93,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="62" column="102" selection-start-line="62" selection-start-column="102" selection-end-line="62" selection-end-column="102" />
+            <state relative-caret-position="212">
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="24" />
               <folding>
-                <marker date="1545211960795" expanded="true" signature="2334:2337" ph="..." />
-                <marker date="1545211960795" expanded="true" signature="2334:2387" ph="..." />
+                <marker date="1545229511838" expanded="true" signature="3101:3264" ph="..." />
+                <marker date="1545229511838" expanded="true" signature="3315:3318" ph="..." />
+                <marker date="1545229511838" expanded="true" signature="3315:3368" ph="..." />
+                <marker date="1545229511838" expanded="true" signature="3420:3423" ph="..." />
+                <marker date="1545229511838" expanded="true" signature="3497:3543" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CREATE TABLE SQL">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
@@ -111,24 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tmpStr</find>
-      <find>mouse</find>
-      <find>time</find>
-      <find>aut</find>
-      <find>y1</find>
-      <find>path</find>
-      <find>set</find>
-      <find>nothi</find>
-      <find>return</find>
-      <find>sett</find>
-      <find>data</find>
-      <find>Set</find>
-      <find>Settings</find>
-      <find>save</find>
-      <find>log.lo</find>
-      <find>log</find>
-      <find>log.log</find>
-      <find>createBunch</find>
       <find>detData</find>
       <find>trySendToDb</find>
       <find>saveImgName</find>
@@ -136,11 +133,29 @@
       <find>send</find>
       <find>FAIL</find>
       <find>print</find>
-      <find>req</find>
       <find>tempArticul</find>
-      <find>66</find>
       <find>dbdataProc</find>
+      <find>qr</find>
+      <find>frame</find>
+      <find>66</find>
       <find>__name__</find>
+      <find>dditionalData</find>
+      <find>Please check SQL server connection:</find>
+      <find>req</find>
+      <find>machinePreset</find>
+      <find>DbProc</find>
+      <find>__request</find>
+      <find>10</find>
+      <find>Queue</find>
+      <find>setPath</find>
+      <find>data_new</find>
+      <find>glueMachine3</find>
+      <find>data</find>
+      <find>not s</find>
+      <find>machine</find>
+      <find>additionalData</find>
+      <find>DbDataProc</find>
+      <find>soleArtDict</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,18 +190,18 @@
         <option value="$PROJECT_DIR$/app/models/imgRW.py" />
         <option value="$PROJECT_DIR$/app/conf description.set" />
         <option value="$PROJECT_DIR$/future plans.txt" />
-        <option value="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" />
         <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/controllers/keys.py" />
         <option value="$PROJECT_DIR$/app/models/webcam.py" />
+        <option value="$PROJECT_DIR$/app/models/debug.py" />
+        <option value="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" />
         <option value="$PROJECT_DIR$/app/controller.py" />
         <option value="$PROJECT_DIR$/app/models/db.py" />
-        <option value="$PROJECT_DIR$/app/models/debug.py" />
         <option value="$PROJECT_DIR$/app/controllers/dbDataProc.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="281" />
     <option name="y" value="17" />
     <option name="width" value="980" />
@@ -275,7 +290,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dbDataProc">
+  <component name="RunManager" selected="Python.controller (1)">
     <configuration name="controller (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SoleGluingMachineImpruvements" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -390,8 +405,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.dbDataProc" />
         <item itemvalue="Python.controller (1)" />
+        <item itemvalue="Python.dbDataProc" />
         <item itemvalue="Python.settings" />
         <item itemvalue="Python.db" />
         <item itemvalue="Python.keys" />
@@ -412,15 +427,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1536" height="864" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
-      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.4990086" weight="0.3249052" />
+      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.4990086" weight="0.32447553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -608,13 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -629,20 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="53" column="29" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CREATE TABLE SQL">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/debug.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -653,31 +646,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller.py">
+    <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
+        <state relative-caret-position="303">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
           <folding>
-            <element signature="e#66#76#0" expanded="true" />
-            <marker date="1545140991877" expanded="true" signature="3203:3435" ph="..." />
+            <element signature="e#55#65#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-58">
+          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <marker date="1545047824646" expanded="true" signature="267:327" ph="..." />
+            <marker date="1545047824646" expanded="true" signature="393:427" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CREATE TABLE SQL">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+        <state relative-caret-position="134">
+          <caret line="86" column="55" lean-forward="true" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="66" column="19" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="19" />
+          <folding>
+            <element signature="e#66#76#0" expanded="true" />
+            <marker date="1545226378782" expanded="true" signature="3280:3512" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="62" column="102" selection-start-line="62" selection-start-column="102" selection-end-line="62" selection-end-column="102" />
+        <state relative-caret-position="212">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="24" />
           <folding>
-            <marker date="1545211960795" expanded="true" signature="2334:2337" ph="..." />
-            <marker date="1545211960795" expanded="true" signature="2334:2387" ph="..." />
+            <marker date="1545229511838" expanded="true" signature="3101:3264" ph="..." />
+            <marker date="1545229511838" expanded="true" signature="3315:3318" ph="..." />
+            <marker date="1545229511838" expanded="true" signature="3315:3368" ph="..." />
+            <marker date="1545229511838" expanded="true" signature="3420:3423" ph="..." />
+            <marker date="1545229511838" expanded="true" signature="3497:3543" ph="..." />
           </folding>
         </state>
       </provider>
