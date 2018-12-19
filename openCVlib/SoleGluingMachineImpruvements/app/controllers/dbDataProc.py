@@ -26,8 +26,10 @@ class DbDataProc():
 
 		self.DB = Db("monitor", "password", "localhost", "sole_1")  # you should get it somewhere out
 
-	def __createBunch(self, articul):
+	def __createBunch(self, articul):  # add other fields for db (UnitID,Articul,ProcessID,OperatorName,OperationDate ...)
+		# mod: key - articull ?, val = [?, ?, ?]
 		self.soleArtDict[articul] = 0
+
 
 	def addToBunch(self, articul):
 		if articul in self.soleArtDict.keys():
@@ -54,16 +56,21 @@ class DbDataProc():
 		# add try & catch
 		# take request somewhere out def ... (self, strReq)
 		if self.DB.connect():
-			self.DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
-			# log.log(self.DB.getAllData(), __name__)
-			# print(self.DB.getAllData())
-			self.showDbData(self.DB.getAllData())
+			tempArticul = self.delFromQueue()
+			if tempArticul:  # self.queue is not empty
+				# print("----------", list(tempArticul.keys())[0])  # .keys() - not a list, it is View so we convert it
+				articul = list(tempArticul.keys())[0]
+				self.DB.req(66, str(articul), 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')  # (66, "Nasty", ...)
+
+				# log.log(self.DB.getAllData(), __name__)
+				# print(self.DB.getAllData())
+				self.showDbData(self.DB.getAllData())
 		else:
 			log.log("Error. Can't connect to DB.", __name__)
 		# del from queue data that is successfully saved to mySQL db
 
 	def showDbData(self, data):
-		log.log(__name__)
+		log.log("", __name__)
 		for r in data:  # move to getData
 			log.log(r)
 
@@ -71,8 +78,16 @@ class DbDataProc():
 		# self.path = path
 
 	def delFromQueue(self, number=1):  # if queue is empty???
-		for x in range(number):
-			log.log(self.queue.pop(), __name__)  # "Nasty"
+		if self.queue:  # not empty list
+			for x in range(number):
+				print(self.queue)
+				lastElement = self.queue.pop()
+				log.log("delFromQue: ", __name__)
+				log.log(lastElement, __name__)  # "Nasty"
+				return lastElement  # return del element
+		else:
+			log.log("delFromQue: queue is empty!", __name__)
+			return None
 
 
 if __name__ == '__main__':
