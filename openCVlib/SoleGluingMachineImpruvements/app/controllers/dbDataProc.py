@@ -9,7 +9,7 @@ from db import Db
 
 log = Debug(True, __name__)  # turn on/off debugging messages in this module
 #
-# DB = Db("monitor1", "password", "localhost", "sole_1")
+# DB = Db("monitor", "password", "localhost", "sole_1")
 
 # DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
 # DB.req()
@@ -41,7 +41,7 @@ class DbDataProc():
 		if self.soleArtDict:  # if not empty
 			for element in self.soleArtDict.keys():
 				for x in range(int(self.soleArtDict[element] / 10)):
-					self.queue.append({element: str(self.soleArtDict[element])})  # key check if here we'll get key name not value
+					self.queue.append({element: str(self.soleArtDict[element])})
 					self.soleArtDict[element] -= 10
 					# print(self.soleArtDict)
 
@@ -55,12 +55,17 @@ class DbDataProc():
 		# take request somewhere out def ... (self, strReq)
 		if self.DB.connect():
 			self.DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
-			log.log(self.DB.getAllData(), __name__)
+			# log.log(self.DB.getAllData(), __name__)
 			# print(self.DB.getAllData())
+			self.showDbData(self.DB.getAllData())
 		else:
 			log.log("Error. Can't connect to DB.", __name__)
 		# del from queue data that is successfully saved to mySQL db
-		pass
+
+	def showDbData(self, data):
+		log.log(__name__)
+		for r in data:  # move to getData
+			log.log(r)
 
 	# def setPath(self, path):
 		# self.path = path

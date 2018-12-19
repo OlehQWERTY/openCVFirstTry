@@ -85,9 +85,10 @@ class Db:
     def getAllData(self):
         if self.connect():
             self.cur.execute("SELECT * from glueMachine3")
-            for r in self.cur.fetchall():
-                print(r)
+            # for r in self.cur.fetchall():  # move to getData
+            #     print(r)
             self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
+            return self.cur.fetchall()
 
     def getData(self):  # get for instance 1 row or [column_1, column_2, column_3 ...]
         if self.connect():
@@ -102,4 +103,4 @@ if __name__ == '__main__':
     DB = Db("monitor", "password", "localhost", "sole_1")
     # DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
     # DB.req()
-    DB.getAllData()
+    log.log(DB.getAllData(), __name__)

@@ -28,11 +28,17 @@ class Debug:
 
     def log(self, s, name=None):
         if self.DEBUG:  # DEBUG = True
-            if name is None:
-                print(s)
-            else:
-                if name == "__main__":  # other colour for __main__
-                    print(self.OKBLUE + name, ": " + self.ORDINARY, s)
+            try:
+                if name is None:  # analog for ordinary print func
+                    print(s)
                 else:
-                    print(self.WARNING + name, ": " + self.ORDINARY + s)
-            return self.DEBUG
+                    if name == "__main__":  # other colour for __main__
+                        print(self.OKBLUE + name + ": " + self.ORDINARY, s)
+                    else:
+                        print(self.WARNING + name + ": " + self.ORDINARY + s)  # ... + name, ": "... (space b name & :)
+                return self.DEBUG
+            except TypeError:  # not possible to convert to str() (e.x. [list])
+                # do something with None here
+                print(self.WARNING + name + ": ", self.ORDINARY, s)
+            except ValueError:
+                print(self.FAIL + name + ": " + self.ORDINARY + "ValueError")
