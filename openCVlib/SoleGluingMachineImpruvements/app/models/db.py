@@ -6,13 +6,17 @@
 import cymysql
 import time
 import sys
+
 # from sys import exit
 
-#!!!replace all print with log.log()!!!
+# !!!replace all print with log.log()!!!
 
 sys.path.append('../models')
 from debug import Debug
+
 log = Debug(True, __name__)  # turn on/off debugging messages in this module
+
+
 # log.log("Test", __name__)
 
 
@@ -76,7 +80,8 @@ class Db:
 
     def req(self, varUnitID, varArticul, varProcessID, varOperatorName, varPull, varOrderNumber, varLocalNumber):
         if self.connect():
-            self.__request(varUnitID, varArticul, varProcessID, varOperatorName, varPull, varOrderNumber, varLocalNumber)
+            self.__request(varUnitID, varArticul, varProcessID, varOperatorName, varPull, varOrderNumber,
+                           varLocalNumber)
             self.close()
         else:
             # can't connect
@@ -89,6 +94,32 @@ class Db:
             #     print(r)
             self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
             return self.cur.fetchall()
+
+    def tupleToOneElement(self,
+                          tempTuple):  # self.cur.execute returne [(val, val1, ...)]. This will get only mutilate type val
+        a = tempTuple[0]
+        return a[0]
+
+    def countArticulSize(self, articul=None):  # continue
+        if self.connect():
+            self.cur.execute("SELECT COUNT(DISTINCT(Articul)) from glueMachine")  # return size of unicue Articul(s)
+            print(self.tupleToOneElement(self.cur.fetchall()))
+
+            self.cur.execute("SELECT DISTINCT(Articul) from glueMachine")  # return unicue Articul
+            a = self.cur.fetchall()
+            # a2 = a[0]
+            print(a)
+            print("len", len(a))
+
+            self.cur.execute(
+                "SELECT COUNT(Articul) from glueMachine WHERE Articul = 'Nasty'")  # return size of "Nasty" Articul
+            a = self.cur.fetchall()
+            # a2 = a[0]
+            print(a)
+
+            self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
+
+            # return self.cur.fetchall()
 
     def getData(self):  # get for instance 1 row or [column_1, column_2, column_3 ...]
         if self.connect():
@@ -103,4 +134,5 @@ if __name__ == '__main__':
     DB = Db("monitor", "password", "localhost", "sole_1")
     # DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
     # DB.req()
-    log.log(DB.getAllData(), __name__)
+    # log.log(DB.getAllData(), __name__)
+    DB.countArticulSize("Articul")

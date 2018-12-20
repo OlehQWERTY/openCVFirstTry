@@ -95,7 +95,7 @@ class DbDataProc():
 	def setPath(self, path=None):  # no need to use this
 		self.path = path
 
-	def showPath(self, path = None):  # no need to use this
+	def showPath(self, path=None):  # no need to use this
 		if path:
 			log.log(self.path, __name__)
 

@@ -1,10 +1,11 @@
-check evening light condition
+# check evening light condition
 
 full day working test
 
 #(done) test "brisk" find image algorithm (~4.8 s) if it is needed
 
-add send to DB s
+#add send to DB s
+
 sole ammount according to QR code
 
 #(done) optimise loop time
@@ -13,4 +14,8 @@ normal wiring instruction
 
 fix ua and ux bugs
 
-simultaneously with robot movement processing
+# simultaneously with robot movement processing (not really important)
+
+set parameter (auto mode on/off and img save on/of by a and i keys)
+
+get cout sql request
