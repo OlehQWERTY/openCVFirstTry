@@ -36,11 +36,15 @@ if os.name == 'posix':
 else:
 	log.log("GPIO is not avaliable for your OS!", __name__)
 # settings
+def loadSettings(Set):
+	global settings_dict, autoMode, autoImgSave
+	settings_dict = Set.load()
+	if settings_dict is not None:
+		autoMode = settings_dict['auto']
+		autoImgSave = settings_dict['imgSave']
+
 Set = Settings('conf.set')
-settings_dict = Set.load()
-if settings_dict is not None:
-	autoMode = settings_dict['auto']
-	autoImgSave = settings_dict['imgSave']
+loadSettings(Set)
 
 # webCam
 WebCamParam = [int(c) for c in settings_dict['cam']]  # [0, 640, 480] or [0, 640, 480, 15]
@@ -120,6 +124,10 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 	key = mainWindow.draw(frame)  # number of pressed key
 	# is not checked settings_dict['soleImgPos'] existing
 	isClosed = KeyA.keyAct(key, mainWindow, autoMode, frame, settings_dict['soleImgPos'], autoImgSave, Set)
+
+	if KeyA.needReloadSettings():  # automode and autoImgSave key change need it (find answers in keys.py)
+		loadSettings(Set)
+		KeyA.reloagFlagSetFalse()
 
 	if key == 1:  # proc only in case of Space is pressed or auto mode (in auto simulates key 'space' press)
 		log.log("")

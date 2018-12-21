@@ -197,6 +197,10 @@ class View:
         elif self.k == ord("s"):  # save square pos (to settings)
             self.flg1 = not self.flg1  # crutch
             return 4
+        elif self.k == ord("a"):  # automode
+            return 5
+        elif self.k == ord("i"):  # auto sole img saving
+            return 6
         else:
             return 100
 

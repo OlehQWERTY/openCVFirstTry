@@ -1,6 +1,7 @@
 # keys controller (includes additional keys functionality)
 
 import sys
+import time
 
 sys.path.append('../models')
 sys.path.append('../views')
@@ -13,6 +14,8 @@ class Keys:
         self.key = -1
         self.flMouse = False
         # self.ReadOrSaveImg = imgRW.ImgRW()
+        # reload Settings in controller (needs when I'll change automode or imgSave) *check key == 5,6
+        self.reloagFlag = False
 
     def flMouse(self, flag):
         self.flMouse = flag
@@ -45,19 +48,42 @@ class Keys:
         # save square pos (to settings)
         if key == 4:
             kok = mainWindow.returnRefPt()
-            if kok != 0:
-                # setting dict creation
-                data = {}
-                data['cam'] = [0, frame.shape[1], frame.shape[0]]  # 0, 640, 480
-                data['soleImgPos'] = [kok[0][0], kok[0][1], kok[1][0], kok[1][1]]  # 45, 169, 594, 360
-                data['auto'] = True if autoMode else False
-                data['imgSave'] = True if autoImgSave else False
+            self.saveConf(kok, frame, autoMode, autoImgSave, Set)
 
-                Set.save(data)  # better return it from where you call it (controller.py) and save Set.save(data) there
-                # but pressed key analysis method is here ???
+        if key == 5:  # automode ord("a") # work only when square shown on screen (mark new square)
+            kok = mainWindow.returnRefPt()
+            log.log("\'A\' " + " automode set to " + str(not autoMode), __name__)
+            self.saveConf(kok, frame, not autoMode, autoImgSave, Set)
+            self.reloagFlag = True
 
-                log.log("\'S\' " + "conf.set is saved", __name__)
-            else:
-                log.log("Nothing to save!", __name__)
+        if key == 6:  # auto image save ord("i") # work only when square shown on screen (mark new square)
+            kok = mainWindow.returnRefPt()
+            log.log("\'I\' " + " autoImgSave set to " + str(not autoImgSave), __name__)
+            self.saveConf(kok, frame, autoMode, not autoImgSave, Set)
+            self.reloagFlag = True
 
         return 0
+
+    def reloagFlagSetFalse(self):  # bad solution
+        self.reloagFlag = False
+
+    def needReloadSettings(self):  # bad solution
+        return self.reloagFlag
+
+    def saveConf(self, kok, frame, autoMode, autoImgSave, Set):
+        if kok != 0:
+            # setting dict creation
+            data = {}
+            data['cam'] = [0, frame.shape[1], frame.shape[0]]  # 0, 640, 480
+            data['soleImgPos'] = [kok[0][0], kok[0][1], kok[1][0], kok[1][1]]  # 45, 169, 594, 360
+            data['auto'] = True if autoMode else False
+            data['imgSave'] = True if autoImgSave else False
+
+            Set.save(data)  # better return it from where you call it (controller.py) and save Set.save(data) there
+            # but pressed key analysis method is here ???
+
+            log.log("\'S\' " + "conf.set is saved", __name__)
+        else:
+            log.log("Nothing to save!", __name__)
+
+        time.sleep(0.5)
