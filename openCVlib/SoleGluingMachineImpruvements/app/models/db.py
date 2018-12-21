@@ -6,17 +6,13 @@
 import cymysql
 import time
 import sys
-
 # from sys import exit
 
-# !!!replace all print with log.log()!!!
+#!!!replace all print with log.log()!!!
 
 sys.path.append('../models')
 from debug import Debug
-
 log = Debug(True, __name__)  # turn on/off debugging messages in this module
-
-
 # log.log("Test", __name__)
 
 
@@ -80,8 +76,7 @@ class Db:
 
     def req(self, varUnitID, varArticul, varProcessID, varOperatorName, varPull, varOrderNumber, varLocalNumber):
         if self.connect():
-            self.__request(varUnitID, varArticul, varProcessID, varOperatorName, varPull, varOrderNumber,
-                           varLocalNumber)
+            self.__request(varUnitID, varArticul, varProcessID, varOperatorName, varPull, varOrderNumber, varLocalNumber)
             self.close()
         else:
             # can't connect
@@ -95,31 +90,40 @@ class Db:
             self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
             return self.cur.fetchall()
 
-    def tupleToOneElement(self,
-                          tempTuple):  # self.cur.execute returne [(val, val1, ...)]. This will get only mutilate type val
-        a = tempTuple[0]
-        return a[0]
+    def tupleToNormElements(self, tempTuple):  # self.cur.execute returne [(val, val1, ...)]. This will get only mutilate type val
+        # a = tempTuple[0]
+        # return a[0]
+        v_len = len(tempTuple)
+        a = []
+        for element in tempTuple:
+            if v_len > 1:
+                a.append(element[0]) # return list
+            else:
+                a = element[0]  # return val
+        return a
 
-    def countArticulSize(self, articul=None):  # continue
+    def countArticulSize(self, articul = None):  # articul == None : return unicue Articul list; else (articul == "Maria") : retun len of Maria
         if self.connect():
-            self.cur.execute("SELECT COUNT(DISTINCT(Articul)) from glueMachine")  # return size of unicue Articul(s)
-            print(self.tupleToOneElement(self.cur.fetchall()))
+            if articul is None:  # show DISTINCT(Articul) and len
+                self.cur.execute("SELECT DISTINCT(Articul) from glueMachine")  # return unicue Articul
+                a = self.cur.fetchall()
+                articalsList = self.tupleToNormElements(a)
+                log.log("Len: " + str(len(a)) + " : " + str(articalsList), __name__)
+                # log.log("len", len(a))
 
-            self.cur.execute("SELECT DISTINCT(Articul) from glueMachine")  # return unicue Articul
-            a = self.cur.fetchall()
-            # a2 = a[0]
-            print(a)
-            print("len", len(a))
+                # other variant to get it
+                # self.cur.execute("SELECT COUNT(DISTINCT(Articul)) from glueMachine")  # return size of unicue Articul(s)
+                # log.log("Articuls ammount: " + self.tupleToNormElements(self.cur.fetchall()), __name__)
 
-            self.cur.execute(
-                "SELECT COUNT(Articul) from glueMachine WHERE Articul = 'Nasty'")  # return size of "Nasty" Articul
-            a = self.cur.fetchall()
-            # a2 = a[0]
-            print(a)
-
-            self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
-
-            # return self.cur.fetchall()
+                return articalsList
+            else:
+                # self.cur.execute("SELECT COUNT(Articul) from glueMachine WHERE Articul = 'Nasty'")
+                self.cur.execute("SELECT COUNT(Articul) from glueMachine WHERE Articul = " + '\'' + str(articul) + '\'')  # return size of "Nasty" Articul
+                a = self.cur.fetchall()
+                articalsVal = self.tupleToNormElements(a)
+                log.log(articalsVal, __name__)
+                self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
+                return articalsVal
 
     def getData(self):  # get for instance 1 row or [column_1, column_2, column_3 ...]
         if self.connect():
@@ -135,4 +139,4 @@ if __name__ == '__main__':
     # DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
     # DB.req()
     # log.log(DB.getAllData(), __name__)
-    DB.countArticulSize("Articul")
+    DB.countArticulSize("Nasty")  # Articul[None or "Nasty" (name)]
