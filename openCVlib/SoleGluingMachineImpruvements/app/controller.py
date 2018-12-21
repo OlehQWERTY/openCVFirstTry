@@ -23,7 +23,7 @@ from debug import Debug
 log = Debug(True, __name__)  # turn on/off debugging messages in this module
 from view import View
 from webcam import WebCam
-from settings import Settings
+from settings import Settings as S  # import as S (shorter name)
 from machineCellAnalizer import MachineCellAnalizer
 from keys import Keys
 from dbDataProc import DbDataProc
@@ -43,7 +43,7 @@ def loadSettings(Set):
 		autoMode = settings_dict['auto']
 		autoImgSave = settings_dict['imgSave']
 
-Set = Settings('conf.set')
+Set = S('conf.set')
 loadSettings(Set)
 
 # webCam
@@ -133,7 +133,12 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		log.log("")
 		# image processing
 		soleImg = mainWindow.returnSoleImg()
-		saveImgName, temtRellayWorkK = ImgProc.processing(soleImg, frame, autoImgSave)
+		saveImgName, temtRellayWorkK, barcodePos = ImgProc.processing(soleImg, frame, autoImgSave)
+		if barcodePos is not None:
+			log.log(barcodePos, __name__)
+			# move it to other place
+			mainWindow.drawRectQR(frame, barcodePos)
+			# time.sleep(2)
 
 		QR_str = QR_str_parser(saveImgName)  # take QR name if Sole
 

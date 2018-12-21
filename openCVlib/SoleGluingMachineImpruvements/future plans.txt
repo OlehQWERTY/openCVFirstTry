@@ -1,21 +1,34 @@
-# check evening light condition
+_______________________ In progress: _______________________
 
-full day working test
+- sole amount according to QR code 20-12-2018
 
-#(done) test "brisk" find image algorithm (~4.8 s) if it is needed
+- qr code take in square 21-12-2018
 
-#add send to DB s
+_______________________ Future plans: _______________________
 
-sole ammount according to QR code
+- full day working test
 
-#(done) optimise loop time
+- simultaneously with robot movement processing (not really important)
 
-normal wiring instruction
+- refactor view obj (it should be one parent obj (one for soleImg and other one for main program window))
 
-fix ua and ux bugs
+- implementation for other machines, where auto signal holds (not only pulse)
 
-# simultaneously with robot movement processing (not really important)
+_______________________ Done somehow: _______________________
 
-set parameter (auto mode on/off and img save on/of by a and i keys)
+- check evening light condition
 
-get cout sql request
+- optimise loop time
+
+- normal wiring instruction
+
+- (temp crutch was implemented) set parameter (auto mode on/off and img save on/of by a and i keys) 21-12-2018
+
+_______________________ Done: _______________________
+
+- (not needed especially on machine number 6 because of consecutive implementation) \
+ test "brisk" find image algorithm (~4.8 s) if it is needed
+
+- add send to DB s
+
+- (it is wrote in db and dbDataProc - use it in program) get cout sql request 20-12-2018

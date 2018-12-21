@@ -3,8 +3,8 @@
 # add callback for spec view func (additional windows needs to drow something spec so just make draw(callback) in basic obj)
 
 import cv2
-import math # sqrt()
-import os # auto change os type
+import math  # sqrt()
+import os  # auto change os type
 
 
 class View:
@@ -33,6 +33,8 @@ class View:
             self.flg2 = False  # close sole window
 
             self.simulatedKey = -1  # simulate Key var
+
+            self.rectList = []  # store rect for further drawing
 
 
     def click_and_crop(self, event = None, x = None, y = None, flags = None, param = None): # def click_and_crop(event, x, y, flags, param):
@@ -158,8 +160,6 @@ class View:
             cv2.imshow("SoleImg", self.soleImg)
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 2)  # ????
 
-
-
     def loadDefaultSquare(self, img, x1 = 0, y1 = 0, x2 = 1, y2 = 1): # crutch
         self.mousePos1 = [(x1, y1), (x2, y2)]
 
@@ -171,6 +171,18 @@ class View:
         cv2.imshow("SoleImg", self.soleImg)
         cv2.rectangle(img, (self.mousePos1[0][0], self.mousePos1[0][1]), (self.mousePos1[1][0] + 1, self.mousePos1[1][1] + 1),
                       (0, 0, 255), 2)
+
+    def rectList(self, list):  # list = [[posX, posY, W, H]]
+        self.rectList.append(list)
+
+    # call from show()
+    def drawRectQR(self, img, pos):  # pos['x': 120, ... w ... h ...];
+        if isinstance(pos, dict):
+            square = list(pos.values())
+        cv2.rectangle(img,
+                      (square[0], square[1]), (square[2], square[3]),
+                      (255, 0, 0),  # color
+                      2)
 
     def returnSoleImg(self):  # crutch
         return self.soleImg
