@@ -27,7 +27,7 @@ class DbDataProc():
 
 	def __createBunch(self, articul):  # add other fields for db (UnitID,Articul,ProcessID,OperatorName,OperationDate ...)
 		# mod: key - articull ?, val = [?, ?, ?]
-		self.soleArtDict[articul] = 1  # 1 because it is created when 1 new element is added
+		self.soleArtDict[articul] = 0
 
 
 	def addToBunch(self, articul):
@@ -92,10 +92,14 @@ class DbDataProc():
 		for r in data:  # move to getData
 			log.log(r)
 
+	# def wrap for db countArticulSize
+	def getColumn(self, columnName, rowName = None):  # way to use DB.getColumnContent(columnName, rowName) here
+		return self.DB.getColumnContent(columnName, rowName)
+
 	def setPath(self, path=None):  # no need to use this
 		self.path = path
 
-	def showPath(self, path=None):  # no need to use this
+	def showPath(self, path = None):  # no need to use this
 		if path:
 			log.log(self.path, __name__)
 
@@ -129,4 +133,6 @@ if __name__ == '__main__':
 	DbProc.sendToDb()
 	print("\n\n")
 	print(DbProc.getQueue())
+
+	print(DbProc.getColumn("Articul"))
 

@@ -102,28 +102,31 @@ class Db:
                 a = element[0]  # return val
         return a
 
-    def countArticulSize(self, articul = None):  # articul == None : return unicue Articul list; else (articul == "Maria") : retun len of Maria
+    def getColumnContent(self, columnName, rowName = None):  # articul == None : return unicue Articul list; else (articul == "Maria") : retun len of Maria
         if self.connect():
-            if articul is None:  # show DISTINCT(Articul) and len
-                self.cur.execute("SELECT DISTINCT(Articul) from glueMachine")  # return unicue Articul
+            if rowName is None:  # show DISTINCT(Articul) and len
+                # self.cur.execute("SELECT DISTINCT(Articul) from glueMachine")  # return unicue Articul
+                self.cur.execute("SELECT DISTINCT(" + str(columnName) + ") from glueMachine")  # return unicue rows from column "columnName"
                 a = self.cur.fetchall()
-                articalsList = self.tupleToNormElements(a)
-                log.log("Len: " + str(len(a)) + " : " + str(articalsList), __name__)
+                articulsList = self.tupleToNormElements(a)
+                # log.log("Len: " + str(len(a)) + " : " + str(articulsList), __name__)
+
                 # log.log("len", len(a))
 
-                # other variant to get it
+                # other variant to get
                 # self.cur.execute("SELECT COUNT(DISTINCT(Articul)) from glueMachine")  # return size of unicue Articul(s)
                 # log.log("Articuls ammount: " + self.tupleToNormElements(self.cur.fetchall()), __name__)
 
-                return articalsList
+                return articulsList
             else:
                 # self.cur.execute("SELECT COUNT(Articul) from glueMachine WHERE Articul = 'Nasty'")
-                self.cur.execute("SELECT COUNT(Articul) from glueMachine WHERE Articul = " + '\'' + str(articul) + '\'')  # return size of "Nasty" Articul
+                self.cur.execute("SELECT COUNT(" + str(columnName) + ") from glueMachine WHERE " + str(columnName) + " = " + \
+                '\'' + str(rowName) + '\'')  # return size of "Nasty" Articul
                 a = self.cur.fetchall()
-                articalsVal = self.tupleToNormElements(a)
-                log.log(articalsVal, __name__)
+                articulsVal = self.tupleToNormElements(a)
+                # log.log(articulsVal, __name__)
                 self.conn.commit()  # It isn't neaded in some cases, but I don't want to get any problems because of it
-                return articalsVal
+                return articulsVal
 
     def getData(self):  # get for instance 1 row or [column_1, column_2, column_3 ...]
         if self.connect():
@@ -139,4 +142,5 @@ if __name__ == '__main__':
     # DB.req(66, 'Nasty', 101, 'Zoya Semenovna', '4925NG_Poland', '2564', '197')
     # DB.req()
     # log.log(DB.getAllData(), __name__)
-    DB.countArticulSize("Nasty")  # Articul[None or "Nasty" (name)]
+    log.log(DB.getColumnContent("Articul", "Nasty"), __name__)  # Articul[None or "Nasty" (name)]
+    log.log(DB.getColumnContent("Articul"), __name__)

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc1fe9d-3b9f-4f5d-b5c4-80c7f1e7395b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/controllers/dbDataProc.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dbDataProc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/db.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/app/models/db.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="623">
-              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+              <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
             </state>
           </provider>
         </entry>
@@ -91,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1342">
-              <caret line="61" column="30" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="30" />
+            <state relative-caret-position="623">
+              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
             </state>
           </provider>
         </entry>
@@ -389,7 +390,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -637,15 +638,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="61" column="30" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="30" />
+        <state relative-caret-position="623">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
-          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
         </state>
       </provider>
     </entry>
