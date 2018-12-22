@@ -95,7 +95,7 @@ class View:
     def draw(self, img):
         self.show2(img)
 
-        self.show1(img) # temp order
+        self.show1(img)  # temp order
         self.k = cv2.waitKey(1)  # 50 # don't work without this
 
         # print(self.simulatedKey)
@@ -118,6 +118,7 @@ class View:
         cv2.putText(img, 'orig: ' + str(img.shape[1]) + '*' + str(img.shape[0]), (10, 50), cv2.FONT_HERSHEY_SIMPLEX,
                     0.7,
                     (255, 255, 0), 2)
+        self.drawRectQR(img)  # test draw rect !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         cv2.imshow(self.name, img)
 
     def show2(self, img):  # addition window with squared part of main window
@@ -153,11 +154,13 @@ class View:
                     print(y1)
                 self.soleImg = img[y2:y1, x2:x1]
             # WORK test auto change os V (line below doesn't work in RPI) ***** TEST
-            cv2.namedWindow('SoleImg', 0 if os.name == 'nt' else 1)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
-            cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
-                             self.soleImg.shape[0])  # resize window according to web camera frame resolution
+            # cv2.namedWindow('SoleImg', 0 if os.name == 'nt' else 1)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
+            # cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
+            #                  self.soleImg.shape[0])  # resize window according to web camera frame resolution
 
-            cv2.imshow("SoleImg", self.soleImg)
+            # cv2.imshow("SoleImg", self.soleImg)  # show additional sole img
+            # prev is replaced by drawing square
+
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 2)  # ????
 
     def loadDefaultSquare(self, img, x1 = 0, y1 = 0, x2 = 1, y2 = 1): # crutch
@@ -165,24 +168,36 @@ class View:
 
         self.soleImg = img[self.mousePos1[0][1]:self.mousePos1[1][1] + 1,
                        self.mousePos1[0][0]:self.mousePos1[1][0] + 1]  # +1 because program crashes in case of 0 size
-        cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
-                         self.soleImg.shape[0])  # resize window according to web camera frame resolution
-        cv2.namedWindow('SoleImg', 0 if os.name == 'nt' else 1)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
-        cv2.imshow("SoleImg", self.soleImg)
+        # cv2.resizeWindow("SoleImg", self.soleImg.shape[1],
+        #                  self.soleImg.shape[0])  # resize window according to web camera frame resolution
+        # cv2.namedWindow('SoleImg', 0 if os.name == 'nt' else 1)  # resize window in another way !!!!!! try cv2.GUI_EXPANDEDS cv2.WINDOW_GUI_NORMAL
+        # cv2.imshow("SoleImg", self.soleImg)
         cv2.rectangle(img, (self.mousePos1[0][0], self.mousePos1[0][1]), (self.mousePos1[1][0] + 1, self.mousePos1[1][1] + 1),
                       (0, 0, 255), 2)
 
-    def rectList(self, list):  # list = [[posX, posY, W, H]]
-        self.rectList.append(list)
+    def rectStoreList(self, list):  # list = [[posX, posY, W, H]]
+        # print("Here is rect  list!!!!!!!!!!!!!!!!!!!!!!!!!")
+        # print(self.rectList)
+        if list:  # not empty
+            self.rectList.append(list)
+        else:
+            print("Empty element can't be appended to rect list!")
+        # print(self.rectList)
+
+    def clearRectList(self):
+        self.rectList.clear()
 
     # call from show()
-    def drawRectQR(self, img, pos):  # pos['x': 120, ... w ... h ...];
-        if isinstance(pos, dict):
-            square = list(pos.values())
-        cv2.rectangle(img,
-                      (square[0], square[1]), (square[2], square[3]),
-                      (255, 0, 0),  # color
-                      2)
+    def drawRectQR(self, img):  # pos['x': 120, ... w ... h ...];
+        # if isinstance(pos, dict):
+        #     square = list(pos.values())
+        if self.rectList:  # not empty
+            for i in self.rectList:
+                # print([abs(a + b) for a, b in zip(i[0][0], i[0][1])])
+                cv2.rectangle(img,
+                              i[0][0], tuple([abs(a+b) for a, b in zip(i[0][0], i[0][1])]),
+                              (i[1][0], i[1][1], i[1][2]),  # color
+                              2)
 
     def returnSoleImg(self):  # crutch
         return self.soleImg
@@ -213,6 +228,8 @@ class View:
             return 5
         elif self.k == ord("i"):  # auto sole img saving
             return 6
+        elif self.k == ord("q"):  # auto autoImgQR
+            return 7
         else:
             return 100
 

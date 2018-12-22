@@ -20,7 +20,7 @@ class Keys:
     def flMouse(self, flag):
         self.flMouse = flag
 
-    def keyAct(self, key, mainWindow, autoMode, frame, soleImgPos, autoImgSave, Set):  #, frame, auto_mode
+    def keyAct(self, key, mainWindow, autoMode, frame, soleImgPos, autoImgSave, autoImgQR, Set):  #, frame, auto_mode
         # print(mainWindow.moveWindow(100, 100))
 
         #  close window
@@ -48,18 +48,24 @@ class Keys:
         # save square pos (to settings)
         if key == 4:
             kok = mainWindow.returnRefPt()
-            self.saveConf(kok, frame, autoMode, autoImgSave, Set)
+            self.saveConf(kok, frame, autoMode, autoImgSave, autoImgQR, Set)
 
         if key == 5:  # automode ord("a") # work only when square shown on screen (mark new square)
             kok = mainWindow.returnRefPt()
             log.log("\'A\' " + " automode set to " + str(not autoMode), __name__)
-            self.saveConf(kok, frame, not autoMode, autoImgSave, Set)
+            self.saveConf(kok, frame, not autoMode, autoImgSave, autoImgQR, Set)
             self.reloagFlag = True
 
         if key == 6:  # auto image save ord("i") # work only when square shown on screen (mark new square)
             kok = mainWindow.returnRefPt()
             log.log("\'I\' " + " autoImgSave set to " + str(not autoImgSave), __name__)
-            self.saveConf(kok, frame, autoMode, not autoImgSave, Set)
+            self.saveConf(kok, frame, autoMode, not autoImgSave, autoImgQR, Set)
+            self.reloagFlag = True
+
+        if key == 7:  # "q" autoImgQR
+            kok = mainWindow.returnRefPt()
+            log.log("\'Q\' " + " autoImgQR set to " + str(not autoImgQR), __name__)
+            self.saveConf(kok, frame, autoMode, autoImgSave, not autoImgQR, Set)
             self.reloagFlag = True
 
         return 0
@@ -70,7 +76,7 @@ class Keys:
     def needReloadSettings(self):  # bad solution
         return self.reloagFlag
 
-    def saveConf(self, kok, frame, autoMode, autoImgSave, Set):
+    def saveConf(self, kok, frame, autoMode, autoImgSave, autoImgQR, Set):
         if kok != 0:
             # setting dict creation
             data = {}
@@ -78,6 +84,7 @@ class Keys:
             data['soleImgPos'] = [kok[0][0], kok[0][1], kok[1][0], kok[1][1]]  # 45, 169, 594, 360
             data['auto'] = True if autoMode else False
             data['imgSave'] = True if autoImgSave else False
+            data['autoImgQR'] = True if autoImgQR else False
 
             Set.save(data)  # better return it from where you call it (controller.py) and save Set.save(data) there
             # but pressed key analysis method is here ???

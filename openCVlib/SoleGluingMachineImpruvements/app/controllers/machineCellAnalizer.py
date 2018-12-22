@@ -47,19 +47,7 @@ class MachineCellAnalizer:
             else:
                 isSoleStr = 'Sole'
 
-        barCodeData = barcode.zbar(frame)
-
-        barcodePos = None
-        if barCodeData is None:
-            barCodeData = ['No', 'No']
-        else:
-            barcodePos = {'x': 0, 'y': 0, 'w': 0, 'h': 0}  # barcode pos on the picture
-            i = 0
-            barVar = ['x', 'y', 'w', 'h']
-            for bar in barCodeData[2:]:
-                barcodePos[barVar[i]] = bar
-                i += 1
-            # log.log(barcodePos, __name__)
+        barCodeData, barcodePos = self.barcodeProcessing(frame)  # barcode processing
 
         localTime = time.localtime(time.time())
 
@@ -79,6 +67,24 @@ class MachineCellAnalizer:
         log.log("Iteration score: %f" % elapsed_time, __name__)
 
         return saveImgName, last_img_processing_time, barcodePos
+
+    def barcodeProcessing(self, frame):
+        barCodeData = barcode.zbar(frame)
+
+        barcodePos = None
+        if barCodeData is None:
+            barCodeData = ['No', 'No']
+        else:
+            barcodePos = {'x': 0, 'y': 0, 'w': 0, 'h': 0}  # barcode pos on the picture
+            i = 0
+            barVar = ['x', 'y', 'w', 'h']
+            for bar in barCodeData[2:]:
+                barcodePos[barVar[i]] = bar
+                i += 1
+            # log.log(barcodePos, __name__)
+
+        return barCodeData, barcodePos
+
 
     # def __del__(self):
     #     pass

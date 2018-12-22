@@ -54,7 +54,8 @@ if __name__ == '__main__':  # call only if this module is called independently
         'cam': [0, 640, 480],
         'soleImgPos': [45, 169, 594, 360],
         'auto': True,
-        'imgSave': False
+        'imgSave': False,
+        'autoImgQR': False
     }
 
     Set.save(data)

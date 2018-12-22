@@ -37,11 +37,12 @@ else:
 	log.log("GPIO is not avaliable for your OS!", __name__)
 # settings
 def loadSettings(Set):
-	global settings_dict, autoMode, autoImgSave
+	global settings_dict, autoMode, autoImgSave, autoImgQR
 	settings_dict = Set.load()
 	if settings_dict is not None:
 		autoMode = settings_dict['auto']
 		autoImgSave = settings_dict['imgSave']
+		autoImgQR = settings_dict['autoImgQR']
 
 Set = S('conf.set')
 loadSettings(Set)
@@ -70,6 +71,11 @@ count = 0
 # DB
 DbProc = DbDataProc("tempSoleDb.mdb")
 DbProc.additionalData([1, 'Zoya Semenovna', '4925NG_Poland', "2564", "197"])
+
+# temp
+barcodePos = None  # it is neaded by barcodeSquareDraw out of if key == 1:
+lastQRDetection = None
+# temp
 
 def IO_func():  # test me
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
@@ -118,27 +124,52 @@ def QR_str_parser(saveImgName):
 		return QR_str
 	return None
 
+def barcodeSquareDraw(barcodePos, mainWindow):
+	global lastQRDetection  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	# temp
+	if barcodePos:  # it is neaded by barcodeSquareDraw out of if key == 1:
+	# temp
+		if barcodePos is not None:
+			# log.log(barcodePos, __name__)
+			# move it to other place
+			temp_list = [((barcodePos['x'], barcodePos['y']), (barcodePos['w'], barcodePos['h'])), (255, 0, 0)]
+			# print(temp_list)
+			mainWindow.clearRectList()  # clear old rectangles
+			mainWindow.rectStoreList(temp_list)  # add new qt rectangle
+
+			# temp
+			lastQRDetection = time.time()
+
+
 while mainWindow.getWindowProperty() and not isClosed:  # while True:
 	IO_func()  # gpio
 	frame = Camera.takeFrame().copy()
 	key = mainWindow.draw(frame)  # number of pressed key
 	# is not checked settings_dict['soleImgPos'] existing
-	isClosed = KeyA.keyAct(key, mainWindow, autoMode, frame, settings_dict['soleImgPos'], autoImgSave, Set)
+	isClosed = KeyA.keyAct(key, mainWindow, autoMode, frame, settings_dict['soleImgPos'], autoImgSave, autoImgQR, Set)
 
 	if KeyA.needReloadSettings():  # automode and autoImgSave key change need it (find answers in keys.py)
 		loadSettings(Set)
 		KeyA.reloagFlagSetFalse()
+
+
+	if autoImgQR and count >= lessRellayWorkNorm - 1:  # auto barcode pos
+		barCodeData, barcodePos = ImgProc.barcodeProcessing(frame)
+		barcodeSquareDraw(barcodePos, mainWindow)
+
+	# fix it repitedly clearRectList()
+	if lastQRDetection and abs(lastQRDetection - time.time()) > 3:  # hide QR code square in 1s
+		mainWindow.clearRectList()
+		# print("Hell Yea!")
+
 
 	if key == 1:  # proc only in case of Space is pressed or auto mode (in auto simulates key 'space' press)
 		log.log("")
 		# image processing
 		soleImg = mainWindow.returnSoleImg()
 		saveImgName, temtRellayWorkK, barcodePos = ImgProc.processing(soleImg, frame, autoImgSave)
-		if barcodePos is not None:
-			log.log(barcodePos, __name__)
-			# move it to other place
-			mainWindow.drawRectQR(frame, barcodePos)
-			# time.sleep(2)
+
+		barcodeSquareDraw(barcodePos, mainWindow)  # barcode square show on the main window
 
 		QR_str = QR_str_parser(saveImgName)  # take QR name if Sole
 
