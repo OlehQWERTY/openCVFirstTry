@@ -4,6 +4,8 @@ _______________________ In progress: _______________________
 
 - fix view sole img and replacing it in case of preassing "D" key or automode on
 
+_ auto qr code bug: slow work (lose auto maybe)
+
 _______________________ Future plans: _______________________
 
 - when auto check QR code find QR code it saves it for 1-2 s (in case of new QR found it replaces prev one):

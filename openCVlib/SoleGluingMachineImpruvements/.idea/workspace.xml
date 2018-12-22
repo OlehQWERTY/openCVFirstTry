@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc1fe9d-3b9f-4f5d-b5c4-80c7f1e7395b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/conf.set" beforeDir="false" afterPath="$PROJECT_DIR$/app/conf.set" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/keys.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/keys.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/future plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/future plans.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +14,7 @@
     <session id="741793282">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="55" />
+          <entry key="project.closed" value="56" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
@@ -60,12 +53,12 @@
           <entry key="dummy" value="2" />
           <entry key="py" value="32497" />
           <entry key="set" value="65" />
-          <entry key="txt" value="1413" />
+          <entry key="txt" value="1463" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1480" />
+          <entry key="PLAIN_TEXT" value="1530" />
           <entry key="Python" value="33366" />
         </counts>
       </usages-collector>
@@ -76,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="169" column="69" selection-start-line="169" selection-start-column="59" selection-end-line="169" selection-end-column="69" />
+            <state relative-caret-position="191">
+              <caret line="172" lean-forward="true" selection-start-line="172" selection-end-line="172" />
               <folding>
                 <element signature="e#66#76#0" expanded="true" />
                 <marker date="1545478386800" expanded="true" signature="2145:2147" ph="..." />
@@ -87,20 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="21" column="18" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/future plans.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+            <state relative-caret-position="132">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -108,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="175" selection-end-column="11" />
+            <state relative-caret-position="244">
+              <caret line="173" column="45" lean-forward="true" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
               <folding>
                 <element signature="e#295#305#0" expanded="true" />
               </folding>
@@ -129,7 +113,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3036">
+            <state relative-caret-position="391">
               <caret line="138" selection-start-line="138" selection-end-line="138" />
             </state>
           </provider>
@@ -173,8 +157,8 @@
       <find>time</find>
       <find>barcodeSquareDraw</find>
       <find>lastQRDetection</find>
-      <find>clearRectList</find>
       <find>QR</find>
+      <find>clearRectList</find>
       <find>saveImgName</find>
     </findStrings>
   </component>
@@ -448,14 +432,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
-      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.4990086" visible="true" weight="0.32447553" />
+      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.4990086" weight="0.32447553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -644,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3036">
-          <caret line="138" selection-start-line="138" selection-end-line="138" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -665,6 +641,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1032">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="173" column="45" lean-forward="true" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
+          <folding>
+            <element signature="e#295#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
@@ -672,27 +665,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/view.py">
+    <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="175" selection-end-column="11" />
-          <folding>
-            <element signature="e#295#305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/machineCellAnalizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="18" />
+        <state relative-caret-position="391">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="169" column="69" selection-start-line="169" selection-start-column="59" selection-end-line="169" selection-end-column="69" />
+        <state relative-caret-position="191">
+          <caret line="172" lean-forward="true" selection-start-line="172" selection-end-line="172" />
           <folding>
             <element signature="e#66#76#0" expanded="true" />
             <marker date="1545478386800" expanded="true" signature="2145:2147" ph="..." />
@@ -703,8 +686,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/future plans.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        <state relative-caret-position="132">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
         </state>
       </provider>
     </entry>
