@@ -1,10 +1,13 @@
 _______________________ In progress: _______________________
+new feature:
 
 - sole amount according to QR code 20-12-2018
 
+bug fix:
+
 - fix view sole img and replacing it in case of preassing "D" key or automode on
 
-_ auto qr code bug: slow work (lose auto maybe)
+- auto search qr code and highlight cause to lose "auto" signal (1 s pulse sig "robot is ready")  22/12/18
 
 _______________________ Future plans: _______________________
 

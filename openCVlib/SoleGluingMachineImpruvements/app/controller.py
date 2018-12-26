@@ -77,7 +77,7 @@ barcodePos = None  # it is neaded by barcodeSquareDraw out of if key == 1:
 lastQRDetection = None
 # temp
 
-def IO_func():  # test me
+def IO_func():
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
 	count += 1
 	if os.name == 'posix':
@@ -152,10 +152,11 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		loadSettings(Set)
 		KeyA.reloagFlagSetFalse()
 
-
+	# print("Time1", time.time())
 	if autoImgQR and count >= lessRellayWorkNorm - 1:  # auto barcode pos
 		barCodeData, barcodePos = ImgProc.barcodeProcessing(frame)
 		barcodeSquareDraw(barcodePos, mainWindow)
+	# print("Time2", time.time())
 
 	# fix it repitedly clearRectList()
 	if lastQRDetection and abs(lastQRDetection - time.time()) > 3:  # hide QR code square in 1s
@@ -182,6 +183,5 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 
 		# make it less often
 		DbProc.sendToDb()  # not finished
-
 
 beforeCEnd()  # (IO, Camera) fix for: UnboundLocalError: local variable 'IO' referenced before assignment
