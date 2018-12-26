@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc1fe9d-3b9f-4f5d-b5c4-80c7f1e7395b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/gpio.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/gpio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dbDataProc.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dbDataProc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/future plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/future plans.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,31 +38,31 @@
           <entry key="PNG" value="1" />
           <entry key="pickle" value="1" />
           <entry key="png" value="15" />
-          <entry key="py" value="212" />
+          <entry key="py" value="216" />
           <entry key="set" value="13" />
-          <entry key="txt" value="10" />
+          <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="16" />
-          <entry key="PLAIN_TEXT" value="27" />
-          <entry key="Python" value="212" />
+          <entry key="PLAIN_TEXT" value="28" />
+          <entry key="Python" value="216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="869" />
+          <entry key="Python Console" value="897" />
           <entry key="dummy" value="2" />
-          <entry key="py" value="33107" />
+          <entry key="py" value="33913" />
           <entry key="set" value="65" />
-          <entry key="txt" value="1770" />
+          <entry key="txt" value="1861" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1837" />
-          <entry key="Python" value="33976" />
+          <entry key="PLAIN_TEXT" value="1928" />
+          <entry key="Python" value="34810" />
         </counts>
       </usages-collector>
     </session>
@@ -71,54 +72,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="110" column="21" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="21" />
+            <state relative-caret-position="2054">
+              <caret line="196" column="33" lean-forward="true" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
               <folding>
                 <element signature="e#66#76#0" expanded="true" />
-                <marker date="1545817715432" expanded="true" signature="2277:2279" ph="..." />
-                <marker date="1545817715432" expanded="true" signature="3685:4490" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="36" column="59" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="217" column="24" selection-start-line="217" selection-start-column="21" selection-end-line="217" selection-end-column="24" />
-              <folding>
-                <element signature="e#295#305#0" expanded="true" />
+                <marker date="1545829037079" expanded="true" signature="2473:2475" ph="..." />
+                <marker date="1545829037079" expanded="true" signature="3881:4686" ph="..." />
               </folding>
             </state>
           </provider>
@@ -127,8 +86,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/future plans.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+            <state relative-caret-position="286">
+              <caret line="13" column="75" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="101" column="20" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/db.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="61">
+              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -144,21 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>autoImgSave</find>
-      <find>show</find>
-      <find>(&quot;SoleImg&quot;, self.soleImg)</find>
-      <find>imgSave</find>
-      <find>&quot;SoleImg&quot;, self.soleI</find>
-      <find>save</find>
-      <find>autoImgQR</find>
-      <find>barcodePos</find>
-      <find>time</find>
-      <find>barcodeSquareDraw</find>
-      <find>QR</find>
-      <find>clearRectList</find>
-      <find>saveImgName</find>
-      <find>clear</find>
-      <find>lastQRDetection</find>
       <find>auto</find>
       <find>autoMode</find>
       <find>saveConf</find>
@@ -166,7 +146,6 @@
       <find>kok</find>
       <find>returnRefPt</find>
       <find>addTo</find>
-      <find>self.queue</find>
       <find>get</find>
       <find>trySendToDb</find>
       <find>cou</find>
@@ -174,6 +153,22 @@
       <find>settings_dict</find>
       <find>QR_str</find>
       <find>key</find>
+      <find>getQueue</find>
+      <find>self.queue</find>
+      <find>less</find>
+      <find>lessS</find>
+      <find>dbDataProc</find>
+      <find>self.soleArtDict</find>
+      <find>sett</find>
+      <find>path</find>
+      <find>QR t</find>
+      <find>save</find>
+      <find>DbDataProc</find>
+      <find>log.log(</find>
+      <find>del</find>
+      <find>delFr</find>
+      <find>delF</find>
+      <find>load</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,13 +204,13 @@
         <option value="$PROJECT_DIR$/app/models/debug.py" />
         <option value="$PROJECT_DIR$/app/models/db.py" />
         <option value="$PROJECT_DIR$/app/controllers/machineCellAnalizer.py" />
-        <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/views/view.py" />
         <option value="$PROJECT_DIR$/app/controllers/keys.py" />
-        <option value="$PROJECT_DIR$/app/controllers/dbDataProc.py" />
-        <option value="$PROJECT_DIR$/future plans.txt" />
-        <option value="$PROJECT_DIR$/app/controller.py" />
         <option value="$PROJECT_DIR$/app/models/gpio.py" />
+        <option value="$PROJECT_DIR$/app/controller.py" />
+        <option value="$PROJECT_DIR$/app/models/settings.py" />
+        <option value="$PROJECT_DIR$/future plans.txt" />
+        <option value="$PROJECT_DIR$/app/controllers/dbDataProc.py" />
       </list>
     </option>
   </component>
@@ -308,7 +303,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.controller (1)">
+  <component name="RunManager" selected="Python.settings">
     <configuration name="controller (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SoleGluingMachineImpruvements" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -423,10 +418,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.controller (1)" />
         <item itemvalue="Python.settings" />
-        <item itemvalue="Python.db" />
         <item itemvalue="Python.dbDataProc" />
+        <item itemvalue="Python.controller (1)" />
+        <item itemvalue="Python.db" />
         <item itemvalue="Python.keys" />
       </list>
     </recent_temporary>
@@ -448,7 +443,26 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
+      <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.4990086" weight="0.32447553" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49966952" weight="0.32867134" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5009914" side_tool="true" weight="0.26993006" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.21118881" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.12623926" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -462,25 +476,6 @@
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49966952" weight="0.32867134" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5009914" side_tool="true" weight="0.26993006" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.21118881" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.11037674" />
-      <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.11037674" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info active="true" anchor="bottom" x="11" y="267" width="1513" height="299" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.17062937" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32867134" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50033045" side_tool="true" weight="0.4181818" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -618,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/conf.set">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -639,24 +627,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
+    <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="96" column="27" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1731">
-          <caret line="84" column="18" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/future plans.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        <state relative-caret-position="602">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
@@ -670,32 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="36" column="59" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="110" column="21" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="21" />
-          <folding>
-            <element signature="e#66#76#0" expanded="true" />
-            <marker date="1545817715432" expanded="true" signature="2277:2279" ph="..." />
-            <marker date="1545817715432" expanded="true" signature="3685:4490" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
@@ -703,6 +651,53 @@
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="101" column="20" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/future plans.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="75" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2054">
+          <caret line="196" column="33" lean-forward="true" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
+          <folding>
+            <element signature="e#66#76#0" expanded="true" />
+            <marker date="1545829037079" expanded="true" signature="2473:2475" ph="..." />
+            <marker date="1545829037079" expanded="true" signature="3881:4686" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
         </state>
       </provider>
     </entry>

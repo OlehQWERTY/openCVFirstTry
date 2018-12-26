@@ -6,6 +6,7 @@ sys.path.append('../models')
 
 from debug import Debug
 from db import Db
+from settings import Settings as Saver  # import as Saver
 
 log = Debug(True, __name__)  # turn on/off debugging messages in this module
 #
@@ -24,6 +25,14 @@ class DbDataProc():
 
 		self.DB = Db("monitor", "password", "localhost", "sole_1")  # you should get it somewhere out
 		self.machinePreset = None  # machine file (preset for current machine) (set from other PC)
+		# saver
+		self.Sv = Saver(path)  # move somewhere (to take this separated leave it here)
+		# self.restored_dbQueue_dicr = self.Sv.load()
+		self.queue = self.Sv.load()
+
+		print("11111111111!!!!!!!!!!!!!!!!!!11111111111111111")
+		print(self.queue)
+		print("111111111111111111111111111111111111111111111111")
 
 	def __createBunch(self, articul):  # add other fields for db (UnitID,Articul,ProcessID,OperatorName,OperationDate ...)
 		# mod: key - articull ?, val = [?, ?, ?]
@@ -41,10 +50,13 @@ class DbDataProc():
 		# form list for sending to db onece in 5 minutes + save to file 1 per 20 s
 		if self.soleArtDict:  # if not empty
 			for element in self.soleArtDict.keys():
-				for x in range(int(self.soleArtDict[element] / 4)):  # 10 pairs of sole 10 * 2 = 20 (Left + Right)
+				for x in range(int(self.soleArtDict[element] / 2)):  # 10 pairs of sole 10 * 2 = 20 (Left + Right) - 1
 					self.queue.append({element: str(self.soleArtDict[element])})  # add other fields ()
-					self.soleArtDict[element] -= 4
+					self.soleArtDict[element] -= 2
 					# print(self.soleArtDict)
+		print("111111111111111111111111111111111111111111111111")
+		self.Sv.save(self.queue)  # save
+		print("111111111111111111111111111111111111111111111111")
 
 	def getQueue(self):
 		# print(self.queue)
@@ -57,18 +69,19 @@ class DbDataProc():
 		# add try & catch
 		# take request somewhere out def ... (self, strReq)
 		if self.DB.connect():
-			tempArticul = self.delFromQueue()
-			if tempArticul:  # self.queue is not empty
-				# print("----------", list(tempArticul.keys())[0])  # .keys() - not a list, it is View so we convert it
+			for x in range(len(self.queue)):  # send all till the end (not tested)
+				tempArticul = self.delFromQueue()
+				if tempArticul:  # self.queue is not empty
+					# print("----------", list(tempArticul.keys())[0])  # .keys() - not a list, it is View so we convert it
 
-				articul = list(tempArticul.keys())[0]
-				if self.machinePreset:  # if machine preset is specified
-					self.DB.req(str(self.machinePreset[0]), str(articul), 101, str(self.machinePreset[1]), str(self.machinePreset[2]), \
-								str(self.machinePreset[3]), str(self.machinePreset[4]))  # (66, "Nasty", ...)
+					articul = list(tempArticul.keys())[0]
+					if self.machinePreset:  # if machine preset is specified
+						self.DB.req(str(self.machinePreset[0]), str(articul), 101, str(self.machinePreset[1]), str(self.machinePreset[2]), \
+									str(self.machinePreset[3]), str(self.machinePreset[4]))  # (66, "Nasty", ...)
 
-				# log.log(self.DB.getAllData(), __name__)
-				# print(self.DB.getAllData())
-				self.showDbData(self.DB.getAllData())
+					# log.log(self.DB.getAllData(), __name__)
+					# print(self.DB.getAllData())
+					# self.showDbData(self.DB.getAllData())
 		else:
 			log.log("Error. Can't connect to DB.", __name__)
 		# del from queue data that is successfully saved to mySQL db
@@ -119,7 +132,7 @@ class DbDataProc():
 
 
 if __name__ == '__main__':
-	DbProc = DbDataProc("tempSoleDb.mdb")
+	DbProc = DbDataProc("dbQueue.mdb")
 
 	for x in range(105):
 		DbProc.addToBunch("Nasty")

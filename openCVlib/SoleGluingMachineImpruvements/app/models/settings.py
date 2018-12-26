@@ -37,7 +37,7 @@ class Settings():
         self.data = data
         with open(self.path, 'wb') as f:
             pickle.dump(data, f)
-        log.log("Settings were saved successfully...", __name__)
+        log.log("Object was saved successfully...", __name__)
 
     # def parse(self):
     #     if self.data_new is not None:
@@ -50,15 +50,16 @@ class Settings():
 if __name__ == '__main__':  # call only if this module is called independently
     Set = Settings("test.set")
 
-    data = {
-        'cam': [0, 640, 480],
-        'soleImgPos': [45, 169, 594, 360],
-        'auto': True,
-        'imgSave': False,
-        'autoImgQR': False
-    }
+    # data = {
+    #     'cam': [0, 640, 480],
+    #     'soleImgPos': [45, 169, 594, 360],
+    #     'auto': True,
+    #     'imgSave': False,
+    #     'autoImgQR': False
+    # }
 
-    Set.save(data)
+    # Set.save(data)
+    Set.save([])  # create an empty file for dbDataProc.py save
     print(Set.load())
 
 

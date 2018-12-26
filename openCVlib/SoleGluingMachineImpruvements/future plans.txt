@@ -5,11 +5,13 @@ new feature:
 
 - one day test (with save noSole img) 26/12/18
 
-- client PC app 26/12/18
+- client PC app 26/12/18 ???
 
-- web server sole amount according to QR code 20-12-2018 26/12/18
+- web server sole amount according to QR code 20-12-2018 26/12/18 ???
 
 bug fix:
+
+- add time to local save db instead of adding it when element is sent to db
 
 - fix view sole img and replacing it in case of preassing "D" key or automode on
 

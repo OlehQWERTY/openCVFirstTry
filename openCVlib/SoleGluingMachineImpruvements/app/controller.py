@@ -72,8 +72,12 @@ last_img_processing_time = time.time()
 count = 0
 
 # DB
-DbProc = DbDataProc("tempSoleDb.mdb")
+DbProc = DbDataProc("dbQueue.mdb")
 DbProc.additionalData([1, 'Zoya Semenovna', '4925NG_Poland', "2564", "197"])
+last_sending_to_db = time.time()
+last_trying_to_sending_to_db = time.time()
+lessSendToDB = 10  # send less then once per X seconds
+lessTryToSendToDB = 5  # store locally less then once per X seconds
 
 # temp
 barcodePos = None  # it is neaded by barcodeSquareDraw out of if key == 1:
@@ -155,13 +159,13 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		loadSettings(Set)
 		KeyA.reloagFlagSetFalse()
 
-	time_test1 = time.time()
+	# time_test1 = time.time()
 	if autoImgQR and count >= lessRellayWorkNorm - 1:  # auto barcode pos
 		barCodeData, barcodePos = ImgProc.barcodeProcessing(frame)
 		barcodeSquareDraw(barcodePos, mainWindow)
-	time_test2 = time.time() - time_test1
-	if time_test2 > 0.3:
-		print("QR time", time_test2)
+	# time_test2 = time.time() - time_test1
+	# if time_test2 > 0.3:
+	# 	print("QR time", time_test2)
 
 	# fix it repitedly clearRectList()
 	if lastQRDetection and abs(lastQRDetection - time.time()) > 3:  # hide QR code square in 1s
@@ -177,18 +181,26 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 
 		QR_str = QR_str_parser(saveImgName)  # take QR name if Sole
 
-		if QR_str is not None:  # better move this check inside dbDataProc???
+		if QR_str is not None:  # better move this check inside dbDataProc??? guess no! more independence
 			DbProc.addToBunch(QR_str)
 			log.log("QR Code: " + QR_str, __name__)  # debug only
 		else:
 			DbProc.addToBunch("unknown")  # if QR code not detected
 			log.log("QR Code: unknown", __name__)  # debug only
 
-		DbProc.trySendToDb()  # maybe too often???
-		# save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more
-		# print(DbProc.getQueue())
-
-		# make it less often
-		DbProc.sendToDb()  # not finished
+		# dbDataProc
+		temp_Time = time.time()
+		# no need abs(), but who knows :)
+		if abs(temp_Time - last_sending_to_db) > lessSendToDB:
+			# make it less often
+			DbProc.sendToDb()  # not finished
+			print("lessSendToDB")
+			last_sending_to_db = time.time()
+		elif abs(temp_Time - last_trying_to_sending_to_db) > lessTryToSendToDB:  # not oftener than once per 4 s
+			DbProc.trySendToDb()  # maybe too often???
+			# save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more
+			# print(DbProc.getQueue())
+			print("lessTryToSendToDB")
+			last_trying_to_sending_to_db = time.time()
 
 beforeCEnd()  # (IO, Camera) fix for: UnboundLocalError: local variable 'IO' referenced before assignment
