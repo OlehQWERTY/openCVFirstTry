@@ -1,10 +1,13 @@
 _______________________ In progress: _______________________
 new feature:
 
-- sole amount according to QR code 20-12-2018
+- save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more 26/12/18
 
-- set high priority for proc
-- ps axu | grep controller.py and then sudo renice -15 17312
+- one day test 26/12/18
+
+- client PC app 26/12/18
+
+- web server sole amount according to QR code 20-12-2018 26/12/18
 
 bug fix:
 
@@ -13,6 +16,9 @@ bug fix:
 - auto search qr code and highlight cause to lose "auto" signal (1 s pulse sig "robot is ready")  22/12/18
 
 _______________________ Future plans: _______________________
+
+- set high priority for proc
+- ps axu | grep controller.py and then sudo renice -15 17312
 
 - when auto check QR code find QR code it saves it for 1-2 s (in case of new QR found it replaces prev one):
 profit > less situations when processing loses QR code (not detected right now but 0.2 s it could be detected) 22/12/18

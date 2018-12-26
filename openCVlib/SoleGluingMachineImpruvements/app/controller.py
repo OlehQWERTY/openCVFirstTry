@@ -182,7 +182,7 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 
 		DbProc.trySendToDb()  # maybe too often???
 		# save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more
-		print(DbProc.getQueue())
+		# print(DbProc.getQueue())
 
 		# make it less often
 		DbProc.sendToDb()  # not finished

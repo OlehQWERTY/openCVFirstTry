@@ -48,6 +48,8 @@ class DbDataProc():
 
 	def getQueue(self):
 		# print(self.queue)
+		# for x in self.queue:
+		# 	log.log(x)
 		return self.queue.copy()
 
 	def sendToDb(self):  # better use customReq and make other class for building request sequencies
