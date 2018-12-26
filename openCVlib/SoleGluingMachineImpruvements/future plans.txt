@@ -3,6 +3,9 @@ new feature:
 
 - sole amount according to QR code 20-12-2018
 
+- set high priority for proc
+- ps axu | grep controller.py and then sudo renice -15 17312
+
 bug fix:
 
 - fix view sole img and replacing it in case of preassing "D" key or automode on

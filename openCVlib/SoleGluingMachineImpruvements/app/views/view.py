@@ -59,7 +59,7 @@ class View:
             # cv2.rectangle(image, refPt[0], refPt[1], (0, 255, 0), 2)
             # cv2.imshow("image", image)
 
-    def returnRefPt(self): # crutch for refPt available from outside
+    def returnRefPt(self):  # crutch for refPt available from outside
         if self.mousePos is None:
             return 0
         else:
@@ -68,7 +68,7 @@ class View:
             else:
                 return 0
 
-    def nothing(self, val): # for events if we don't need to do anything
+    def nothing(self, val):  # for events if we don't need to do anything
         print("nothing")
         pass
 

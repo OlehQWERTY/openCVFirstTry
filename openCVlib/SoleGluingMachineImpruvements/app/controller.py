@@ -44,6 +44,9 @@ def loadSettings(Set):
 		autoImgSave = settings_dict['imgSave']
 		autoImgQR = settings_dict['autoImgQR']
 
+		if autoImgQR:
+			log.log("Avoid usage autoImgQR on real machine because it's possible to lose \"auto\" robot signal!", __name__)
+
 Set = S('conf.set')
 loadSettings(Set)
 
@@ -152,17 +155,17 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		loadSettings(Set)
 		KeyA.reloagFlagSetFalse()
 
-	# print("Time1", time.time())
+	time_test1 = time.time()
 	if autoImgQR and count >= lessRellayWorkNorm - 1:  # auto barcode pos
 		barCodeData, barcodePos = ImgProc.barcodeProcessing(frame)
 		barcodeSquareDraw(barcodePos, mainWindow)
-	# print("Time2", time.time())
+	time_test2 = time.time() - time_test1
+	if time_test2 > 0.3:
+		print("QR time", time_test2)
 
 	# fix it repitedly clearRectList()
 	if lastQRDetection and abs(lastQRDetection - time.time()) > 3:  # hide QR code square in 1s
 		mainWindow.clearRectList()
-		# print("Hell Yea!")
-
 
 	if key == 1:  # proc only in case of Space is pressed or auto mode (in auto simulates key 'space' press)
 		log.log("")

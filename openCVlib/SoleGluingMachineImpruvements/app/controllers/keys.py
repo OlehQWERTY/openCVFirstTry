@@ -52,19 +52,32 @@ class Keys:
 
         if key == 5:  # automode ord("a") # work only when square shown on screen (mark new square)
             kok = mainWindow.returnRefPt()
-            log.log("\'A\' " + " automode is set to " + str(autoMode), __name__)
+
+            if kok:
+                log.log("\'A\' " + " automode is set to " + str(not autoMode), __name__)
+            else:
+                log.log("\'A\' " + " automode is set to " + str(autoMode), __name__)
+
             self.saveConf(kok, frame, not autoMode, autoImgSave, autoImgQR, Set)
             self.reloagFlag = True
 
         if key == 6:  # auto image save ord("i") # work only when square shown on screen (mark new square)
             kok = mainWindow.returnRefPt()
-            log.log("\'I\' " + " autoImgSave is set to " + str(autoImgSave), __name__)
+            if kok:
+                log.log("\'I\' " + " autoImgSave is set to " + str(not autoImgSave), __name__)
+            else:
+                log.log("\'I\' " + " autoImgSave is set to " + str(autoImgSave), __name__)
+
             self.saveConf(kok, frame, autoMode, not autoImgSave, autoImgQR, Set)
             self.reloagFlag = True
 
         if key == 7:  # "q" autoImgQR # work only when square shown on screen (mark new square)
             kok = mainWindow.returnRefPt()
-            log.log("\'Q\' " + " autoImgQR is set to " + str(autoImgQR), __name__)
+            if kok:
+                log.log("\'Q\' " + " autoImgQR is set to " + str(not autoImgQR), __name__)
+            else:
+                log.log("\'Q\' " + " autoImgQR is set to " + str(autoImgQR), __name__)
+
             self.saveConf(kok, frame, autoMode, autoImgSave, not autoImgQR, Set)
             self.reloagFlag = True
 
