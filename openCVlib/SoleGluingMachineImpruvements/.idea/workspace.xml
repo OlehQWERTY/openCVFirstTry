@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0dc1fe9d-3b9f-4f5d-b5c4-80c7f1e7395b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dbDataProc.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dbDataProc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/gpio.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/gpio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/future plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/future plans.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +37,7 @@
           <entry key="PNG" value="1" />
           <entry key="pickle" value="1" />
           <entry key="png" value="15" />
-          <entry key="py" value="208" />
+          <entry key="py" value="212" />
           <entry key="set" value="13" />
           <entry key="txt" value="10" />
         </counts>
@@ -46,22 +46,22 @@
         <counts>
           <entry key="Image" value="16" />
           <entry key="PLAIN_TEXT" value="27" />
-          <entry key="Python" value="208" />
+          <entry key="Python" value="212" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="869" />
           <entry key="dummy" value="2" />
-          <entry key="py" value="32946" />
+          <entry key="py" value="33107" />
           <entry key="set" value="65" />
-          <entry key="txt" value="1747" />
+          <entry key="txt" value="1770" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1814" />
-          <entry key="Python" value="33815" />
+          <entry key="PLAIN_TEXT" value="1837" />
+          <entry key="Python" value="33976" />
         </counts>
       </usages-collector>
     </session>
@@ -71,22 +71,64 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="183" column="116" selection-start-line="183" selection-start-column="10" selection-end-line="183" selection-end-column="116" />
+            <state relative-caret-position="190">
+              <caret line="110" column="21" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="21" />
               <folding>
                 <element signature="e#66#76#0" expanded="true" />
-                <marker date="1545815453471" expanded="true" signature="2277:2279" ph="..." />
-                <marker date="1545815453471" expanded="true" signature="3685:4490" ph="..." />
+                <marker date="1545817715432" expanded="true" signature="2277:2279" ph="..." />
+                <marker date="1545817715432" expanded="true" signature="3685:4490" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="770">
+              <caret line="36" column="59" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="217" column="24" selection-start-line="217" selection-start-column="21" selection-end-line="217" selection-end-column="24" />
+              <folding>
+                <element signature="e#295#305#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/future plans.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="65" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
+            <state relative-caret-position="110">
+              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -102,8 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>key</find>
-      <find>autoImgQR set</find>
       <find>autoImgSave</find>
       <find>show</find>
       <find>(&quot;SoleImg&quot;, self.soleImg)</find>
@@ -132,6 +172,8 @@
       <find>cou</find>
       <find>count</find>
       <find>settings_dict</find>
+      <find>QR_str</find>
+      <find>key</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,7 +199,6 @@
         <option value="$PROJECT_DIR$/app/models/motion.py" />
         <option value="$PROJECT_DIR$/app/gpioController.py" />
         <option value="$PROJECT_DIR$/wiring.txt" />
-        <option value="$PROJECT_DIR$/app/models/gpio.py" />
         <option value="$PROJECT_DIR$/app/models/findObj.py" />
         <option value="$PROJECT_DIR$/app/models/barcode.py" />
         <option value="$PROJECT_DIR$/app/controllers/machineSellAnslizer.py" />
@@ -171,9 +212,10 @@
         <option value="$PROJECT_DIR$/app/models/settings.py" />
         <option value="$PROJECT_DIR$/app/views/view.py" />
         <option value="$PROJECT_DIR$/app/controllers/keys.py" />
-        <option value="$PROJECT_DIR$/app/controller.py" />
         <option value="$PROJECT_DIR$/app/controllers/dbDataProc.py" />
         <option value="$PROJECT_DIR$/future plans.txt" />
+        <option value="$PROJECT_DIR$/app/controller.py" />
+        <option value="$PROJECT_DIR$/app/models/gpio.py" />
       </list>
     </option>
   </component>
@@ -554,23 +596,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/data.pickle" />
-    <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CREATE TABLE SQL">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -614,23 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="76" column="69" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="70" column="29" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-          <folding>
-            <element signature="e#295#305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/dbDataProc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -645,22 +653,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller.py">
+    <entry file="file://$PROJECT_DIR$/future plans.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="183" column="116" selection-start-line="183" selection-start-column="10" selection-end-line="183" selection-end-column="116" />
+        <state relative-caret-position="110">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="217" column="24" selection-start-line="217" selection-start-column="21" selection-end-line="217" selection-end-column="24" />
           <folding>
-            <element signature="e#66#76#0" expanded="true" />
-            <marker date="1545815453471" expanded="true" signature="2277:2279" ph="..." />
-            <marker date="1545815453471" expanded="true" signature="3685:4490" ph="..." />
+            <element signature="e#295#305#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/future plans.txt">
+    <entry file="file://$PROJECT_DIR$/app/controllers/keys.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="65" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
+        <state relative-caret-position="770">
+          <caret line="36" column="59" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="110" column="21" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="21" />
+          <folding>
+            <element signature="e#66#76#0" expanded="true" />
+            <marker date="1545817715432" expanded="true" signature="2277:2279" ph="..." />
+            <marker date="1545817715432" expanded="true" signature="3685:4490" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/webcam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/gpio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

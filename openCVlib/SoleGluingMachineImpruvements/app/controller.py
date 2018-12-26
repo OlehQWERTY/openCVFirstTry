@@ -179,6 +179,10 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 
 		if QR_str is not None:  # better move this check inside dbDataProc???
 			DbProc.addToBunch(QR_str)
+			log.log("QR Code: " + QR_str, __name__)  # debug only
+		else:
+			DbProc.addToBunch("unknown")  # if QR code not detected
+			log.log("QR Code: unknown", __name__)  # debug only
 
 		DbProc.trySendToDb()  # maybe too often???
 		# save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more

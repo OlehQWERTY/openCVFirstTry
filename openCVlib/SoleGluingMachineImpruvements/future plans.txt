@@ -3,7 +3,7 @@ new feature:
 
 - save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more 26/12/18
 
-- one day test 26/12/18
+- one day test (with save noSole img) 26/12/18
 
 - client PC app 26/12/18
 
