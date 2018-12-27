@@ -76,7 +76,7 @@ DbProc = DbDataProc("dbQueue.mdb")
 DbProc.additionalData([1, 'Zoya Semenovna', '4925NG_Poland', "2564", "197"])
 last_sending_to_db = time.time()
 last_trying_to_sending_to_db = time.time()
-lessSendToDB = 10  # send less then once per X seconds
+lessSendToDB = 5*60  # send less then once per X seconds
 lessTryToSendToDB = 5  # store locally less then once per X seconds
 
 # temp

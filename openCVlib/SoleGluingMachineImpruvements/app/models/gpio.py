@@ -17,10 +17,12 @@ class RPI_GPIO:
     def read(self):
         if GPIO.input(20) and GPIO.input(21):
             # print("pos1 + auto")
-            # test threshold protection
-            sleep(0.1)  # threshold protection
-            if GPIO.input(20) and GPIO.input(21):  # threshold protection
-                return 0
+            for i in range(3):  # test threshold protection
+                if GPIO.input(20) and GPIO.input(21):  # threshold protection
+                    sleep(0.05)  # threshold protection
+                else:
+                    return -1
+            return 0
         if GPIO.input(20):
             # print("GPIO 20 IN (pos1)")
             return 1

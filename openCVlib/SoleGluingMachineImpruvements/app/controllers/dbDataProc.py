@@ -30,9 +30,10 @@ class DbDataProc():
 		# self.restored_dbQueue_dicr = self.Sv.load()
 		self.queue = self.Sv.load()
 
-		print("11111111111!!!!!!!!!!!!!!!!!!11111111111111111")
-		print(self.queue)
-		print("111111111111111111111111111111111111111111111111")
+		# print("11111111111!!!!!!!!!!!!!!!!!!11111111111111111")
+		log.log("Init... Queue is loaded: ", __name__)
+		log.log(self.queue, __name__)
+		# print("111111111111111111111111111111111111111111111111")
 
 	def __createBunch(self, articul):  # add other fields for db (UnitID,Articul,ProcessID,OperatorName,OperationDate ...)
 		# mod: key - articull ?, val = [?, ?, ?]
@@ -54,9 +55,7 @@ class DbDataProc():
 					self.queue.append({element: str(self.soleArtDict[element])})  # add other fields ()
 					self.soleArtDict[element] -= 2
 					# print(self.soleArtDict)
-		print("111111111111111111111111111111111111111111111111")
-		self.Sv.save(self.queue)  # save
-		print("111111111111111111111111111111111111111111111111")
+		self.Sv.save(self.queue)  # save to local file
 
 	def getQueue(self):
 		# print(self.queue)
@@ -121,7 +120,7 @@ class DbDataProc():
 	def delFromQueue(self, number=1):  # if queue is empty???
 		if self.queue:  # not empty list
 			for x in range(number):
-				print(self.queue)
+				# print(self.queue)
 				lastElement = self.queue.pop()
 				log.log("delFromQue: ", __name__)
 				log.log(lastElement, __name__)  # "Nasty"
