@@ -51,9 +51,9 @@ class DbDataProc():
 		# form list for sending to db onece in 5 minutes + save to file 1 per 20 s
 		if self.soleArtDict:  # if not empty
 			for element in self.soleArtDict.keys():
-				for x in range(int(self.soleArtDict[element] / 2)):  # 10 pairs of sole 10 * 2 = 20 (Left + Right) - 1
+				for x in range(int(self.soleArtDict[element] / 20)):  # 10 pairs of sole 10 * 2 = 20 (Left + Right) - 1
 					self.queue.append({element: str(self.soleArtDict[element])})  # add other fields ()
-					self.soleArtDict[element] -= 2
+					self.soleArtDict[element] -= 20
 					# print(self.soleArtDict)
 		self.Sv.save(self.queue)  # save to local file
 
