@@ -65,8 +65,8 @@ saveImgName = "Sole"  # init
 # machinePosArr = [0, 1]  # [0] - camera pos (robot pos - 1); [1] - robot position
 # soleAmmount = 0
 # noSoleAmmount = 0
-lessRellayWorkNorm = 5
-lessRellayWorkExtreme = 50
+lessRellayWorkNorm = 5  # 5
+lessRellayWorkExtreme = 50  # 50
 temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
 count = 0
@@ -87,16 +87,18 @@ lastQRDetection = None
 def IO_func():
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
 	count += 1
-	if os.name == 'posix':
-		# electromechanical relay lifetime optimisation
-		if abs(last_img_processing_time - time.time()) > 5 * 60:  # after 20 minutes
-			temtRellayWorkK = lessRellayWorkExtreme
-		elif abs(last_img_processing_time - time.time()) > 0.5 * 60:  # after 5 minutes
-			temtRellayWorkK = lessRellayWorkExtreme / 5
-		else:
-			temtRellayWorkK = lessRellayWorkNorm
+	if os.name == 'posix':  # too often
 
 		if IO.read() == 1:  # pos1
+			# electromechanical relay lifetime optimisation
+			if abs(last_img_processing_time - time.time()) > 5 * 60:  # after 20 minutes
+				temtRellayWorkK = lessRellayWorkExtreme
+			elif abs(last_img_processing_time - time.time()) > 0.5 * 60:  # after 5 minutes
+				temtRellayWorkK = lessRellayWorkExtreme / 5
+			else:
+				temtRellayWorkK = lessRellayWorkNorm
+
+
 			if saveImgName.find("NoSole") != -1:
 				if count > temtRellayWorkK:  # if count > 5:
 					log.log("NoSole", __name__)
@@ -109,6 +111,8 @@ def IO_func():
 					IO.sole()
 					IO.endSole()
 					count = 0  # 1 less relay work
+
+			# print("temtRellayWorkK", temtRellayWorkK)
 
 		#  make image processing simultaneously with robot movement
 		tempIORead = IO.read()  # for one execution IO.read for 2 cheaking
@@ -174,6 +178,7 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 	if key == 1:  # proc only in case of Space is pressed or auto mode (in auto simulates key 'space' press)
 		log.log("")
 		# image processing
+		last_img_processing_time = time.time()  # we needs it for relay life time extention
 		soleImg = mainWindow.returnSoleImg()
 		saveImgName, temtRellayWorkK, barcodePos = ImgProc.processing(soleImg, frame, autoImgSave)
 

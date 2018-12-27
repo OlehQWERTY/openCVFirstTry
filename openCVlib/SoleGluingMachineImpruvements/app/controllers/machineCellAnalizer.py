@@ -23,6 +23,7 @@ class MachineCellAnalizer:
 
         start_time = time.time()
 
+        # needs in controller also
         last_img_processing_time = time.time()  # we needs it for relay life time extention
         # log.log("Last img processing: %s" % int(last_img_processing_time), __name__)
 

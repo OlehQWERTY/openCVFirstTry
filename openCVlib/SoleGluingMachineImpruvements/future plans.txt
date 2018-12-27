@@ -1,13 +1,13 @@
 _______________________ In progress: _______________________
 new feature:
 
-- save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more 26/12/18
-
 - one day test (with save noSole img) 26/12/18
 
-- client PC app 26/12/18 ???
+- client PC app 26/12/18 (ask Rostislav what should I do next)???
 
 - web server sole amount according to QR code 20-12-2018 26/12/18 ???
+
+- SendToDB time??? Make other thread for it.
 
 bug fix:
 
@@ -16,6 +16,7 @@ bug fix:
 - fix view sole img and replacing it in case of preassing "D" key or automode on
 
 - auto search qr code and highlight cause to lose "auto" signal (1 s pulse sig "robot is ready")  22/12/18
+
 
 _______________________ Future plans: _______________________
 
@@ -53,3 +54,5 @@ _______________________ Done: _______________________
 - add send to DB s
 
 - (it is wrote in db and dbDataProc - use it in program) get cout sql request 20-12-2018
+
+- save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more 26/12/18
