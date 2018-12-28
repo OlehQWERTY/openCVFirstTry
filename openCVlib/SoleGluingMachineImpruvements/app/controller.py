@@ -70,8 +70,8 @@ lessRellayWorkExtreme = 50  # 50
 temtRellayWorkK = lessRellayWorkNorm
 last_img_processing_time = time.time()
 count = 0
-io_img_proc_falag = False  # test
-prevSaveImgName = "Sole"
+io_img_proc_falag = False
+# prevSaveImgName = "Sole"
 
 # DB
 DbProc = DbDataProc("dbQueue.mdb")
@@ -88,7 +88,7 @@ lastQRDetection = None
 
 def IO_func():
 	global count, lessRellayWorkNorm, lessRellayWorkExtreme, last_img_processing_time, saveImgName
-	global io_img_proc_falag  # test
+	global io_img_proc_falag
 	count += 1
 	if os.name == 'posix':  # too often
 
@@ -101,16 +101,15 @@ def IO_func():
 			else:
 				temtRellayWorkK = lessRellayWorkNorm
 
-			# if saveImgName.find("NoSole") != -1:
-			if prevSaveImgName.find("NoSole") != -1:
-				if count > temtRellayWorkK:  # if count > 5:
+			if count > temtRellayWorkK:  # if count > 5:
+				if saveImgName.find("NoSole") != -1:
+				# if prevSaveImgName.find("NoSole") != -1:
 					log.log("NoSole", __name__)
 					IO.noSole()
 					IO.endNoSole()
 					count = 0  # 1 less rellay work
-			# elif saveImgName.find("Sole") != -1:
-			elif prevSaveImgName.find("Sole") != -1:
-				if count > temtRellayWorkK:  # if count > 5:
+				elif saveImgName.find("Sole") != -1:
+				# elif prevSaveImgName.find("Sole") != -1:
 					log.log("Sole", __name__)
 					IO.sole()
 					IO.endSole()
@@ -128,9 +127,10 @@ def IO_func():
 			mainWindow.simulateKeyPress(1)
 			io_img_proc_falag = True
 			# time.sleep(1)  # can't detect qr solution (rest table movement)
+			# print("if tempIORead == 3 and not io_img_proc_falag:")
 		elif tempIORead == 0:  # auto and table # tempIORead == 2 or tempIORead == 0
 			io_img_proc_falag = False
-
+			# print("elif tempIORead == 0:")
 
 # free web camera and gpio in case of closing app
 def beforeCEnd():  # (IO, Camera)
@@ -147,15 +147,6 @@ def QR_str_parser(saveImgName):
 		# log.log(QR_str, __name__)
 		return QR_str
 	return None
-
-# def QR_str_parser(prevSaveImgName):
-# 	if not "QR-No" in prevSaveImgName and prevSaveImgName.find("Sole") != -1:
-# 		temp_a = prevSaveImgName.find("-QR-")
-# 		# log.log(temp_a, __name__)
-# 		QR_str = prevSaveImgName[(temp_a + 4):]
-# 		# log.log(QR_str, __name__)
-# 		return QR_str
-# 	return None
 
 def barcodeSquareDraw(barcodePos, mainWindow):
 	global lastQRDetection  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!1
@@ -198,12 +189,13 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		mainWindow.clearRectList()
 
 	if key == 1:  # proc only in case of Space is pressed or auto mode (in auto simulates key 'space' press)
-		prevSaveImgName = saveImgName  # prevPos is processed (machine where cam -1 pos); for -2 pos prevprev -> prev -> now
+		# prevSaveImgName = saveImgName  # prevPos is processed (machine where cam -1 pos); for -2 pos prevprev -> prev -> now
 		log.log("")
 		# image processing
 		last_img_processing_time = time.time()  # we needs it for relay life time extention
 		soleImg = mainWindow.returnSoleImg()
-		frame = Camera.takeFrame().copy()  # test
+		for i in range(10):  # ???
+			frame = Camera.takeFrame().copy()  # test
 		saveImgName, temtRellayWorkK, barcodePos = ImgProc.processing(soleImg, frame, autoImgSave)
 
 		barcodeSquareDraw(barcodePos, mainWindow)  # barcode square show on the main window

@@ -19,25 +19,26 @@ class RPI_GPIO:
 
     def read(self):
         if GPIO.input(20) and GPIO.input(16):
-            print("pos1 + work")
+            # print("pos1 + work")
             for i in range(3):  # test threshold protection
                 if GPIO.input(20) and GPIO.input(16):  # threshold protection
-                    sleep(0.05)  # threshold protection
+                    sleep(0.01)  # threshold protection
                 else:
                     return -1
+            # print("done: pos1 + work")
             return 3  # You'll change numbering order one day (really not required)
-        if GPIO.input(20) and GPIO.input(21):
-            print("pos1 + auto")
+        elif GPIO.input(20) and GPIO.input(21):
+            # print("pos1 + auto")
             for i in range(3):  # test threshold protection
                 if GPIO.input(20) and GPIO.input(21):  # threshold protection
-                    sleep(0.05)  # threshold protection
+                    sleep(0.01)  # threshold protection
                 else:
                     return -1
             return 0
-        if GPIO.input(20):
+        elif GPIO.input(20):
             # print("GPIO 20 IN (pos1)")
             return 1
-        if GPIO.input(21):
+        elif GPIO.input(21):
             # print("GPIO 21 IN (auto)")
             return 2
         return -1
