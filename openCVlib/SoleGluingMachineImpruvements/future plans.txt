@@ -1,13 +1,9 @@
 _______________________ In progress: _______________________
 new feature:
 
-- one day test (with save noSole img) 26/12/18
-
-- client PC app 26/12/18 (ask Rostislav what should I do next)???
+- benchmark
 
 - web server sole amount according to QR code 20-12-2018 26/12/18 ???
-
-- SendToDB time??? Make other thread for it.
 
 bug fix:
 
@@ -34,6 +30,8 @@ profit > less situations when processing loses QR code (not detected right now b
 
 - implementation for other machines, where auto signal holds (not only pulse)
 
+- (No need for now) SendToDB time??? Make other thread for it.
+
 _______________________ Done somehow: _______________________
 
 - check evening light condition
@@ -43,6 +41,8 @@ _______________________ Done somehow: _______________________
 - normal wiring instruction
 
 - (temp crutch was implemented) set parameter (auto mode on/off and img save on/of by a and i keys) 21-12-2018
+
+- one day test (with save noSole img) 26/12/18
 
 _______________________ Done: _______________________
 
@@ -56,3 +56,5 @@ _______________________ Done: _______________________
 - (it is wrote in db and dbDataProc - use it in program) get cout sql request 20-12-2018
 
 - save temp data to file and in 5 min send it to SQL server, if server isn't available try one more and more 26/12/18
+
+- client PC app 26/12/18 (ask Rostislav what should I do next)???
