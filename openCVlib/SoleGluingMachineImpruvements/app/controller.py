@@ -94,9 +94,9 @@ def IO_func():
 
 		if IO.read() == 1:  # pos1
 			# electromechanical relay lifetime optimisation
-			if abs(last_img_processing_time - time.time()) > 5 * 60:  # after 20 minutes
+			if abs(last_img_processing_time - time.time()) > 1 * 60:  # after 1 minute
 				temtRellayWorkK = lessRellayWorkExtreme
-			elif abs(last_img_processing_time - time.time()) > 0.5 * 60:  # after 5 minutes
+			elif abs(last_img_processing_time - time.time()) > 0.3 * 60:  # after 18 s
 				temtRellayWorkK = lessRellayWorkExtreme / 5
 			else:
 				temtRellayWorkK = lessRellayWorkNorm
