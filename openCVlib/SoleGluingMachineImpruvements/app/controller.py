@@ -194,6 +194,7 @@ while mainWindow.getWindowProperty() and not isClosed:  # while True:
 		# image processing
 		last_img_processing_time = time.time()  # we needs it for relay life time extention
 		soleImg = mainWindow.returnSoleImg()
+		time.sleep(1)  # wait until everything calm sown (robot working out of table and we can make a perfect photo)
 		for i in range(10):  # ???
 			frame = Camera.takeFrame().copy()  # test
 		saveImgName, temtRellayWorkK, barcodePos = ImgProc.processing(soleImg, frame, autoImgSave)
