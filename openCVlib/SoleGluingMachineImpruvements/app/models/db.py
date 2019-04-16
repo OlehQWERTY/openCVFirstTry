@@ -10,6 +10,8 @@ import sys
 
 #!!!replace all print with log.log()!!!
 
+# for non cyrillic sumbols in sql you can an N'string in russian' before reqvest
+
 sys.path.append('../models')
 from debug import Debug
 log = Debug(True, __name__)  # turn on/off debugging messages in this module
