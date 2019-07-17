@@ -55,7 +55,8 @@ pixelsPerMetric = None
 # loop over the contours individually
 for c in cnts:
 	# if the contour is not sufficiently large, ignore it
-	if cv2.contourArea(c) < 100:
+	if cv2.contourArea(c) < 100:  
+	# if cv2.contourArea(c) < 10000:  
 		continue
  
 	# compute the rotated bounding box of the contour
@@ -129,17 +130,32 @@ for c in cnts:
 		0.65, (255, 255, 255), 2)
 
 	import math
-	deg = math.atan2(int(tltrY) - int(blbrY), int(tltrX) - int(blbrX))
-	# deg = (math.atan2(int(tltrX) - int(blbrX), int(tltrY) - int(blbrY)))
-	# if deg<0:
-	# 	deg=deg + 2*3.1415265358979323846
+
+	deg1 = math.atan2(int(tltrY) - int(blbrY), int(tltrX) - int(blbrX))
+	# deg1 = (math.atan2(int(tltrX) - int(blbrX), int(tltrY) - int(blbrY)))
+	# if deg1<0:
+	# 	deg1=deg1 + 2*3.1415265358979323846
 
 
-	deg =  deg * 180 / 3.1415265358979323846 # rad to deg
-	# deg -= 270
+	deg1 =  deg1 * 180 / 3.1415265358979323846 # rad to deg
+	deg1 += 180
 
-	cv2.putText(orig, "{:.1f}deg".format(deg),
-		(int(trbrX + 50), int(trbrY + 20)), cv2.FONT_HERSHEY_SIMPLEX,
+	cv2.putText(orig, "{:.1f}deg".format(deg1),
+		(int(tltrX), int(tltrY + 25)), cv2.FONT_HERSHEY_SIMPLEX,
+		0.65, (255, 255, 0), 2)
+
+
+	deg2 = math.atan2(int(tlblY) - int(trbrY), int(tlblX) - int(trbrX))
+	# deg2 = (math.atan2(int(tltrX) - int(blbrX), int(tltrY) - int(blbrY)))
+	# if deg2<0:
+	# 	deg2=deg2 + 2*3.1415265358979323846
+
+
+	deg2 =  deg2 * 180 / 3.1415265358979323846 # rad to deg
+	deg2 += 180
+
+	cv2.putText(orig, "{:.1f}deg".format(deg2),
+		(int(trbrX), int(trbrY + 25)), cv2.FONT_HERSHEY_SIMPLEX,
 		0.65, (255, 255, 255), 2)
  
 	# show the output image
